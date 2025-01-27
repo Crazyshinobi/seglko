@@ -35,6 +35,13 @@ import { SiRoamresearch } from "react-icons/si";
 import { GrTechnology } from "react-icons/gr";
 import { FaAward } from "react-icons/fa6";
 import { IoBookOutline } from "react-icons/io5";
+import { CiLogin } from "react-icons/ci";
+import { GiMedal } from "react-icons/gi";
+import { FaRegClipboard } from "react-icons/fa";
+import { GoTrophy } from "react-icons/go";
+
+
+
 
 export const Header = () => {
   // State object to manage the visibility of multiple dropdowns
@@ -44,7 +51,7 @@ export const Header = () => {
     admissions: false,
     research: false,
     institutions : false,
-    studentZone : true,
+    studentZone : false,
   });
 
   // Toggle function for opening/closing dropdowns
@@ -825,7 +832,7 @@ export const Header = () => {
                           </div>
                         </motion.li>
                       </div>
-                      <div className="right flex flex-col gap-3 lg:w-1/3 ">
+                      <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
                        <Image src={SegBanner} alt="our institutions banner" height={600} width={600} className="h-full w-auto object-cover" />
                       </div>
                     </ul>
@@ -838,7 +845,7 @@ export const Header = () => {
             <li
               className="p-3 hover:bg-green-50 rounded-md"
               onMouseEnter={() => toggleDropdown("studentZone", true)}
-              onMouseLeave={() => toggleDropdown("studentZone", true)}
+              onMouseLeave={() => toggleDropdown("studentZone", false)}
             >
               <Link href="#" className="flex items-center">
                 <p className="text-sm ">Student Zone</p>
@@ -856,56 +863,56 @@ export const Header = () => {
                   >
                     <ul className="ps-14 pt-4 flex">
                       <div className="left flex flex-col gap-4 lg:w-1/3  py-2">
-                      {/* Shivdan Singh Institute of Technology and Management */}
+                      {/* Student Login */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                            <HiOutlineBuildingLibrary className="text-5xl" />
+                            <CiLogin className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Student Login 
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 007
+                            To access the SEG portal, please enter your credentials.
                             </p>
                           </div>
                         </motion.li>
 
-                        {/* Saroj Institute of Technology and Management */}
+                        {/* Our Gold Medalist*/}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                          <HiOutlineBuildingLibrary className="text-5xl" />
+                          <GiMedal className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
                             Our Gold Medalist
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 123
+                            "SEG proudly honors our Gold Medalist — a true symbol of excellence and dedication."
                             </p>
                           </div>
                         </motion.li>
 
-                        {/* Saroj College of Law */}
+                        {/*   Student of the Month */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                          <HiOutlineBuildingLibrary className="text-5xl" />
+                          <GoTrophy className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                             Saroj College of Law
+                            Student of the Month 
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by Bar Council of India (BCI) and affiliated to AKTU,Lucknow,College Code : 
+                            "SEG’s Student of the Month shines with dedication, excellence, and hard work." 
                             </p>
                             
                           </div>
@@ -920,36 +927,20 @@ export const Header = () => {
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                            <HiOutlineBuildingLibrary className="text-5xl" />
+                            <FaRegClipboard className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                                Saroj College of Pharmacy
+                             Student Notice
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by Pharmacy Council of India and affiliated to AKTU,Lucknow,College Code : 2031
+                            "Important updates and announcements for SEG students — stay informed and engaged!"
                             </p>
                           </div>
                         </motion.li>
-                         {/* Saroj College of Engineering and Polytechnic */}
-                         <motion.li
-                          variants={itemVariants}
-                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
-                        >
-                          <div>
-                            <HiOutlineBuildingLibrary className="text-5xl" />
-                          </div>
-                          <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                          Saroj College of Engineering and Polytechnic
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 
-                            </p>
-                          </div>
-                        </motion.li>
+                       
                       </div>
-                      <div className="right flex flex-col gap-3 lg:w-1/3 ">
+                      <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
                        <Image src={SegBanner} alt="our institutions banner" height={600} width={600} className="h-full w-auto object-cover" />
                       </div>
                     </ul>
