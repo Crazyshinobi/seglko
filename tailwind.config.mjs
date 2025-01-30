@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily:{
+       lora: ["var(--font-lora)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
