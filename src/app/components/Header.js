@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 // Images Import
-import segLogo from "../../../public/seglko-logo.jpg";
+import segLogo from "../../../public/seglogo.png";
 import SegBanner from "../../../public/segBanner.jpeg";
 
 // icons import
@@ -54,46 +54,109 @@ import styles from "./Sidebar/Menu/style.module.css";
 import Nav from "./Sidebar/Nav";
 
 const navLinks = [
-  { title: "About SEG", href: "/", subLinks :[
-    { title: "History of SEG", href: "/" },
-    { title: "Why Join SEG", href: "/" },
-    { title: "Mission and Vision", href: "/" },
-    { title: "Chairman's Message", href: "/" },
-    { title: "Student Success", href: "/" },
+  {
+    title: "About SEG",
+    href: "/",
+    subLinks: [
+      { title: "History of SEG", href: "/" },
+      { title: "Why Join SEG", href: "/" },
+      { title: "Mission and Vision", href: "/" },
+      { title: "Chairman's Message", href: "/" },
+      { title: "Student Success", href: "/" },
+    ],
+  },
+  {
+    title: "Programs",
+    href: "/",
+    subLinks: [
+      { title: "M.Tech", href: "/" },
+      { title: "B.Tech", href: "/" },
+      { title: "MBA", href: "/" },
+      { title: "BBA", href: "/" },
+      { title: "MCA", href: "/" },
+      { title: "BCA", href: "/" },
+      { title: "LLB", href: "/" },
+      { title: "BALLB", href: "/" },
+      { title: "M.Pharma", href: "/" },
+      { title: "B.Pharma", href: "/" },
+      { title: "Diploma in Pharmacy", href: "/" },
+      { title: "Diploma Programmes", href: "/" },
+    ],
+  },
+  {
+    title: "Admission",
+    href: "/",
+    subLinks: [
+      { title: "Admission Process", href: "/" },
+      { title: "Eligibility Criteria", href: "/" },
+      { title: "Our Courses", href: "/" },
+      { title: "Fee Structure", href: "/" },
+    ],
+  },
+  {
+    title: "Research",
+    href: "/",
+    subLinks: [
+      { title: "R & D Projects", href: "/" },
+      { title: "Technologies Developed", href: "/" },
+      { title: "Award Winning Projects", href: "/" },
+      { title: "Research & Publications", href: "/" },
+    ],
+  },
+  {
+    title: "Our Institutions",
+    href: "/",
+    subLinks: [
+      {
+        title: "Shivdan Singh Institute of Technology and Management",
+        href: "/",
+      },
+      { title: "Saroj Institute of Technology and Management", href: "/" },
+      { title: "Saroj College of Law", href: "/" },
+      { title: "Saroj College of Pharmacy", href: "/" },
+      { title: "Saroj College of Engineering and Polytechnic", href: "/" },
+    ],
+  },
+  {
+    title: "Student Zone",
+    href: "/",
+    subLinks: [
+      { title: "Student Login", href: "/" },
+      { title: "Student Notice", href: "/" },
+      { title: "Student of the Month", href: "/" },
+      { title: "Our Gold Medalist", href: "/" },
+    ],
+  },
+  {
+    title: "Placements",
+    href: "/",
+    subLinks: [{ title: "Placement record 2024-25", href: "/" }],
+  },
+  {
+    title : "Explore More", href : "/", subLinks : [
+      {title : "Life @ SEG" , href: "/"},
+      {title : "Lecture Halls" , href: "/"},
+      {title : "Library" , href: "/"},
+      {title : "Gallery" , href: "/"},
+      {title : "Computer Labs" , href: "/"},
+      {title : "Cafeteria" , href: "/"},
+      {title : "Sports" , href: "/"},
+      {title : "Campus" , href: "/"},
+      {title : "Transport" , href: "/"},
+      {title : "Hostel" , href: "/"},
+    ]
+  },
+  {
+    title : "Contact Us", href : "/"
+  },
+  {
+    title : "Fee Payment", href : "/"
+  },
+  {
+    title : "Career", href : "/"
+  },
 
-  ] },
-  { title: "Programs", href: "/",  subLinks :[
-    { title: "M.Tech", href: "/" },
-    { title: "B.Tech", href: "/" },
-    { title: "MBA", href: "/" },
-    { title: "BBA", href: "/" },
-    { title: "MCA", href: "/" },
-    { title: "BCA", href: "/" },
-    { title: "M.Pharma", href: "/" },
-    { title: "B.Pharma", href: "/" },
-    { title: "Diploma in Pharmacy", href: "/" },
-    { title: "Diploma Programmes", href: "/" },
 
-  ] },
-  { title: "Admission", href: "/", subLinks :[
-    { title: "Admission Process", href: "/" },
-    { title: "Eligibility Criteria", href: "/" },
-    { title: "Our Courses", href: "/" },
-    { title: "Fee Structure", href: "/" },
-  ]  },
-  { title: "Research", href: "/" ,subLinks :[
-    { title: "R & D Projects", href: "/" },
-    { title: "Technologies Developed", href: "/" },
-    { title: "Award Winning Projects", href: "/" },
-    { title: "Research & Publications", href: "/" },
-  ]},
-  { title: "Our Institutions", href: "/" ,subLinks :[
-    { title: "Shivdan Singh Institute of Technology and Management", href: "/" },
-    { title: "Saroj Institute of Technology and Management", href: "/" },
-    { title: "Saroj College of Law", href: "/" },
-    { title: "Saroj College of Pharmacy", href: "/" },
-    { title: "Saroj College of Engineering and Polytechnic", href: "/" },
-  ]},
 ];
 
 const variants = {
@@ -113,7 +176,6 @@ const variants = {
   },
 };
 
-
 const menuVariants = {
   initial: {
     scaleY: 0,
@@ -128,7 +190,7 @@ const menuVariants = {
   exit: {
     scaleY: 0,
     transition: {
-      delay : 0.5,
+      delay: 0.5,
       duration: 0.5,
       ease: [0.22, 1, 0.39, 1],
     },
@@ -136,29 +198,29 @@ const menuVariants = {
 };
 
 const containerVars = {
-  initial : {
-    transition : {
-      staggerChildren : 0.09,
-      staggerDirection : -1,
-    }
+  initial: {
+    transition: {
+      staggerChildren: 0.09,
+      staggerDirection: -1,
+    },
   },
-  open : {
-    transition : {
-      delayChildren : 0.3,
-      staggerChildren : 0.09,
-      staggerDirection : 1,
-    }
-  }
-}
+  open: {
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.09,
+      staggerDirection: 1,
+    },
+  },
+};
 
 export const Header = () => {
   // State for the mobile menu open and close
   const [open, setOpen] = useState(false);
-  const [activeSubmenu, setActiveSubmenu] = useState(null)
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
 
   const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);
-    setActiveSubmenu(null)
+    setActiveSubmenu(null);
   };
 
   // State for Sidemenu on the large devices
@@ -228,13 +290,19 @@ export const Header = () => {
     },
   };
 
-
   return (
     <>
-      <div className="flex overflow-hidden   xl:justify-normal xl:gap-24 justify-between  items-center">
+      <div className="flex overflow-hidden   xl:justify-normal xl:gap-24 justify-between  items-center z-[10000]">
         <div className="nav hidden xl:flex">
           <Link href="/">
-            <Image src={segLogo} height={80} width={80} alt="SEG Logo"  priority={true} />
+            <Image
+              src={segLogo}
+              height={80}
+              width={80}
+              alt="SEG Logo"
+              loading="lazy"
+              className="ml-4"
+            />
           </Link>
         </div>
 
@@ -1475,12 +1543,21 @@ export const Header = () => {
         {/* Mobile Menu */}
         <div className="nav xl:hidden">
           <Link href="/">
-            <Image src={segLogo || "/placeholder.svg"} height={80} width={80} alt="SEG Logo" />
+            <Image
+              src={segLogo || "/placeholder.svg"}
+              height={60}
+              width={60}
+              alt="SEG Logo"
+              className="ml-4"
+            />
           </Link>
         </div>
 
-        <div className="pt-3 pr-5 hover:bg-green-50 xl:hidden rounded-md" onClick={toggleMenu}>
-          <p>Menu</p>
+        <div
+          className="pt-2 pr-2 hover:bg-green-50 xl:hidden rounded-md"
+          onClick={toggleMenu}
+        >
+          <p className="mr-4">Menu</p>
         </div>
 
         <AnimatePresence>
@@ -1495,7 +1572,10 @@ export const Header = () => {
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
                   <h1 className="text-lg text-black">SEG</h1>
-                  <p className="cursor-pointer text-md text-black" onClick={toggleMenu}>
+                  <p
+                    className="cursor-pointer text-md text-black"
+                    onClick={toggleMenu}
+                  >
                     Close
                   </p>
                 </div>
@@ -1504,7 +1584,7 @@ export const Header = () => {
                   initial="initial"
                   animate="open"
                   exit="initial"
-                  className="flex flex-col h-full justify-center items-center gap-4"
+                  className="flex flex-col h-full justify-center text-2xl items-center gap-4"
                 >
                   {navLinks.map((link, index) => (
                     <div className="overflow-hidden" key={index}>
@@ -1535,8 +1615,11 @@ export const Header = () => {
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
                   <h1 className="text-lg text-black">{activeSubmenu.title}</h1>
-                  <p className="cursor-pointer text-md text-black" onClick={() => setActiveSubmenu(null)}>
-                  ← Back
+                  <p
+                    className="cursor-pointer text-md text-black"
+                    onClick={() => setActiveSubmenu(null)}
+                  >
+                    ← Back
                   </p>
                 </div>
                 <motion.div
@@ -1544,7 +1627,7 @@ export const Header = () => {
                   initial="initial"
                   animate="open"
                   exit="initial"
-                  className="flex flex-col h-full justify-center items-center gap-4"
+                  className="flex text-xl flex-col h-full justify-center items-start gap-4"
                 >
                   {activeSubmenu.subLinks.map((subLink, index) => (
                     <div className="overflow-hidden" key={index}>
@@ -1583,27 +1666,31 @@ const mobileLinkVars = {
       duration: 0.7,
     },
   },
-}
+};
 
 const MobileNavLink = ({ title, href, subLinks, setActiveSubmenu }) => {
   const handleClick = () => {
     if (subLinks && subLinks.length > 0) {
-      setActiveSubmenu({ title, subLinks })
+      setActiveSubmenu({ title, subLinks });
     }
-  }
+  };
 
   return (
-    <motion.div variants={mobileLinkVars} className="text-3xl uppercase text-black">
+    <motion.div
+      variants={mobileLinkVars}
+      className="   uppercase text-black"
+    >
       {subLinks && subLinks.length > 0 ? (
-        <button onClick={handleClick} className="w-full text-left">
+        <button onClick={handleClick} className="w-full text-left p-0">
           {title}
         </button>
       ) : (
-        <Link className="text-xl" href={href}>{title}</Link>
+        <Link className=" " href={href}>
+          {title}
+        </Link>
       )}
     </motion.div>
-  )
-}
+  );
+};
 
-export default MobileNavLink
-
+export default MobileNavLink;

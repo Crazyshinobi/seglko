@@ -10,6 +10,8 @@ import { Lora } from "next/font/google";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import Curve from "./components/Curves/Curve"; // Page transition wrapper
+import LenisProvider from "./components/LenisProvider";
+
 
 // Fonts
 // const geistSans = Geist({
@@ -65,6 +67,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${lora.variable} ${inter.variable} antialiased`}
       >
+        <LenisProvider>
         <Header />
         <AnimatePresence mode="wait">
           <motion.div
@@ -74,6 +77,7 @@ export default function RootLayout({ children }) {
           </motion.div>
         </AnimatePresence>
         <Footer />
+        </LenisProvider>
       </body>
     </html>
   );

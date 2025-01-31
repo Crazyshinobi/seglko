@@ -24,4 +24,12 @@ body {
   font-weight: 600;
 }
 
+html{
+  overflow: hidden; 
+}
+
+
+
+
+
 @import './components/Curves/style.css'
