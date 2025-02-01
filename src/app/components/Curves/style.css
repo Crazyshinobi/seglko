@@ -5,6 +5,7 @@
       height: calc(100vh + 600px);
       width: 100vw;
       pointer-events: none;
+      z-index: 999;
       left: 0;
       top: 0;
     }
@@ -18,7 +19,7 @@
       top: 40%;
       color: white;
       font-size: 46px;
-      z-index: 3;
+      z-index: 1000;
       transform: translateX(-50%);
       text-align: center;
     }

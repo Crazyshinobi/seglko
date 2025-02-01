@@ -71,9 +71,9 @@ export default function RootLayout({ children }) {
         <Header />
         <AnimatePresence mode="wait">
           <motion.div
-            key={pathname} // This triggers page transition when the pathname changes
+            key={pathname} 
           >
-            <Curve backgroundColor="#B0AD98">{children}</Curve>
+            <Curve backgroundColor="#B0AD98 z-[1001]">{children}</Curve>
           </motion.div>
         </AnimatePresence>
         <Footer />

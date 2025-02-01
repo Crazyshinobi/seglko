@@ -292,7 +292,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className="flex overflow-hidden   xl:justify-normal xl:gap-24 justify-between  items-center z-[10000]">
+      <div className="flex overflow-hidden xl:justify-normal xl:gap-24 justify-between items-center shadow-lg">
         <div className="nav hidden xl:flex">
           <Link href="/">
             <Image
@@ -306,7 +306,7 @@ export const Header = () => {
           </Link>
         </div>
 
-        <nav className="hidden xl:flex">
+        <nav className="hidden xl:flex z-[998]">
           <ul className="flex ">
             {/* Home */}
             <li className="group p-3 hover:bg-green-50 rounded-md">
@@ -1567,7 +1567,7 @@ export const Header = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 w-full h-screen xl:hidden origin-top bg-yellow-400 text-black p-7"
+              className="fixed z-[1000] left-0 top-0 w-full h-screen xl:hidden origin-top bg-yellow-400 text-black p-7"
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
@@ -1610,7 +1610,7 @@ export const Header = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="fixed left-0 top-0 w-full h-screen xl:hidden origin-top bg-yellow-400 text-black p-7 z-50"
+              className="fixed z-[1000] left-0 top-0 w-full h-screen xl:hidden origin-top bg-yellow-400 text-black p-7"
             >
               <div className="flex h-full flex-col">
                 <div className="flex justify-between">
