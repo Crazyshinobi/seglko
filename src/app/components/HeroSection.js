@@ -12,7 +12,7 @@ import HeroBanner from "../../../public/HeroSectionBanner.jpg"
 
 export default function HeroSection() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 ">
       <Swiper
         spaceBetween={50}
         slidesPerView={1}

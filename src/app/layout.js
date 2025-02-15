@@ -74,6 +74,7 @@ export default function RootLayout({ children }) {
             key={pathname} 
           >
             <Curve backgroundColor="#B0AD98 z-[1001]">{children}</Curve>
+            {/* {children} */}
           </motion.div>
         </AnimatePresence>
         <Footer />

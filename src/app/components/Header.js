@@ -292,7 +292,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className="flex overflow-hidden xl:justify-normal xl:gap-24 justify-between items-center shadow-lg">
+      <div className="flex  bg-white z-[5000] overflow-hidden xl:justify-normal xl:gap-24 justify-between items-center shadow-lg">
         <div className="nav hidden xl:flex">
           <Link href="/">
             <Image
@@ -1541,7 +1541,7 @@ export const Header = () => {
         </nav>
 
         {/* Mobile Menu */}
-        <div className="nav xl:hidden">
+        <div className="nav xl:hidden ">
           <Link href="/">
             <Image
               src={segLogo || "/placeholder.svg"}

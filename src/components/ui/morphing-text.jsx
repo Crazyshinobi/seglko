@@ -121,7 +121,7 @@ export const MorphingText = ({
 }) => (
   <div
     className={cn(
-      "relative  h-16 w-full max-w-screen-md  font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[40px]",
+      "relative  h-16 w-full   max-w-screen-md  font-sans text-[40pt] font-bold leading-none [filter:url(#threshold)_blur(0.6px)] md:h-24 lg:text-[36px]",
       className
     )}>
     <Texts texts={texts} />

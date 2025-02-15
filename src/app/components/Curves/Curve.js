@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation"; // Updated imports
 import { text, curve, translate } from "./anim"; // Importing animations
+import './style.css'
 
 const routes = {
   "/": "Home",
-  "/about": "About",
-  "/contact": "Contact",
+  
 };
 
 const anim = (variants) => {
@@ -70,23 +70,21 @@ export default function Curve({ children, backgroundColor }) {
 
 const SVG = ({ height, width }) => {
   const initialPath = 
-   ` M0 300 
+    `M0 300 
     Q${width / 2} 0 ${width} 300
     L${width} ${height + 300}
     Q${width / 2} ${height + 600} 0 ${height + 300}
-    L0 0`
-  ;
+    L0 0`;
 
   const targetPath = 
-  `  M0 300
+    `M0 300
     Q${width / 2} 0 ${width} 300
     L${width} ${height}
     Q${width / 2} ${height} 0 ${height}
-    L0 0`
-  ;
+    L0 0`;
 
   return (
-    <motion.svg {...anim(translate)}>
+    <motion.svg className="curve-svg" {...anim(translate)}>
       <motion.path {...anim(curve(initialPath, targetPath))} />
     </motion.svg>
   );
