@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 // Images Import
-import segLogo from "../../../public/seglogo.png";
-import SegBanner from "../../../public/segBanner.jpeg";
+// import segLogo from "../../../public/seglogo.png";
+// import SegBanner from "../../../public/segBanner.jpeg";
 
 // icons import
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";

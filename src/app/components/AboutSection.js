@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MorphingText } from "../../components/ui/morphing-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import AboutBg from "../../../public/AboutUsBg.png";
+// import AboutBg from "../../../public/AboutUsBg.png";
 
 // Swiper Import
 import "swiper/css";
