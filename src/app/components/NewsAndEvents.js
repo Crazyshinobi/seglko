@@ -259,6 +259,10 @@ export default function NewsAndEvents() {
             </div>
           </div>
         </div>
+
+
+        {/* Events Section  */}
+       <div>Events at Saroj educational group</div>
       </div>
     </div>
   );
