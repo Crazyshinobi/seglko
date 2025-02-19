@@ -4,11 +4,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation"; // Updated imports
 import { text, curve, translate } from "./anim"; // Importing animations
+import './style.css'
 
 const routes = {
   "/": "Home",
-  "/about": "About",
-  "/contact": "Contact",
+  
 };
 
 const anim = (variants) => {
@@ -54,12 +54,12 @@ export default function Curve({ children, backgroundColor }) {
   }
 
   return (
-    <div className="page curve" style={{ backgroundColor }}>
+    <div className="page curve " style={{ backgroundColor }}>
       <div
         style={{ opacity: dimensions.width == null ? 1 : 0 }}
         className="background"
       />
-      <motion.p className="route" {...anim(text)}>
+      <motion.p className="route z-[1001]" {...anim(text)}>
         {routes[routerPath]} {/* Use routerPath directly */}
       </motion.p>
       {dimensions.width != null && <SVG {...dimensions} />}
@@ -70,23 +70,21 @@ export default function Curve({ children, backgroundColor }) {
 
 const SVG = ({ height, width }) => {
   const initialPath = 
-   ` M0 300 
+    `M0 300 
     Q${width / 2} 0 ${width} 300
     L${width} ${height + 300}
     Q${width / 2} ${height + 600} 0 ${height + 300}
-    L0 0`
-  ;
+    L0 0`;
 
   const targetPath = 
-  `  M0 300
+    `M0 300
     Q${width / 2} 0 ${width} 300
     L${width} ${height}
     Q${width / 2} ${height} 0 ${height}
-    L0 0`
-  ;
+    L0 0`;
 
   return (
-    <motion.svg {...anim(translate)}>
+    <motion.svg className="curve-svg" {...anim(translate)}>
       <motion.path {...anim(curve(initialPath, targetPath))} />
     </motion.svg>
   );

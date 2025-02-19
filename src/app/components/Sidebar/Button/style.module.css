@@ -1,0 +1,59 @@
+.button {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    height: 35px;
+    cursor: pointer;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+  
+  .slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .el {
+    width: 100%;
+    height: 100%;
+    background-color: #00BFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .el:nth-of-type(2) {
+    background-color: black;
+    color: white;
+  }
+  
+  .perspectiveText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    perspective: 1000px;
+  }
+  
+  .perspectiveText p {
+    position: absolute;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    transform-origin: bottom center;
+  }
+  
+  .perspectiveText p:nth-of-type(1) {
+    transform: rotateX(0deg); /* Front face */
+  }
+  
+  .perspectiveText p:nth-of-type(2) {
+    transform: rotateX(-90deg); /* Back face */
+  }
+  

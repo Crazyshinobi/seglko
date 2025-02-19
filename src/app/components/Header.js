@@ -1,4 +1,4 @@
-"use client"; // Add this directive at the top for client-side interactivity
+"use client";
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -6,9 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 // Images Import
-import segLogo from "../../../public/seglko-logo.jpg";
+import segLogo from "../../../public/seglogo.png";
 import SegBanner from "../../../public/segBanner.jpeg";
-
 
 // icons import
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
@@ -26,7 +25,7 @@ import { MdOutlineEmojiPeople } from "react-icons/md";
 import { BsPersonGear } from "react-icons/bs";
 import { CiMedicalCase } from "react-icons/ci";
 import { GiDiploma } from "react-icons/gi";
-import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 import { FcProcess } from "react-icons/fc";
 import { FaPersonCircleCheck } from "react-icons/fa6";
 import { GiBookshelf } from "react-icons/gi";
@@ -35,16 +34,207 @@ import { SiRoamresearch } from "react-icons/si";
 import { GrTechnology } from "react-icons/gr";
 import { FaAward } from "react-icons/fa6";
 import { IoBookOutline } from "react-icons/io5";
+import { CiLogin } from "react-icons/ci";
+import { GiMedal } from "react-icons/gi";
+import { FaRegClipboard } from "react-icons/fa";
+import { GoTrophy } from "react-icons/go";
+import { FaStreetView } from "react-icons/fa6";
+import { PiMapPinSimpleAreaLight } from "react-icons/pi";
+import { IoLibraryOutline } from "react-icons/io5";
+import { TfiGallery } from "react-icons/tfi";
+import { HiOutlineComputerDesktop } from "react-icons/hi2";
+import { IoIosCafe } from "react-icons/io";
+import { MdSportsVolleyball } from "react-icons/md";
+import { FaRegBuilding } from "react-icons/fa";
+import { FaBus } from "react-icons/fa6";
+import { FaHotel } from "react-icons/fa";
+
+import Button from "./Sidebar/Button";
+import styles from "./Sidebar/Menu/style.module.css";
+import Nav from "./Sidebar/Nav";
+
+const navLinks = [
+  {
+    title: "About SEG",
+    href: "/",
+    subLinks: [
+      { title: "History of SEG", href: "/" },
+      { title: "Why Join SEG", href: "/" },
+      { title: "Mission and Vision", href: "/" },
+      { title: "Chairman's Message", href: "/" },
+      { title: "Student Success", href: "/" },
+    ],
+  },
+  {
+    title: "Programs",
+    href: "/",
+    subLinks: [
+      { title: "M.Tech", href: "/" },
+      { title: "B.Tech", href: "/" },
+      { title: "MBA", href: "/" },
+      { title: "BBA", href: "/" },
+      { title: "MCA", href: "/" },
+      { title: "BCA", href: "/" },
+      { title: "LLB", href: "/" },
+      { title: "BALLB", href: "/" },
+      { title: "M.Pharma", href: "/" },
+      { title: "B.Pharma", href: "/" },
+      { title: "Diploma in Pharmacy", href: "/" },
+      { title: "Diploma Programmes", href: "/" },
+    ],
+  },
+  {
+    title: "Admission",
+    href: "/",
+    subLinks: [
+      { title: "Admission Process", href: "/" },
+      { title: "Eligibility Criteria", href: "/" },
+      { title: "Our Courses", href: "/" },
+      { title: "Fee Structure", href: "/" },
+    ],
+  },
+  {
+    title: "Research",
+    href: "/",
+    subLinks: [
+      { title: "R & D Projects", href: "/" },
+      { title: "Technologies Developed", href: "/" },
+      { title: "Award Winning Projects", href: "/" },
+      { title: "Research & Publications", href: "/" },
+    ],
+  },
+  {
+    title: "Our Institutions",
+    href: "/",
+    subLinks: [
+      {
+        title: "Shivdan Singh Institute of Technology and Management",
+        href: "/",
+      },
+      { title: "Saroj Institute of Technology and Management", href: "/" },
+      { title: "Saroj College of Law", href: "/" },
+      { title: "Saroj College of Pharmacy", href: "/" },
+      { title: "Saroj College of Engineering and Polytechnic", href: "/" },
+    ],
+  },
+  {
+    title: "Student Zone",
+    href: "/",
+    subLinks: [
+      { title: "Student Login", href: "/" },
+      { title: "Student Notice", href: "/" },
+      { title: "Student of the Month", href: "/" },
+      { title: "Our Gold Medalist", href: "/" },
+    ],
+  },
+  {
+    title: "Placements",
+    href: "/",
+    subLinks: [{ title: "Placement record 2024-25", href: "/" }],
+  },
+  {
+    title : "Explore More", href : "/", subLinks : [
+      {title : "Life @ SEG" , href: "/"},
+      {title : "Lecture Halls" , href: "/"},
+      {title : "Library" , href: "/"},
+      {title : "Gallery" , href: "/"},
+      {title : "Computer Labs" , href: "/"},
+      {title : "Cafeteria" , href: "/"},
+      {title : "Sports" , href: "/"},
+      {title : "Campus" , href: "/"},
+      {title : "Transport" , href: "/"},
+      {title : "Hostel" , href: "/"},
+    ]
+  },
+  {
+    title : "Contact Us", href : "/"
+  },
+  {
+    title : "Fee Payment", href : "/"
+  },
+  {
+    title : "Career", href : "/"
+  },
+
+
+];
+
+const variants = {
+  open: {
+    width: 400,
+    height: 550,
+    top: "-15px",
+    right: "-15px",
+    transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
+  },
+  closed: {
+    width: 100,
+    height: 35,
+    top: "0px",
+    right: "0px",
+    transition: { duration: 0.75, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
+const menuVariants = {
+  initial: {
+    scaleY: 0,
+  },
+  animate: {
+    scaleY: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.12, 0, 0.39, 0],
+    },
+  },
+  exit: {
+    scaleY: 0,
+    transition: {
+      delay: 0.5,
+      duration: 0.5,
+      ease: [0.22, 1, 0.39, 1],
+    },
+  },
+};
+
+const containerVars = {
+  initial: {
+    transition: {
+      staggerChildren: 0.09,
+      staggerDirection: -1,
+    },
+  },
+  open: {
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.09,
+      staggerDirection: 1,
+    },
+  },
+};
 
 export const Header = () => {
+  // State for the mobile menu open and close
+  const [open, setOpen] = useState(false);
+  const [activeSubmenu, setActiveSubmenu] = useState(null);
+
+  const toggleMenu = () => {
+    setOpen((prevOpen) => !prevOpen);
+    setActiveSubmenu(null);
+  };
+
+  // State for Sidemenu on the large devices
+  const [isActive, setIsActive] = useState(false);
   // State object to manage the visibility of multiple dropdowns
   const [dropdownStates, setDropdownStates] = useState({
     about: false,
     programs: false,
     admissions: false,
     research: false,
-    institutions : false,
-    studentZone : false,
+    institutions: false,
+    studentZone: false,
+    placements: false,
+    exploreMore: false,
   });
 
   // Toggle function for opening/closing dropdowns
@@ -102,15 +292,22 @@ export const Header = () => {
 
   return (
     <>
-      <div className="flex overflow-hidden gap-3 items-center">
-        <div className="nav">
+      <div className="flex  bg-white z-[5000] overflow-hidden xl:justify-normal xl:gap-24 justify-between items-center shadow-lg">
+        <div className="nav hidden xl:flex">
           <Link href="/">
-            <Image src={segLogo} height={80} width={80} alt="SEG Logo" />
+            <Image
+              src={segLogo}
+              height={80}
+              width={80}
+              alt="SEG Logo"
+              loading="lazy"
+              className="ml-4"
+            />
           </Link>
         </div>
 
-        <nav>
-          <ul className="flex">
+        <nav className="hidden xl:flex z-[998]">
+          <ul className="flex ">
             {/* Home */}
             <li className="group p-3 hover:bg-green-50 rounded-md">
               <Link href="/" className="flex items-center">
@@ -126,7 +323,11 @@ export const Header = () => {
             >
               <Link href="/about" className="flex items-center">
                 <p className="text-sm ">About SEG </p>
-                <MdKeyboardArrowDown />
+                {dropdownStates.about ? (
+                  <MdKeyboardArrowDown />
+                ) : (
+                  <MdKeyboardArrowUp />
+                )}
               </Link>
 
               <AnimatePresence>
@@ -188,7 +389,7 @@ export const Header = () => {
                             <IoIosStarOutline className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Why Join SEG
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -208,7 +409,7 @@ export const Header = () => {
                             <BsVectorPen className="text-5xl " />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Chairman's Message
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -227,7 +428,7 @@ export const Header = () => {
                             <PiStudentFill className="text-5xl " />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Student Success
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -250,7 +451,7 @@ export const Header = () => {
                             <BsVectorPen className="text-5xl " />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Chairman's Message
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -275,7 +476,11 @@ export const Header = () => {
             >
               <Link href="#" className="flex items-center">
                 <p className="text-sm ">Programs </p>
-                <MdKeyboardArrowDown />{" "}
+                {dropdownStates.programs ? (
+                  <MdKeyboardArrowDown />
+                ) : (
+                  <MdKeyboardArrowUp />
+                )}
               </Link>
 
               <AnimatePresence>
@@ -298,7 +503,7 @@ export const Header = () => {
                             <BsPersonGear className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Master of Technology
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -318,7 +523,7 @@ export const Header = () => {
                             <FaPeopleGroup className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Master of Business Administration
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -338,7 +543,7 @@ export const Header = () => {
                             <FaComputer className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Masters in Computer Applications
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -357,7 +562,7 @@ export const Header = () => {
                             <LiaCapsulesSolid className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               M.Pharm
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -377,7 +582,7 @@ export const Header = () => {
                             <MdSettingsSuggest className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Bachelor of Technology
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -399,7 +604,7 @@ export const Header = () => {
                             <MdOutlineEmojiPeople className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Bachelor of Business Administration
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -419,7 +624,7 @@ export const Header = () => {
                             <RiComputerLine className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Bachelor in Computer Application
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -439,7 +644,7 @@ export const Header = () => {
                             <BsCapsulePill className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               B.Pharm
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -459,7 +664,7 @@ export const Header = () => {
                             <CiMedicalCase className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Diploma in Pharmacy
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -479,7 +684,7 @@ export const Header = () => {
                             <GiDiploma className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Diploma Programmes
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -504,7 +709,11 @@ export const Header = () => {
             >
               <Link href="#" className="flex items-center">
                 <p className="text-sm ">Admission </p>
-                <MdKeyboardArrowDown />{" "}
+                {dropdownStates.admissions ? (
+                  <MdKeyboardArrowDown />
+                ) : (
+                  <MdKeyboardArrowUp />
+                )}
               </Link>
 
               <AnimatePresence>
@@ -527,7 +736,7 @@ export const Header = () => {
                             <FcProcess className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Admission Process
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -546,7 +755,7 @@ export const Header = () => {
                             <FaPersonCircleCheck className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Eligibility Criteria
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -566,7 +775,7 @@ export const Header = () => {
                             <GiBookshelf className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Our Courses
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -585,7 +794,7 @@ export const Header = () => {
                             <FcDocument className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Fee Structure
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -610,7 +819,11 @@ export const Header = () => {
             >
               <Link href="#" className="flex items-center">
                 <p className="text-sm ">R & D</p>
-                <MdKeyboardArrowDown />{" "}
+                {dropdownStates.research ? (
+                  <MdKeyboardArrowDown />
+                ) : (
+                  <MdKeyboardArrowUp />
+                )}
               </Link>
 
               <AnimatePresence>
@@ -633,7 +846,7 @@ export const Header = () => {
                             <SiRoamresearch className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               R & D Projects
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -653,7 +866,7 @@ export const Header = () => {
                             <GrTechnology className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Technologies Developed
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -673,7 +886,7 @@ export const Header = () => {
                             <FaAward className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Award Winning Projects
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -693,7 +906,7 @@ export const Header = () => {
                             <IoBookOutline className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Research & Publications
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -718,7 +931,11 @@ export const Header = () => {
             >
               <Link href="#" className="flex items-center">
                 <p className="text-sm ">Our Institutions</p>
-                <MdKeyboardArrowDown />{" "}
+                {dropdownStates.institutions ? (
+                  <MdKeyboardArrowDown />
+                ) : (
+                  <MdKeyboardArrowUp />
+                )}
               </Link>
 
               <AnimatePresence>
@@ -732,7 +949,7 @@ export const Header = () => {
                   >
                     <ul className="ps-14 pt-4 flex">
                       <div className="left flex flex-col gap-4 lg:w-1/3  py-2">
-                      {/* Shivdan Singh Institute of Technology and Management */}
+                        {/* Shivdan Singh Institute of Technology and Management */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
@@ -741,11 +958,13 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Shivdan Singh Institute of Technology and Management
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Shivdan Singh Institute of Technology and
+                              Management
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 007
+                              Approved by AICTE and affiliated to
+                              AKTU,Lucknow,College Code : 007
                             </p>
                           </div>
                         </motion.li>
@@ -756,14 +975,15 @@ export const Header = () => {
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                          <HiOutlineBuildingLibrary className="text-5xl" />
+                            <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                            Saroj Institute of Technology and Management
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Saroj Institute of Technology and Management
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 123
+                              Approved by AICTE and affiliated to
+                              AKTU,Lucknow,College Code : 123
                             </p>
                           </div>
                         </motion.li>
@@ -774,24 +994,22 @@ export const Header = () => {
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                          <HiOutlineBuildingLibrary className="text-5xl" />
+                            <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                             Saroj College of Law
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Saroj College of Law
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by Bar Council of India (BCI) and affiliated to AKTU,Lucknow,College Code : 
+                              Approved by Bar Council of India (BCI) and
+                              affiliated to AKTU,Lucknow,College Code :
                             </p>
-                            
                           </div>
                         </motion.li>
-
-                     
                       </div>
                       <div className="middle flex flex-col gap-4 py-2 lg:w-1/3">
-                         {/*  Saroj College of Pharmacy */}
-                         <motion.li
+                        {/*  Saroj College of Pharmacy */}
+                        <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
                         >
@@ -799,16 +1017,17 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                                Saroj College of Pharmacy
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Saroj College of Pharmacy
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by Pharmacy Council of India and affiliated to AKTU,Lucknow,College Code : 2031
+                              Approved by Pharmacy Council of India and
+                              affiliated to AKTU,Lucknow,College Code : 2031
                             </p>
                           </div>
                         </motion.li>
-                         {/* Saroj College of Engineering and Polytechnic */}
-                         <motion.li
+                        {/* Saroj College of Engineering and Polytechnic */}
+                        <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
                         >
@@ -816,17 +1035,24 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                          Saroj College of Engineering and Polytechnic
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Saroj College of Engineering and Polytechnic
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 
+                              Approved by AICTE and affiliated to
+                              AKTU,Lucknow,College Code :
                             </p>
                           </div>
                         </motion.li>
                       </div>
-                      <div className="right flex flex-col gap-3 lg:w-1/3 ">
-                       <Image src={SegBanner} alt="our institutions banner" height={600} width={600} className="h-full w-auto object-cover" />
+                      <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
+                        <Image
+                          src={SegBanner}
+                          alt="our institutions banner"
+                          height={600}
+                          width={600}
+                          className="h-full w-auto object-cover"
+                        />
                       </div>
                     </ul>
                   </motion.div>
@@ -842,7 +1068,11 @@ export const Header = () => {
             >
               <Link href="#" className="flex items-center">
                 <p className="text-sm ">Student Zone</p>
-                <MdKeyboardArrowDown />{" "}
+                {dropdownStates.studentZone ? (
+                  <MdKeyboardArrowDown />
+                ) : (
+                  <MdKeyboardArrowUp />
+                )}
               </Link>
 
               <AnimatePresence>
@@ -856,56 +1086,171 @@ export const Header = () => {
                   >
                     <ul className="ps-14 pt-4 flex">
                       <div className="left flex flex-col gap-4 lg:w-1/3  py-2">
-                      {/* Shivdan Singh Institute of Technology and Management */}
+                        {/* Student Login */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                            <HiOutlineBuildingLibrary className="text-5xl" />
+                            <CiLogin className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Student Login
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              To access the SEG portal, please enter your
+                              credentials.
+                            </p>
+                          </div>
+                        </motion.li>
+
+                        {/* Our Gold Medalist*/}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <GiMedal className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Our Gold Medalist
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              "SEG proudly honors our Gold Medalist — a true
+                              symbol of excellence and dedication."
+                            </p>
+                          </div>
+                        </motion.li>
+
+                        {/*   Student of the Month */}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <GoTrophy className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Student of the Month
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              "SEG's Student of the Month shines with
+                              dedication, excellence, and hard work."
+                            </p>
+                          </div>
+                        </motion.li>
+                      </div>
+                      <div className="middle flex flex-col gap-4 py-2 lg:w-1/3">
+                        {/*  Student Notice*/}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <FaRegClipboard className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Student Notice
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              "Important updates and announcements for SEG
+                              students — stay informed and engaged!"
+                            </p>
+                          </div>
+                        </motion.li>
+                      </div>
+                      <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
+                        <Image
+                          src={SegBanner}
+                          alt="our institutions banner"
+                          height={600}
+                          width={600}
+                          className="h-full w-auto object-cover"
+                        />
+                      </div>
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </li>
+
+            {/* Placements Dropdown */}
+            <li
+              className="p-3 hover:bg-green-50 rounded-md"
+              onMouseEnter={() => toggleDropdown("placements", true)}
+              onMouseLeave={() => toggleDropdown("placements", false)}
+            >
+              <Link href="#" className="flex items-center">
+                <p className="text-sm ">Placements</p>
+                {dropdownStates.placements ? (
+                  <MdKeyboardArrowDown />
+                ) : (
+                  <MdKeyboardArrowUp />
+                )}
+              </Link>
+
+              {/* <AnimatePresence>
+                {dropdownStates.placements && (
+                  <motion.div
+                    className="absolute w-full mt-3 pb-3 left-0 bg-white shadow-lg drop-shadow-xl h-auto"
+                    variants={dropdownVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                  >
+                    <ul className="ps-14 pt-4 flex">
+                      <div className="left flex flex-col gap-4 lg:w-1/3  py-2">
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <CiLogin className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Student Login 
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 007
+                            To access the SEG portal, please enter your credentials.
                             </p>
                           </div>
                         </motion.li>
 
-                        {/* Saroj Institute of Technology and Management */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                          <HiOutlineBuildingLibrary className="text-5xl" />
+                          <GiMedal className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
                             Our Gold Medalist
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 123
+                            "SEG proudly honors our Gold Medalist — a true symbol of excellence and dedication."
                             </p>
                           </div>
                         </motion.li>
 
-                        {/* Saroj College of Law */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                          <HiOutlineBuildingLibrary className="text-5xl" />
+                          <GoTrophy className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                             Saroj College of Law
+                            Student of the Month 
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by Bar Council of India (BCI) and affiliated to AKTU,Lucknow,College Code : 
+                            "SEG's Student of the Month shines with dedication, excellence, and hard work." 
                             </p>
                             
                           </div>
@@ -914,52 +1259,438 @@ export const Header = () => {
                      
                       </div>
                       <div className="middle flex flex-col gap-4 py-2 lg:w-1/3">
-                         {/*  Saroj College of Pharmacy */}
                          <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                            <HiOutlineBuildingLibrary className="text-5xl" />
+                            <FaRegClipboard className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                                Saroj College of Pharmacy
+                             Student Notice
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by Pharmacy Council of India and affiliated to AKTU,Lucknow,College Code : 2031
+                            "Important updates and announcements for SEG students — stay informed and engaged!"
                             </p>
                           </div>
                         </motion.li>
-                         {/* Saroj College of Engineering and Polytechnic */}
-                         <motion.li
+                       
+                      </div>
+                      <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
+                       <Image src={SegBanner} alt="our institutions banner" height={600} width={600} className="h-full w-auto object-cover" />
+                      </div>
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence> */}
+            </li>
+
+            {/* Explore more Dropdown */}
+            <li
+              className="p-3 hover:bg-green-50 rounded-md"
+              onMouseEnter={() => toggleDropdown("exploreMore", true)}
+              onMouseLeave={() => toggleDropdown("exploreMore", false)}
+            >
+              <Link href="#" className="flex items-center">
+                <p className="text-sm ">Explore more</p>
+                {dropdownStates.exploreMore ? (
+                  <MdKeyboardArrowDown />
+                ) : (
+                  <MdKeyboardArrowUp />
+                )}
+              </Link>
+
+              <AnimatePresence>
+                {dropdownStates.exploreMore && (
+                  <motion.div
+                    className="absolute w-full mt-3 pb-3 left-0 bg-white shadow-lg drop-shadow-xl h-auto"
+                    variants={dropdownVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                  >
+                    <ul className="ps-14 pt-4 flex">
+                      <div className="left flex flex-col gap-4 lg:w-1/3  py-2">
+                        {/*  Life @ SEG */}
+                        <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
                         >
                           <div>
-                            <HiOutlineBuildingLibrary className="text-5xl" />
+                            <FaStreetView className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                          Saroj College of Engineering and Polytechnic
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Life @ SEG
                             </h6>
                             <p className="text-gray-400 text-sm">
-                            Approved by AICTE and affiliated to AKTU,Lucknow,College Code : 
+                              Experience a vibrant journey of learning, growth,
+                              and endless possibilities at Life @ SEG!
+                            </p>
+                          </div>
+                        </motion.li>
+
+                        {/*  Lecture Halls */}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <PiMapPinSimpleAreaLight className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Lecture Halls
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              Modern, spacious lecture halls designed to inspire
+                              learning and collaboration.
+                            </p>
+                          </div>
+                        </motion.li>
+
+                        {/* Library */}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <IoLibraryOutline className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Library
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              A treasure trove of knowledge with a vast
+                              collection of resources for curious minds.
+                            </p>
+                          </div>
+                        </motion.li>
+
+                        {/* Gallery */}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <TfiGallery className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Gallery
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              Showcasing moments, achievements, and
+                              creativity—capturing the essence of our vibrant
+                              community.
                             </p>
                           </div>
                         </motion.li>
                       </div>
-                      <div className="right flex flex-col gap-3 lg:w-1/3 ">
-                       <Image src={SegBanner} alt="our institutions banner" height={600} width={600} className="h-full w-auto object-cover" />
+
+                      <div className="middle flex flex-col gap-4 py-2 lg:w-1/3">
+                        {/* Computer Labs */}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <HiOutlineComputerDesktop className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Computer Labs
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              "Explore modern computer labs, designed to enhance
+                              learning with the latest technology and hands-on
+                              experiences.{" "}
+                            </p>
+                          </div>
+                        </motion.li>
+                        {/*  Cafeteria */}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <IoIosCafe className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Cafeteria
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              Enjoy a variety of delicious meals and snacks in a
+                              lively cafeteria, perfect for relaxing and
+                              socializing.
+                            </p>
+                          </div>
+                        </motion.li>
+
+                        {/* Sports*/}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <MdSportsVolleyball className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Sports
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              Stay active and energized with a wide range of
+                              sports facilities, fostering teamwork and physical
+                              well-being.
+                            </p>
+                          </div>
+                        </motion.li>
+                        {/* Campus*/}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <FaRegBuilding className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Campus
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              Explore a dynamic and picturesque campus, designed
+                              to inspire learning, creativity, and a sense of
+                              community.
+                            </p>
+                          </div>
+                        </motion.li>
+                      </div>
+
+                      <div className="right flex flex-col gap-4 py-2 lg:w-1/3">
+                        {/* Transport */}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <FaBus className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Transport
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              "Explore modern computer labs, designed to enhance
+                              learning with the latest technology and hands-on
+                              experiences.{" "}
+                            </p>
+                          </div>
+                        </motion.li>
+                        {/*  Hostel */}
+                        <motion.li
+                          variants={itemVariants}
+                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
+                        >
+                          <div>
+                            <FaHotel className="text-2xl" />
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                              Hostel
+                            </h6>
+                            <p className="text-gray-400 text-sm">
+                              Enjoy a variety of delicious meals and snacks in a
+                              lively cafeteria, perfect for relaxing and
+                              socializing.
+                            </p>
+                          </div>
+                        </motion.li>
                       </div>
                     </ul>
                   </motion.div>
                 )}
               </AnimatePresence>
             </li>
+
+            {/* Contact us */}
+            <li className="p-3 hover:bg-green-50 rounded-md">
+              <Link href="#" className="flex items-center justify-center">
+                <p className="text-sm ">Contact us</p>
+              </Link>
+            </li>
+
+            {/* SideMenu Button  */}
+            <li className=" hover:bg-green-50 rounded-md">
+              <div className={styles.header}>
+                <motion.div
+                  className={styles.menu}
+                  variants={variants}
+                  animate={isActive ? "open" : "closed"}
+                  initial="closed"
+                >
+                  <AnimatePresence>{isActive && <Nav />}</AnimatePresence>
+                </motion.div>
+                <Button isActive={isActive} setIsActive={setIsActive} />
+              </div>
+            </li>
           </ul>
         </nav>
+
+        {/* Mobile Menu */}
+        <div className="nav xl:hidden ">
+          <Link href="/">
+            <Image
+              src={segLogo || "/placeholder.svg"}
+              height={60}
+              width={60}
+              alt="SEG Logo"
+              className="ml-4"
+            />
+          </Link>
+        </div>
+
+        <div
+          className="pt-2 pr-2 hover:bg-green-50 xl:hidden rounded-md"
+          onClick={toggleMenu}
+        >
+          <p className="mr-4">Menu</p>
+        </div>
+
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              variants={menuVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="fixed z-[1000] left-0 top-0 w-full h-screen xl:hidden origin-top bg-yellow-400 text-black p-7"
+            >
+              <div className="flex h-full flex-col">
+                <div className="flex justify-between">
+                  <h1 className="text-lg text-black">SEG</h1>
+                  <p
+                    className="cursor-pointer text-md text-black"
+                    onClick={toggleMenu}
+                  >
+                    Close
+                  </p>
+                </div>
+                <motion.div
+                  variants={containerVars}
+                  initial="initial"
+                  animate="open"
+                  exit="initial"
+                  className="flex flex-col h-full justify-center text-2xl items-center gap-4"
+                >
+                  {navLinks.map((link, index) => (
+                    <div className="overflow-hidden" key={index}>
+                      <MobileNavLink
+                        key={index}
+                        title={link.title}
+                        href={link.href}
+                        subLinks={link.subLinks}
+                        setActiveSubmenu={setActiveSubmenu}
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {activeSubmenu && (
+            <motion.div
+              variants={menuVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="fixed z-[1000] left-0 top-0 w-full h-screen xl:hidden origin-top bg-yellow-400 text-black p-7"
+            >
+              <div className="flex h-full flex-col">
+                <div className="flex justify-between">
+                  <h1 className="text-lg text-black">{activeSubmenu.title}</h1>
+                  <p
+                    className="cursor-pointer text-md text-black"
+                    onClick={() => setActiveSubmenu(null)}
+                  >
+                    ← Back
+                  </p>
+                </div>
+                <motion.div
+                  variants={containerVars}
+                  initial="initial"
+                  animate="open"
+                  exit="initial"
+                  className="flex text-xl flex-col h-full justify-center items-start gap-4"
+                >
+                  {activeSubmenu.subLinks.map((subLink, index) => (
+                    <div className="overflow-hidden" key={index}>
+                      <MobileNavLink
+                        key={index}
+                        title={subLink.title}
+                        href={subLink.href}
+                        setActiveSubmenu={setActiveSubmenu}
+                      />
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Last Div  */}
       </div>
     </>
   );
 };
+
+const mobileLinkVars = {
+  initial: {
+    y: "30vh",
+    transition: {
+      duration: 0.5,
+      ease: [0.37, 0, 0.63, 1],
+    },
+  },
+  open: {
+    y: 0,
+    transition: {
+      ease: [0, 0.55, 0.45, 1],
+      duration: 0.7,
+    },
+  },
+};
+
+const MobileNavLink = ({ title, href, subLinks, setActiveSubmenu }) => {
+  const handleClick = () => {
+    if (subLinks && subLinks.length > 0) {
+      setActiveSubmenu({ title, subLinks });
+    }
+  };
+
+  return (
+    <motion.div
+      variants={mobileLinkVars}
+      className="   uppercase text-black"
+    >
+      {subLinks && subLinks.length > 0 ? (
+        <button onClick={handleClick} className="w-full text-left p-0">
+          {title}
+        </button>
+      ) : (
+        <Link className=" " href={href}>
+          {title}
+        </Link>
+      )}
+    </motion.div>
+  );
+};
+
+export default MobileNavLink;
