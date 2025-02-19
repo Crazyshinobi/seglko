@@ -49,7 +49,7 @@ import { FaRegBuilding } from "react-icons/fa";
 import { FaBus } from "react-icons/fa6";
 import { FaHotel } from "react-icons/fa";
 
-import Button from "./Sidebar/Button";
+import Button from "./Sidebar/Button/Index";
 import styles from "./Sidebar/Menu/style.module.css";
 import Nav from "./Sidebar/Nav";
 
