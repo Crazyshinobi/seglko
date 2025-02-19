@@ -44,7 +44,7 @@ export const Header = () => {
     admissions: false,
     research: false,
     institutions : false,
-    studentZone : true,
+    studentZone : false,
   });
 
   // Toggle function for opening/closing dropdowns
@@ -838,7 +838,7 @@ export const Header = () => {
             <li
               className="p-3 hover:bg-green-50 rounded-md"
               onMouseEnter={() => toggleDropdown("studentZone", true)}
-              onMouseLeave={() => toggleDropdown("studentZone", true)}
+              onMouseLeave={() => toggleDropdown("studentZone", false)}
             >
               <Link href="#" className="flex items-center">
                 <p className="text-sm ">Student Zone</p>
