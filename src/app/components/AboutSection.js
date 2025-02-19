@@ -3,14 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import Target from "../../../public/Target.png";
 import { MorphingText } from "../../components/ui/morphing-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
-import AboutSliderImage1 from "../../../public/AboutSliderImage1.jpg";
 import AboutBg from "../../../public/AboutUsBg.png";
-import arrow from "../../../public/arrow.svg";
-import AboutHeadingImg from "../../../public/AboutHeadingImg.png";
-import leftBg from '../../../public/leftAboutBg.png'
 
 // Swiper Import
 import "swiper/css";
@@ -27,10 +22,10 @@ const morphingText = [
 ];
 
 const sliderImages = [
-  AboutSliderImage1,
-  AboutSliderImage1,
-  AboutSliderImage1,
-  AboutSliderImage1,
+  "/AboutSliderImage1.jpg",
+  "/AboutSliderImage1.jpg",
+  "/AboutSliderImage1.jpg",
+  "/AboutSliderImage1.jpg",
 ];
 
 export default function AboutSection() {
@@ -39,7 +34,7 @@ export default function AboutSection() {
       <div
         className="w-full mx-auto h-full"
         style={{
-          backgroundImage: `url(${AboutBg.src})`,
+          backgroundImage: `url(/AboutUsBg.png)`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -60,7 +55,7 @@ export default function AboutSection() {
               ease: "easeInOut",
             }}
           >
-            <Image src={Target} alt="Target" width={80} height={80} />
+            <Image src="/Target.png" alt="Target" width={80} height={80} />
           </motion.div>
         </div>
 
@@ -72,7 +67,7 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="absolute left-12 lg:flex hidden"
         >
-          <Image src={AboutHeadingImg} height={120} alt="Animated Svg" />
+          <Image src="/AboutHeadingImg.png" height={120} width={120} alt="Animated Svg" />
         </motion.div>
 
         {/* The About us and the Slider  */}
@@ -118,7 +113,7 @@ export default function AboutSection() {
                 <p className="text-lg lg:text-xl text-center text-blue-400"> Some College Glimpses </p>
               </div>
               <div className="w-24">
-                <Image src={arrow} height={200} width={200} alt="arrow svg"/>
+                <Image src="arrow.svg" height={200} width={200} alt="arrow svg"/>
               </div>
             </div>
             <div className="slider">
@@ -142,6 +137,7 @@ export default function AboutSection() {
                       layout="fill"
                       objectFit="cover"
                       priority={index === 0}
+                      
                     />
                   </SwiperSlide>
                 ))}

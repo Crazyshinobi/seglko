@@ -1,36 +1,33 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import HeadingBg from "../../../public/NewsSectionHeading.png";
-import ViewAllNewsBg from "../../../public/ViewAllNewsBg.png";
 import { GoArrowUpRight } from "react-icons/go";
-import NoticesImage from '../../../public/NoticesImage.png'
 
 const StudentNotices = [
   {
     id : 1,
-    image : NoticesImage,
+    image : "/NoticesImage.png",
     date : "12/02/2025",
     notice : "Notice",
     title : "Saroj Education Group"
   },
   {
     id : 2,
-    image : NoticesImage,
+    image : "/NoticesImage.png",
     date : "12/02/2025",
     notice : "Notice",
     title : "Saroj Education Group"
   },
   {
     id : 3,
-    image : NoticesImage,
+    image : "/NoticesImage.png",
     date : "12/02/2025",
     notice : "Notice",
     title : "Saroj Education Group"
   },
   {
     id : 4,
-    image : NoticesImage,
+    image : "/NoticesImage.png",
     date : "12/02/2025",
     notice : "Notice",
     title : "Saroj Education Group"
@@ -48,7 +45,7 @@ export default function NewsAndEvents() {
           {/*Background Image */}
           <div className="absolute inset-0 flex ml-28 justify-center items-center">
             <Image
-              src={HeadingBg}
+              src="/NewsSectionHeading.png"
               width={380}
               height={20}
               alt="bg"
@@ -86,7 +83,7 @@ export default function NewsAndEvents() {
               <div className="relative flex items-center justify-center py-2  w-3/5">
                 <div className="absolute flex inset-0 justify-start items-center ">
                   <Image
-                    src={ViewAllNewsBg}
+                    src="/ViewAllNewsBg.png"
                     height={120}
                     width={120}
                     alt="News button background"
@@ -238,7 +235,7 @@ export default function NewsAndEvents() {
                   
                   {/* Notice Image */}
                   <div className=" w-[30%] h-32 ">
-                    <Image src={notices.image} className="h-full" alt="Notices Images "/>
+                    <Image src={notices.image} className="h-full" alt="Notices Images " width={400} height={400} />
                   </div>
                   {/* Notices description  */}
                   <div className="w-[70%] flex flex-col gap-2  justify-center">

@@ -4,32 +4,6 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import Image from "next/image";
-import paperPlane from "../../../public/paper-plane.png";
-import RecuritersBg from "../../../public/ourRecruitersBg1.png";
-// import PlacementBg from '../../../public/bg-Placement.png'
-import PlacementBg from "../../../public/BG1.svg";
-
-// Logos Import
-import CognizantLogo from "../../../public/Cognizant-Logo.png";
-import AccentureLogo from "../../../public/Accenture-logo.png";
-import AonLogo from "../../../public/Aon-logo.png";
-import AsianPaintsLogo from "../../../public/asian-paints-logo.png";
-import CMCLogo from "../../../public/CMCLogo.png";
-import GoogleLogo from "../../../public/Google-logo.png";
-import HDFCBankLogo from "../../../public/HDFC-Bank-logo.png";
-import MicrosoftLogo from "../../../public/Microsoft-Logo.png";
-import NiitLogo from "../../../public/niit-logo.png";
-import TcsLogo from "../../../public/tcs-logo.png";
-import WiproLogo from "../../../public/Wipro-logo.png";
-import EclatLogo from "../../../public/ECLAT-logo.jpg";
-import TenderPalm from "../../../public/tender-palm-logo.png";
-import WellsunLogo from "../../../public/wellsun-logo.png";
-
-// Student placed Image
-import FirstStudentImage from "../../../public/SecondStudentPlaced.jpeg";
-import SecondStudentImage from "../../../public/FirstStudentPlaced.jpeg";
-import ThirdStudentImage from "../../../public/ThirdStudentPlaced.jpeg";
-
 import Marquee from "react-fast-marquee";
 
 export default function PlacementSection() {
@@ -59,17 +33,17 @@ export default function PlacementSection() {
   }, []);
 
   const hiringPartners = [
-    CognizantLogo,
-    AccentureLogo,
-    AonLogo,
-    AsianPaintsLogo,
-    CMCLogo,
-    GoogleLogo,
-    HDFCBankLogo,
-    MicrosoftLogo,
-    NiitLogo,
-    TcsLogo,
-    WiproLogo,
+    "/Cognizant-Logo.png",
+    "/Accenture-logo.png",
+    "/Aon-logo.png",
+    "/asian-paints-logo.png",
+    "/CMCLogo.png",
+    "/Google-logo.png",
+    "/HDFC-Bank-logo.png",
+    "/Microsoft-Logo.png",
+    "/niit-logo.png",
+    "/tcs-logo.png",
+    "/Wipro-logo.png",
   ];
 
   return (
@@ -77,7 +51,7 @@ export default function PlacementSection() {
       <div className="relative w-full ">
         <div
           style={{
-            backgroundImage: `url(${RecuritersBg.src})`,
+            backgroundImage: `url(/ourRecruitersBg1.png)`,
             backgroundSize: "cover",
             backgroundPosition: "top",
           }}
@@ -105,7 +79,7 @@ export default function PlacementSection() {
                 }}
               >
                 <Image
-                  src={paperPlane}
+                  src="/paper-plane.png"
                   alt="Paper Plane"
                   width={40}
                   height={40}
@@ -116,10 +90,10 @@ export default function PlacementSection() {
           {/* Recuriting partners Slider */}
           <div className="py-4">
             <Marquee gradient={true} gradientWidth={10}>
-              {hiringPartners.map((images, index) => (
+              {hiringPartners.map((image, index) => (
                 <Image
                   key={index}
-                  src={images.src}
+                  src={image}
                   width={120}
                   height={100}
                   alt="Hiring partners logos"
@@ -134,7 +108,7 @@ export default function PlacementSection() {
         <div
           className=" w-full "
           style={{
-            backgroundImage: `url(${PlacementBg.src})`,
+            backgroundImage: `url(/BG1.svg)`,
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
@@ -160,9 +134,11 @@ export default function PlacementSection() {
                   {/* Image */}
                   <div className="image w-full md:w-2/5 bg-red-300">
                     <Image
-                      src={FirstStudentImage}
+                      src="/SecondStudentPlaced.jpeg"
                       alt="Student placed image1"
                       className="w-full h-full"
+                      width={400}
+                      height={300}
                     />
                   </div>
 
@@ -191,7 +167,7 @@ export default function PlacementSection() {
                         80.00LPA
                       </h1>
                       <Image
-                        src={EclatLogo}
+                        src="/ECLAT-logo.jpg"
                         height={40}
                         width={120}
                         alt="eclat logo"
@@ -232,7 +208,7 @@ export default function PlacementSection() {
                         20.00LPA
                       </h1>
                       <Image
-                        src={TenderPalm}
+                        src="/tender-palm-logo.png"
                         alt="Tender palm logo"
                         className="bg-white p-2 rounded"
                         width={120} // Adjusted width
@@ -249,9 +225,11 @@ export default function PlacementSection() {
                   {/* Image */}
                   <div className="image w-full md:w-2/5 bg-red-300">
                     <Image
-                      src={SecondStudentImage}
+                      src="/FirstStudentPlaced.jpeg"
                       alt="Student placed image2"
                       className="w-full h-full"
+                      width={400}
+                      height={300}
                     />
                   </div>
                 </div>
@@ -276,9 +254,11 @@ export default function PlacementSection() {
                   {/* Image */}
                   <div className="image w-full md:w-2/5 lg:w-full bg-red-300">
                     <Image
-                      src={ThirdStudentImage}
+                      src="/ThirdStudentPlaced.jpeg"
                       alt="Third student image"
                       className="w-full h-full"
+                      width={400}
+                      height={300}
                     />
                   </div>
 
@@ -306,8 +286,9 @@ export default function PlacementSection() {
                         20.00CR
                       </h1>
                       <Image
-                        src={WellsunLogo}
+                        src="/wellsun-logo.png"
                         width={90}
+                        height={90}
                         alt="Wellsun logo"
                         className="bg-white p-2 rounded"
                       />

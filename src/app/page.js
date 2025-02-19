@@ -15,9 +15,9 @@ const Home = () => {
   return (
     <>
       {/* <HeroSection /> */}
-      {/* <AboutSection />
+      <AboutSection />
       <LatestNews/>
-      <PlacementSection/> */}
+      <PlacementSection/>
       {/* <CoursesOffered/> */}
       <NewsAndEvents/>
     </>
