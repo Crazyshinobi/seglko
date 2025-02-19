@@ -296,7 +296,7 @@ export const Header = () => {
         <div className="nav hidden xl:flex">
           <Link href="/">
             <Image
-              src={segLogo}
+              src="/seglogo.png"
               height={80}
               width={80}
               alt="SEG Logo"
@@ -1544,7 +1544,7 @@ export const Header = () => {
         <div className="nav xl:hidden ">
           <Link href="/">
             <Image
-              src={segLogo || "/placeholder.svg"}
+              src="/seglogo.png"
               height={60}
               width={60}
               alt="SEG Logo"
