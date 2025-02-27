@@ -2,6 +2,8 @@
 import Image from "next/image";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const StudentNotices = [
   {
@@ -36,7 +38,18 @@ const StudentNotices = [
   
 ]
 
+const EventsSlider = [
+  '/HappeningsImage1.jpg',
+  '/HappeningsImage1.jpg',
+  '/HappeningsImage1.jpg',
+  '/HappeningsImage1.jpg',
+  '/HappeningsImage1.jpg',
+  '/HappeningsImage1.jpg',
+]
+
 export default function NewsAndEvents() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <div className="">
       <div className="max-w-7xl mx-auto flex flex-col gap-5 py-2">
@@ -257,10 +270,8 @@ export default function NewsAndEvents() {
           </div>
         </div>
 
-
-        {/* Events Section  */}
-       <div>Events at Saroj educational group</div>
       </div>
+        
     </div>
   );
 }
