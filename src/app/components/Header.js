@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 // Images Import
-import segLogo from "../../../public/seglogo.png";
-import SegBanner from "../../../public/segBanner.jpeg";
+// import segLogo from "../../../public/seglogo.png";
+// import SegBanner from "../../../public/segBanner.jpeg";
 
 // icons import
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
@@ -296,7 +296,7 @@ export const Header = () => {
         <div className="nav hidden xl:flex">
           <Link href="/">
             <Image
-              src={segLogo}
+              src="/seglogo.png"
               height={80}
               width={80}
               alt="SEG Logo"
@@ -1544,7 +1544,7 @@ export const Header = () => {
         <div className="nav xl:hidden ">
           <Link href="/">
             <Image
-              src={segLogo || "/placeholder.svg"}
+              src="/seglogo.png"
               height={60}
               width={60}
               alt="SEG Logo"
