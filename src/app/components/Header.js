@@ -5,8 +5,6 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-
-
 // icons import
 import { HiOutlineBuildingLibrary } from "react-icons/hi2";
 import { IoIosStarOutline } from "react-icons/io";
@@ -1045,7 +1043,7 @@ export const Header = () => {
                       </div>
                       <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
                         <Image
-                          src='/segBanner.jpeg'
+                          src="/segBanner.jpeg"
                           alt="our institutions banner"
                           height={600}
                           width={600}

@@ -11,6 +11,11 @@ import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import Curve from "./components/Curves/Curve"; // Page transition wrapper
 import LenisProvider from "./components/LenisProvider";
+import {
+  SidebarInset,
+  SidebarProvider,
+} from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
 
@@ -24,7 +29,14 @@ const lora = Lora({
 export default function RootLayout({ children }) {
   const pathname = usePathname(); // Get current path
   const [isMounted, setIsMounted] = useState(false);
-
+  const isAdminRoute = pathname.startsWith("/admin");
+  const isAuthRoute = [
+    "/admin",
+    "/admin/forget-password",
+    "/admin/reset-password",
+    "/admin/verify-otp",
+  ].includes(pathname);
+  
   useEffect(() => {
     setIsMounted(true); 
   }, []);
@@ -53,18 +65,25 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="16x16" />
       </head>
       <body className={`${lora.variable} ${inter.variable} antialiased`}>
-        <LenisProvider>
-          <Header />
-          <AnimatePresence mode="wait">
-            <motion.div key={pathname}>
-              <Curve backgroundColor="#B0AD98 z-[1001]">
-                <Provider store={store}>{children}</Provider>
-              </Curve>
-              {/* {children} */}
-            </motion.div>
-          </AnimatePresence>
-          <Footer />
-        </LenisProvider>
+        {isAuthRoute ? (
+          <>{children}</>
+        ) : isAdminRoute ? (
+          <SidebarProvider>
+            <AppSidebar />
+            <SidebarInset>{children}</SidebarInset>
+          </SidebarProvider>
+        ) : (
+          <LenisProvider>
+            <Header />
+            <AnimatePresence mode="wait">
+              <motion.div key={pathname}>
+                <Curve backgroundColor="#B0AD98 z-[1001]"><Provider store={store}>{children}</Provider></Curve>
+                {/* {children} */}
+              </motion.div>
+            </AnimatePresence>
+            <Footer />
+          </LenisProvider>
+        )}
       </body>
     </html>
   );
