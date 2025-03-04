@@ -22,8 +22,8 @@ const morphingText = [
 ];
 
 const sliderImages = [
-  "/PlacementGraphic.jpeg",
-  "/SarojTimesMagazine.jpeg",
+  "/PlacementGraphic.JPEG",
+  "/SarojTimesMagazine.JPEG",
   "/AboutSliderImage1.jpg",
   "/AboutSliderImage1.jpg",
 ];

@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true); // Ensure layout only renders after mount
+    setIsMounted(true); 
   }, []);
 
   if (!isMounted) {
