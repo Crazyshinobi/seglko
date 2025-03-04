@@ -1161,7 +1161,7 @@ export const Header = () => {
                       </div>
                       <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
                         <Image
-                          src="/segBanner.jpeg"
+                          src='/segBanner.jpeg'
                           alt="our institutions banner"
                           height={600}
                           width={600}

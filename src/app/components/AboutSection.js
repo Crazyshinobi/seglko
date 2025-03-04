@@ -22,8 +22,8 @@ const morphingText = [
 ];
 
 const sliderImages = [
-  "/AboutSliderImage1.jpg",
-  "/AboutSliderImage1.jpg",
+  "/PlacementGraphic.jpeg",
+  "/SarojTimesMagazine.jpeg",
   "/AboutSliderImage1.jpg",
   "/AboutSliderImage1.jpg",
 ];
@@ -106,17 +106,17 @@ export default function AboutSection() {
           </div>
 
           {/* RIGHT SLIDER SECTION  */}
-          <div className="w-full lg:w-2/5">
+          <div className="w-full lg:w-2/5 bg-blue-100 rounded-lg p-1">
             <div className="glimpse w-full lg:w-2/3 flex mx-auto">
               <div>
                 <p className="text-3xl lg:text-5xl ">Here are </p>{" "}
-                <p className="text-lg lg:text-xl text-center text-blue-400"> Some College Glimpses </p>
+                <p className="text-lg lg:text-xl text-center text-blue-500"> Some College Glimpses </p>
               </div>
               <div className="w-24">
                 <Image src="arrow.svg" height={200} width={200} alt="arrow svg"/>
               </div>
             </div>
-            <div className="slider">
+            <div className="slider ">
               <Swiper
                 spaceBetween={50}
                 slidesPerView={1}

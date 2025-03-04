@@ -16,6 +16,8 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({
@@ -75,7 +77,7 @@ export default function RootLayout({ children }) {
             <Header />
             <AnimatePresence mode="wait">
               <motion.div key={pathname}>
-                <Curve backgroundColor="#B0AD98 z-[1001]">{children}</Curve>
+                <Curve backgroundColor="#B0AD98 z-[1001]"><Provider store={store}>{children}</Provider></Curve>
                 {/* {children} */}
               </motion.div>
             </AnimatePresence>
