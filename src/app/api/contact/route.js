@@ -1,20 +1,35 @@
 import connectDb from "@/lib/dbConnect";
 import { NextResponse } from "next/server";
 import Contact from "@/models/Contact";
+import { verifyToken } from "@/lib/verifyToken";
 
 export async function GET(req, res) {
   await connectDb();
-  const response = await Contact.find();
-  if (response) {
+  const { valid, decoded, message } = verifyToken(req);
+
+  if (!valid) {
+    return NextResponse.json({ error: message }, { status: 401 });
+  } 
+
+  if (decoded.role !== "admin") {
+    return NextResponse.json(
+      { error: "You are not authorized to view this data" },
+      { status: 403 }
+    );
+  }
+
+  try {
+    const contacts = await Contact.find();
     return NextResponse.json(
       {
         success: true,
         message: "Data fetched successfully",
-        data: response,
+        data: contacts,
       },
       { status: 200 }
     );
-  } else {
+  } catch (error) {
+    console.error("Error fetching contacts:", error);
     return NextResponse.json(
       {
         success: false,
