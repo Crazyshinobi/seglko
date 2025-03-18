@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function TopHeader() {
   return (
-    <div className='flex py-1 flex-row gap-4 items-center justify-center bg-slate-300 text-gray-600 cursor-pointer'>
+    <div className='lg:flex w-full hidden  py-1 flex-row gap-4 items-center justify-center bg-slate-300 text-gray-600 cursor-pointer'>
         <p>Why SEG?</p>
         <p>Alumni</p>
         <p>E-Brochure</p>
