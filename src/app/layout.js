@@ -18,6 +18,7 @@ import {
 import { AppSidebar } from "@/components/app-sidebar";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import TopHeader from "./components/TopHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({
@@ -74,6 +75,7 @@ export default function RootLayout({ children }) {
           </SidebarProvider>
         ) : (
           <LenisProvider>
+            <TopHeader/>
             <Header />
             <AnimatePresence mode="wait">
               <motion.div key={pathname}>

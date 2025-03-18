@@ -2,34 +2,33 @@
 import Image from "next/image";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
-import { motion } from "framer-motion";
 import { useState } from "react";
 
 const StudentNotices = [
   {
     id: 1,
-    image: "/NoticesImage.png",
-    date: "12/02/2025",
+    image: "/Notice1.jpeg",
+    date: "17/03/2025",
     notice: "Notice",
-    title: "Saroj Education Group",
+    title: "Schedule & Instructions for 1st Sessional Exam (Even Semester 2024-25)",
   },
   {
     id: 2,
-    image: "/NoticesImage.png",
+    image: "/Notice1.jpeg",
     date: "12/02/2025",
     notice: "Notice",
     title: "Saroj Education Group",
   },
   {
     id: 3,
-    image: "/NoticesImage.png",
+    image: "/Notice1.jpeg",
     date: "12/02/2025",
     notice: "Notice",
     title: "Saroj Education Group",
   },
   {
     id: 4,
-    image: "/NoticesImage.png",
+    image: "/Notice1.jpeg",
     date: "12/02/2025",
     notice: "Notice",
     title: "Saroj Education Group",
@@ -46,11 +45,11 @@ const EventsSlider = [
 ];
 
 export default function NewsAndEvents() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <div className="">
-      <div className="max-w-7xl mx-auto flex flex-col gap-5 py-2">
+    <div  className='w-full bg-[#fff9f2] '>
+      <div className="max-w-7xl mx-auto flex flex-col gap-5 py-2 pt-10">
         {/* Heading Section */}
         <div className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-4 flex items-center justify-start">
           {/* Background Image */}
@@ -60,7 +59,7 @@ export default function NewsAndEvents() {
               width={300}
               height={20}
               alt="bg"
-              className="opacity-50 w-[200px] sm:w-[300px] md:w-[380px]"
+              className="opacity-50 w-[200px] sm:w-[200px] md:w-[280px] "
             />
           </div>
 
@@ -71,7 +70,7 @@ export default function NewsAndEvents() {
         </div>
 
         {/* News Section */}
-        <div className="p-2 flex flex-col lg:flex-row gap-4 border border-red-400 w-full justify-start">
+        <div className="p-2 flex flex-col lg:flex-row gap-4 border  w-full justify-start">
           {/* Left News Section */}
           <div className="w-full lg:w-1/4 h-auto flex flex-col py-4">
             <div className="w-full flex flex-col gap-6 sm:gap-8 md:gap-10 items-center justify-center">
@@ -161,50 +160,77 @@ export default function NewsAndEvents() {
 
           {/* Third Section Student Notices */}
           <div className="w-full lg:w-1/3 h-auto flex flex-col gap-4 bg-white drop-shadow-lg shadow-lg rounded-md">
-            <div className="rounded-md text-xl sm:text-2xl md:text-3xl text-center font-bold text-white bg-blue-800 py-2">
-              Student Notice Board
-            </div>
-            <div className="flex justify-center items-center text-green-600 flex-row mx-auto w-11/12">
-              <span className="before:content-[''] before:block before:w-32 sm:before:w-40 md:before:w-56 before:h-[1px] before:bg-green-600 before:mr-2"></span>
-              <button className="text-sm sm:text-base md:text-lg">
-                Read all Notices
-              </button>
-            </div>
+          <div className="rounded-md text-xl sm:text-2xl md:text-3xl text-center font-bold text-white bg-blue-800 py-2">
+            Student Notice Board
+          </div>
+          <div className="flex justify-center items-center text-green-600 flex-row mx-auto w-11/12">
+            <span className="before:content-[''] before:block before:w-32 sm:before:w-40 md:before:w-56 before:h-[1px] before:bg-green-600 before:mr-2"></span>
+            <button className="text-sm sm:text-base md:text-lg">Read all Notices</button>
+          </div>
 
-            {/* All Notices Div */}
-            <div className="flex flex-col justify-center h-auto items-center gap-4 sm:gap-6 w-full">
-              {StudentNotices.map((notices) => (
-                <div key={notices.id} className="flex gap-4 w-[96%]">
-                  {/* Notice Image */}
-                  <div className="w-[30%] h-24 sm:h-32">
-                    <Image
-                      src={notices.image}
-                      className="h-full"
-                      alt="Notices Images"
-                      width={400}
-                      height={400}
-                    />
+          {/* Notices List */}
+          <div className="flex flex-col justify-center h-auto  gap-4 sm:gap-6 w-full">
+            {StudentNotices.map((notice) => (
+              <div key={notice.id} className="flex gap-4 w-[96%]">
+                {/* Notice Image (Click to Open Modal) */}
+                <div className="w-[30%] h-24 sm:h-32 cursor-pointer" onClick={() => setSelectedImage(notice.image)}>
+                  <Image
+                    src={notice.image}
+                    className="h-full w-full object-fill rounded-md"
+                    alt="Notice Image"
+                    width={400}
+                    height={400}
+                  />
+                </div>
+
+                {/* Notices Description */}
+                <div className="w-[70%] flex flex-col gap-2 justify-center">
+                  {/* Date, Time, and Notice Type */}
+                  <div className="flex flex-row gap-2 text-gray-500 text-xs sm:text-sm md:text-base">
+                    <h1>{notice.date}</h1>
+                    <h1>-</h1>
+                    <h1>{notice.notice}</h1>
                   </div>
-                  {/* Notices Description */}
-                  <div className="w-[70%] flex flex-col gap-2 justify-center">
-                    {/* Date and Time And Notice */}
-                    <div className="flex flex-row gap-2 text-gray-500 text-xs sm:text-sm md:text-base">
-                      <h1>{notices.date}</h1>
-                      <h1>-</h1>
-                      <h1>{notices.notice}</h1>
-                    </div>
 
-                    {/* Notice Title */}
-                    <div>
-                      <h1 className="text-sm sm:text-base md:text-lg">
-                        Saroj Educational Group Student Notice list shown
-                      </h1>
-                    </div>
+                  {/* Notice Title */}
+                  <div>
+                    <h1 className="text-sm sm:text-base md:text-lg">
+                      {notice.title}
+                    </h1>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Notice Image Modal */}
+        {selectedImage && (
+          <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+            <div className="relative bg-white p-4 rounded-lg shadow-lg">
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-full text-lg font-bold hover:bg-red-700"
+              >
+                ✕
+              </button>
+
+              {/* Enlarged Image */}
+              <Image
+                src={selectedImage}
+                width={500}
+                height={500}
+                alt="Enlarged Notice"
+                className="rounded-lg"
+              />
             </div>
           </div>
+        )}
+
+
+
+
         </div>
       </div>
     </div>

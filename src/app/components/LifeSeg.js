@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function LifeSeg() {
   return (
-    <>
-    <div className='max-w-7xl mx-auto text-center mt-4 py-4'>
+    <div  className='w-full bg-[#fff9f2]'>
+    <div className='max-w-7xl mx-auto text-center py-4'>
       <h1 className='text-5xl'>Life @ SEG</h1>   
 
       <div className="flex items-center justify-center p-8">
@@ -58,6 +58,6 @@ export default function LifeSeg() {
     </div>    
 
    
-    </>
+    </div>
   )
 }

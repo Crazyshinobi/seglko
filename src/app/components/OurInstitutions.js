@@ -5,8 +5,8 @@ import { MdPersonSearch } from "react-icons/md";
 
 export default function OurInstitutions() {
   return (
-   <>
-    <div className='max-w-7xl drop-shadow-lg shadow-lg bg-white w-full flex flex-row mx-auto gap-2 py-4 mt-8'>
+   <div className='w-full bg-[#fff9f2] py-10 mt-2'>
+    <div className='max-w-7xl drop-shadow-lg shadow-lg bg-white w-full flex flex-row mx-auto gap-2 py-2'>
      {/* OUR institution  */}
      <div className=' h-full w-2/4 flex flex-col items-center '>
       {/* Heading  */}
@@ -63,6 +63,6 @@ export default function OurInstitutions() {
 
 
     </div>
-   </>
+   </div>
   )
 }
