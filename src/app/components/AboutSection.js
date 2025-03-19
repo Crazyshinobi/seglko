@@ -27,7 +27,8 @@ const sliderImages = [
   "/PlacementGraphic.JPEG",
   "/SarojTimesMagazine.JPEG",
   "/AboutSlider3.jpg",
-  "/AboutSliderImage1.jpg",
+  "/PlacementGraphic2.png",
+  
 ];
 
 export default function AboutSection() {
@@ -150,7 +151,7 @@ export default function AboutSection() {
               </div>
               <div className="w-24">
                 <Image
-                  src="arrow.svg"
+                  src="/arrow.svg"
                   height={200}
                   width={200}
                   alt="arrow svg"

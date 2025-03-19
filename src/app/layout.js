@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
             <Header />
             <AnimatePresence mode="wait">
               <motion.div key={pathname}>
-                <Curve backgroundColor="#B0AD98 z-[1001]"><Provider store={store}>{children}</Provider></Curve>
+            <Provider store={store}>{children}</Provider>
                 {/* {children} */}
               </motion.div>
             </AnimatePresence>
