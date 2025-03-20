@@ -46,7 +46,7 @@ export const authOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
-      return "http://localhost:3000/admin/dashboard";
+      return `${process.env.NEXTAUTH_URL}/admin/dashboard`;
     },
   },
   pages: {
