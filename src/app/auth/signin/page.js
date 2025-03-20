@@ -3,19 +3,11 @@
 import { LoginForm } from "@/components/login-form";
 import Image from "next/image";
 import { useEffect } from "react";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
   useEffect(() => {
     document.title = "Login - Seglko Admin";
-    if (status === "authenticated") {
-      router.replace("/admin/dashboard");
-    }
-  }, [status, router]);
+  }, []);
 
   return (
     <div className="grid min-h-svh lg:grid-cols-2">

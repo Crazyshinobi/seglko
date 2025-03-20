@@ -8,14 +8,14 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
-import {  SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useEffect } from "react";
 
 export default function Page() {
   useEffect(() => {
     document.title = "Dashboard - Seglko Admin";
   }, []);
+
   return (
     <>
       <header className="flex h-16 shrink-0 items-center gap-2">

@@ -6,18 +6,16 @@ import { usePathname } from "next/navigation"; // Use usePathname for current pa
 import { AnimatePresence, motion } from "framer-motion"; // For page transitions
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { Lora } from "next/font/google";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import Curve from "./components/Curves/Curve"; // Page transition wrapper
 import LenisProvider from "./components/LenisProvider";
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import { Toaster } from "@/components/ui/sonner";
+import AuthProvider from "./providers/AuthProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({
@@ -36,7 +34,7 @@ export default function RootLayout({ children }) {
     "/admin/reset-password",
     "/admin/verify-otp",
   ].includes(pathname);
-  
+
   useEffect(() => {
     setIsMounted(true); // Ensure layout only renders after mount
   }, []);
@@ -65,25 +63,35 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="16x16" />
       </head>
       <body className={`${lora.variable} ${inter.variable} antialiased`}>
-        {isAuthRoute ? (
-          <>{children}</>
-        ) : isAdminRoute ? (
-          <SidebarProvider>
-            <AppSidebar />
-            <SidebarInset>{children}</SidebarInset>
-          </SidebarProvider>
-        ) : (
-          <LenisProvider>
-            <Header />
-            <AnimatePresence mode="wait">
-              <motion.div key={pathname}>
-                <Curve backgroundColor="#B0AD98 z-[1001]"><Provider store={store}>{children}</Provider></Curve>
-                {/* {children} */}
-              </motion.div>
-            </AnimatePresence>
-            <Footer />
-          </LenisProvider>
-        )}
+        <AuthProvider>
+          {isAuthRoute ? (
+            <>
+              {children}
+              <Toaster />
+            </>
+          ) : isAdminRoute ? (
+            <SidebarProvider>
+              <AppSidebar />
+              <SidebarInset>
+                {children}
+                <Toaster  position="top-center"/>
+              </SidebarInset>
+            </SidebarProvider>
+          ) : (
+            <LenisProvider>
+              <Header />
+              <AnimatePresence mode="wait">
+                <motion.div key={pathname}>
+                  <Curve backgroundColor="#B0AD98 z-[1001]">
+                    <Provider store={store}>{children}</Provider>
+                  </Curve>
+                  {/* {children} */}
+                </motion.div>
+              </AnimatePresence>
+              <Footer />
+            </LenisProvider>
+          )}
+        </AuthProvider>
       </body>
     </html>
   );

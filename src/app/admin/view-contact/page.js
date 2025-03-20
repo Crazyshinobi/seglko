@@ -4,16 +4,22 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { DataTable } from "./data-table";
 import { Button } from "@/components/ui/button";
+import { Archive } from "lucide-react";
+import { toast } from "sonner";
 
 export default function page() {
   const [data, setData] = useState([]);
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/contact/${id}`);
-      setData((prev) => prev.filter((item) => item.id !== id));
+      const response = await axios.delete(`/api/contact/${id}`);
+      if (response.data.success) {
+        setData((prev) => prev.filter((item) => item._id !== id));
+        toast.success("Contact deleted successfully");
+      }
     } catch (error) {
       console.error("Failed to delete:", error);
+      toast.error(error.response?.data?.message || "Failed to delete contact");
     }
   };
 
@@ -43,8 +49,10 @@ export default function page() {
         return (
           <Button
             variant="destructive"
+            size="sm"
             onClick={() => handleDelete(rowData._id)}
           >
+            <Archive className="h-4 w-4" />
             Delete
           </Button>
         );
@@ -55,6 +63,7 @@ export default function page() {
   const fetchData = async () => {
     const result = await axios.get("/api/contact");
     const contacts = result?.data?.data;
+    console.log("contacts", contacts)
     setData(contacts);
   };
 
@@ -76,7 +85,7 @@ export default function page() {
           {data.length > 0 ? (
             <DataTable columns={columns} data={data} />
           ) : (
-            <p className="text-center p-10">Loading...</p>
+            <p className="text-center p-10">No Contacts</p>
           )}
         </div>
       </div>
