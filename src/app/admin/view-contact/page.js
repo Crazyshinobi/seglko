@@ -1,11 +1,11 @@
 "use client";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { DataTable } from "./data-table";
 import { Button } from "@/components/ui/button";
 import { Archive } from "lucide-react";
 import { toast } from "sonner";
+import { AdminHeader } from "@/components/admin-header";
 
 export default function page() {
   const [data, setData] = useState([]);
@@ -68,18 +68,13 @@ export default function page() {
   };
 
   useEffect(() => {
-    document.title = "View Contact - Seglko Admin";
+    document.title = "Seglko Admin - View Contact ";
     fetchData();
   }, []);
 
   return (
     <>
-      <header className="flex h-16 shrink-0 items-center gap-2">
-        <div className="flex items-center gap-2 px-4">
-          <SidebarTrigger className="-ml-1" />
-          <p>View Contacts</p>
-        </div>
-      </header>
+      <AdminHeader heading={"View Contacts"}/>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
           {data.length > 0 ? (
