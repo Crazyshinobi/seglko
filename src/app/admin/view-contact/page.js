@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { DataTable } from "./data-table";
+import { DataTable } from "../../../components/data-table";
 import { Button } from "@/components/ui/button";
 import { Archive } from "lucide-react";
 import { toast } from "sonner";
