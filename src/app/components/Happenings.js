@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 
 const items = [
   { id: 1, url: "/HappeningsImage1.jpg" },
-  { id: 2, url: "/SarojTimesMagazine.jpeg" },
+  { id: 2, url: "/SarojTimesMagazine.JPEG" },
   { id: 3, url: "/HappeningsImage1.jpg" },
-  { id: 4, url: "/SarojTimesMagazine.jpeg" },
+  { id: 4, url: "/SarojTimesMagazine.JPEG" },
   { id: 5, url: "/HappeningsImage1.jpg" },
-  { id: 6, url: "/SarojTimesMagazine.jpeg" },
+  { id: 6, url: "/SarojTimesMagazine.JPEG" },
 
 ];
 

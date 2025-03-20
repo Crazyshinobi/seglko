@@ -1,6 +1,6 @@
 "use client";
 
-import { Geist, Geist_Mono, Lora } from "next/font/google";
+import { Lora } from "next/font/google";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation"; // Use usePathname for current path
 import { AnimatePresence, motion } from "framer-motion"; // For page transitions
@@ -16,6 +16,7 @@ import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "./providers/AuthProvider";
+import TopHeader from "./components/TopHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({
@@ -36,7 +37,7 @@ export default function RootLayout({ children }) {
   ].includes(pathname);
 
   useEffect(() => {
-    setIsMounted(true); // Ensure layout only renders after mount
+    setIsMounted(true); 
   }, []);
 
   if (!isMounted) {

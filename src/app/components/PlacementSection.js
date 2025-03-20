@@ -47,7 +47,6 @@ export default function PlacementSection() {
   ];
 
   return (
-    <div className="py-9">
       <div className="relative w-full ">
         <div
           style={{
@@ -89,7 +88,7 @@ export default function PlacementSection() {
           </div>
           {/* Recuriting partners Slider */}
           <div className="py-4">
-            <Marquee gradient={true} gradientWidth={10}>
+            <Marquee gradient={true} gradientWidth={10} direction="right">
               {hiringPartners.map((image, index) => (
                 <Image
                   key={index}
@@ -114,7 +113,7 @@ export default function PlacementSection() {
           }}
         >
           {/* Recent Placements  */}
-          <div className="max-w-7xl mx-auto py-8 mb-4 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto py-8  px-4 sm:px-6 lg:px-8">
             <h1
               className="text-4xl sm:text-5xl md:text-6xl py-4"
               style={{
@@ -130,15 +129,16 @@ export default function PlacementSection() {
               {/* Left Section */}
               <div className="left w-full lg:w-4/6 flex flex-col gap-6">
                 {/* First Student Placed */}
-                <div className="leftbox w-full border h-auto flex flex-col md:flex-row">
+                <div className="leftbox w-full border  flex flex-col md:flex-row">
                   {/* Image */}
                   <div className="image w-full md:w-2/5 bg-red-300">
                     <Image
-                      src="/SecondStudentPlaced.jpeg"
+                      src="/FirstStudentPlaced.jpeg"
                       alt="Student placed image1"
-                      className="w-full h-full"
-                      width={400}
-                      height={300}
+                      className=" "
+                      width={320}
+                      height={400}
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
 
@@ -148,28 +148,32 @@ export default function PlacementSection() {
 
                     <div className="content flex flex-col">
                       <p className="text-xl sm:text-2xl text-blue-500">
-                        Anup Yadav
+                        Umesh Mishra
                       </p>
                       <p className="text-justify text-sm sm:text-base">
-                        We feel immensely proud to announce that our student M.
-                        Ankit Agrahari from the B. Pharma 2024 batch has been
-                        successfully placed at{" "}
+                        We feel immensely proud to announce that our student,
+                        Ankit Agrahari, from the B.Tech CSE 4th Year batch, has
+                        been successfully placed at{" "}
                         <strong className="font-bold text-blue-600">
-                          Eclat Health Solution!
+                          Square IT Solutions Pvt.Ltd
+                        </strong>{" "}
+                        as a{" "}
+                        <strong className="text-blue-600">
+                          {" "}
+                          Web Developer!
                         </strong>
-                        .
                       </p>
                     </div>
 
                     {/* Company Logo */}
                     <div className="bg-blue-800 rounded-md flex gap-4 justify-center items-center py-2 px-4">
                       <h1 className="text-2xl sm:text-3xl md:text-4xl text-white whitespace-nowrap">
-                        80.00LPA
+                        10.00LPA
                       </h1>
                       <Image
-                        src="/ECLAT-logo.jpg"
-                        height={40}
-                        width={120}
+                        src="/squareit-logo.jpg"
+                        height={50}
+                        width={130}
                         alt="eclat logo"
                         className="bg-white p-2 rounded"
                       />
@@ -184,28 +188,32 @@ export default function PlacementSection() {
                 </div>
 
                 {/* Second Student Placed */}
-                <div className="Secondbox w-full border h-auto flex flex-col md:flex-row">
+                <div className="Secondbox w-full border flex flex-col md:flex-row">
                   {/* Congratulation */}
                   <div className="w-full md:w-3/5 bg-yellow-300 flex flex-col gap-2 shadow-xl drop-shadow-lg p-4">
                     <h1 className="text-2xl sm:text-3xl">Congratulations!</h1>
 
                     <div className="content flex flex-col">
                       <p className="text-xl sm:text-2xl text-blue-500">
-                        Vishav Verma
+                        Pramudit Shukla
                       </p>
                       <p className="text-justify text-sm sm:text-base">
-                        We are proud to announce that our student Vishav Verma
-                        from B. Pharma 4th Year has been successfully placed at{" "}
+                        We are proud to announce that our student, Vishav Verma,
+                        from{" "}
+                        <span className="font-extrabold">Diploma in CSE,</span>{" "}
+                        has been successfully placed at{" "}
+                        <strong className="text-blue-600">TechMech</strong> as a{" "}
                         <strong className="text-blue-600">
-                          Tender Palm Hospital.
-                        </strong>{" "}
+                          {" "}
+                          Full Stack Developer!
+                        </strong>
                       </p>
                     </div>
 
                     {/* Company Logo */}
                     <div className="bg-blue-800 rounded-md flex gap-4 justify-center items-center py-2 px-4">
                       <h1 className="text-2xl sm:text-3xl md:text-4xl text-white whitespace-nowrap">
-                        20.00LPA
+                        12.00LPA
                       </h1>
                       <Image
                         src="/tender-palm-logo.png"
@@ -225,25 +233,14 @@ export default function PlacementSection() {
                   {/* Image */}
                   <div className="image w-full md:w-2/5 bg-red-300">
                     <Image
-                      src="/FirstStudentPlaced.jpeg"
+                      src="/SecondStudentPlaced.jpeg"
                       alt="Student placed image2"
-                      className="w-full h-full"
-                      width={400}
-                      height={300}
+                      className=""
+                      width={320}
+                      height={400}
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
-                </div>
-
-                <div className="flex justify-center items-center">
-                  {" "}
-                  <button className="border-none shadow-xl bg-red-500 p-2 rounded-md  bg-transparent cursor-pointer flex items-center justify-center group space-x-2">
-                    <span className="relative text-black  uppercase text-sm tracking-widest pb-1 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-black  after:bottom-0 after:left-0 after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-300 group-hover:after:scale-x-100 group-hover:after:origin-bottom-left">
-                      View all Placements
-                    </span>
-                    <span className="transition-transform duration-300 transform group-hover:translate-x-1">
-                      →
-                    </span>
-                  </button>
                 </div>
               </div>
 
@@ -254,11 +251,12 @@ export default function PlacementSection() {
                   {/* Image */}
                   <div className="image w-full md:w-2/5 lg:w-full bg-red-300">
                     <Image
-                      src="/ThirdStudentPlaced.jpeg"
+                      src="/ThirdStudentPlace.jpeg"
                       alt="Third student image"
-                      className="w-full h-full"
-                      width={400}
-                      height={300}
+                      className="w-full"
+                      width={320}
+                      height={400}
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
 
@@ -268,25 +266,26 @@ export default function PlacementSection() {
 
                     <div className="content flex flex-col">
                       <p className="text-xl sm:text-2xl text-blue-500">
-                        Shruti Pandey
+                        Shaloni Devi
                       </p>
                       <p className="text-justify text-sm sm:text-base">
-                        We are proud to announce that our student Shruti Pandey
-                        from B. Pharma 4th Year has been successfully placed at{" "}
+                        We are proud to announce that our student, Shaloni Devi,
+                        from B. Pharma 4th Year, has been successfully placed at{" "}
                         <strong className="text-blue-600">
-                          Wellsun Medicity Hospital
+                          Max Healthcare
                         </strong>{" "}
-                        as a Pharmacist!
+                        as an{" "}
+                        <strong className="text-blue-600"> Executive!</strong>
                       </p>
                     </div>
 
                     {/* Company Logo and LPA */}
                     <div className="bg-blue-800 rounded-md flex justify-center items-center gap-4 py-2 px-4">
                       <h1 className="text-2xl sm:text-3xl md:text-4xl text-white whitespace-nowrap">
-                        20.00CR
+                        18.00LPA
                       </h1>
                       <Image
-                        src="/wellsun-logo.png"
+                        src="/maxHealthCare.png"
                         width={90}
                         height={90}
                         alt="Wellsun logo"
@@ -303,9 +302,25 @@ export default function PlacementSection() {
                 </div>
               </div>
             </div>
+
+            {/* View All Placement Button  */}
+            <div className="flex justify-center items-center">
+              <button
+                className="border-none shadow-xl p-2 rounded-md cursor-pointer flex items-center justify-center group space-x-2"
+                style={{
+                  background: "linear-gradient(145deg, #e6e0da, #ffffff)",
+                }}
+              >
+                <span className="relative text-black uppercase text-sm tracking-widest pb-1 after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-black after:bottom-0 after:left-0 after:scale-x-0 after:origin-bottom-right after:transition-transform after:duration-300 group-hover:after:scale-x-100 group-hover:after:origin-bottom-left">
+                  View all Placements
+                </span>
+                <span className="transition-transform duration-300 transform group-hover:translate-x-1">
+                  →
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }

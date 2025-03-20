@@ -1514,7 +1514,7 @@ export const Header = () => {
 
             {/* Contact us */}
             <li className="p-3 hover:bg-green-50 rounded-md">
-              <Link href="#" className="flex items-center justify-center">
+              <Link href="/contact" className="flex items-center justify-center">
                 <p className="text-sm ">Contact us</p>
               </Link>
             </li>

@@ -5,13 +5,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { MorphingText } from "../../components/ui/morphing-text";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { IoPlaySkipForwardCircleOutline } from "react-icons/io5";
+
 // import AboutBg from "../../../public/AboutUsBg.png";
 
 // Swiper Import
 import "swiper/css";
 import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 
 const morphingText = [
   "Shaping the Future",
@@ -22,10 +24,11 @@ const morphingText = [
 ];
 
 const sliderImages = [
-  "/PlacementGraphic.jpeg",
-  "/SarojTimesMagazine.jpeg",
-  "/AboutSliderImage1.jpg",
-  "/AboutSliderImage1.jpg",
+  "/PlacementGraphic.JPEG",
+  "/SarojTimesMagazine.JPEG",
+  "/AboutSlider3.jpg",
+  "/PlacementGraphic2.png",
+  
 ];
 
 export default function AboutSection() {
@@ -67,22 +70,28 @@ export default function AboutSection() {
           viewport={{ once: true }}
           className="absolute left-12 lg:flex hidden"
         >
-          <Image src="/AboutHeadingImg.png" height={120} width={120} alt="Animated Svg" />
+          <Image
+            src="/AboutHeadingImg.png"
+            height={120}
+            width={120}
+            alt="Animated Svg"
+          />
         </motion.div>
 
         {/* The About us and the Slider  */}
         <div className="flex flex-col lg:flex-row max-w-7xl mx-auto items-start">
           {/* LEFT SECTION  */}
-          <div
-           className="flex flex-col gap-8 items-start min-h-screen w-full lg:w-3/5 p-2 justify-center ">
+          <div className="flex flex-col gap-2 items-start min-h-screen w-full lg:w-3/5 p-2 justify-center ">
             <div className="">
-              <h1 className="text-2xl lg:text-4xl">Empowering Future Leaders,</h1>
+              <h1 className="text-2xl lg:text-4xl">
+                Empowering Future Leaders,
+              </h1>
             </div>
 
-            <div className="-mt-5 h-24 w-full lg:w-2/3 overflow-hidden text-end">
+            <div className=" h-24 w-full lg:w-2/3 overflow-hidden text-end">
               <MorphingText texts={morphingText} className="" />
             </div>
-
+            
             <div className="content w-full lg:w-3/4 overflow-hidden text-lg  text-justify">
               Welcome to Saroj Educational Group (SEG), established in 1997.
               Over the years, SEG has grown exponentially, earning recognition
@@ -101,8 +110,33 @@ export default function AboutSection() {
                 Join us at Saroj Educational Group, where the journey towards
                 shaping the future begins. 🚀
               </h2>
-              <InteractiveHoverButton>Connect now</InteractiveHoverButton>
+
+              <div className="flex items-center gap-3">
+                <div>
+                  <InteractiveHoverButton>Connect now</InteractiveHoverButton>
+                </div>
+
+                <div className="flex items-center gap-2 hover:underline">
+                  <a
+                    href="https://www.youtube.com/watch?v=dvYzwISIIHI"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-light text-lg text-blue-900"
+                  >
+                    Watch Video{" "}
+                  </a>{" "}
+                  <p className="text-3xl">
+                    <IoPlaySkipForwardCircleOutline />
+                  </p>
+                </div>
+              </div>
+              
             </div>
+            <div className="h-auto flex flex-row w-5/6 bg-purple-300 mt-2">
+                    <div className="flex flex-col bg-blue-900 w-1/3 p-5"><p className="text-4xl font-extrabold text-white">400+</p><p className="text-white">Recruiters on Board</p></div>
+                    <div className="flex flex-col bg-yellow-500  w-[35%] p-5"><p className="text-4xl font-extrabold text-black">30.00 LPA</p> <p className="text-black text-base">Highest Salary </p></div>
+                    <div className="flex flex-col bg-yellow-500 w-1/3 p-5 border-l-2 border-dashed border-black"><p className="text-4xl font-extrabold text-black " >5.50 LPA</p><p  className="text-black">Average Salary</p></div>
+                </div>
           </div>
 
           {/* RIGHT SLIDER SECTION  */}
@@ -110,20 +144,28 @@ export default function AboutSection() {
             <div className="glimpse w-full lg:w-2/3 flex mx-auto">
               <div>
                 <p className="text-3xl lg:text-5xl ">Here are </p>{" "}
-                <p className="text-lg lg:text-xl text-center text-blue-500"> Some College Glimpses </p>
+                <p className="text-lg lg:text-xl text-center text-blue-500">
+                  {" "}
+                  Some College Glimpses{" "}
+                </p>
               </div>
               <div className="w-24">
-                <Image src="arrow.svg" height={200} width={200} alt="arrow svg"/>
+                <Image
+                  src="/arrow.svg"
+                  height={200}
+                  width={200}
+                  alt="arrow svg"
+                />
               </div>
             </div>
             <div className="slider ">
               <Swiper
                 spaceBetween={50}
                 slidesPerView={1}
-                autoplay={5000}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
                 loop={true}
                 navigation
-                modules={[Navigation]}
+                modules={[Navigation, Autoplay]}
                 className="h-[50vh] lg:h-[86vh] relative lg:right-28"
               >
                 {sliderImages.map((images, index) => (
@@ -137,7 +179,6 @@ export default function AboutSection() {
                       layout="fill"
                       objectFit="cover"
                       priority={index === 0}
-                      
                     />
                   </SwiperSlide>
                 ))}
