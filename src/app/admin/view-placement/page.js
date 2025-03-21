@@ -44,9 +44,10 @@ export default function page() {
         return (
           <Image
             src={rowData.image}
-            width={400}
-            height={200}
+            width={280}
+            height={160}
             alt={rowData.name}
+            className="object-cover rounded-md"
           />
         );
       },
