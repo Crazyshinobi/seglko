@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import Link from "next/link";
 
 export default function PlacementSection() {
   const planeRef = useRef(null);
@@ -152,7 +153,7 @@ export default function PlacementSection() {
                       </p>
                       <p className="text-justify text-sm sm:text-base">
                         We feel immensely proud to announce that our student,
-                        Ankit Agrahari, from the B.Tech CSE 4th Year batch, has
+                        Umesh Mishra, from the B.Tech CSE 4th Year batch, has
                         been successfully placed at{" "}
                         <strong className="font-bold text-blue-600">
                           Square IT Solutions Pvt.Ltd
@@ -198,7 +199,7 @@ export default function PlacementSection() {
                         Pramudit Shukla
                       </p>
                       <p className="text-justify text-sm sm:text-base">
-                        We are proud to announce that our student, Vishav Verma,
+                        We are proud to announce that our student, Pramudit Shukla,
                         from{" "}
                         <span className="font-extrabold">Diploma in CSE,</span>{" "}
                         has been successfully placed at{" "}
@@ -304,8 +305,8 @@ export default function PlacementSection() {
             </div>
 
             {/* View All Placement Button  */}
-            <div className="flex justify-center items-center">
-              <button
+            <div className="flex justify-center items-center p-4">
+              <Link href="/placements"><button
                 className="border-none shadow-xl p-2 rounded-md cursor-pointer flex items-center justify-center group space-x-2"
                 style={{
                   background: "linear-gradient(145deg, #e6e0da, #ffffff)",
@@ -317,7 +318,7 @@ export default function PlacementSection() {
                 <span className="transition-transform duration-300 transform group-hover:translate-x-1">
                   →
                 </span>
-              </button>
+              </button></Link>
             </div>
           </div>
         </div>

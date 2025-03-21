@@ -9,7 +9,6 @@ import { Inter } from "next/font/google";
 import { Lora } from "next/font/google";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
-import Curve from "./components/Curves/Curve"; // Page transition wrapper
 import LenisProvider from "./components/LenisProvider";
 import {
   SidebarInset,

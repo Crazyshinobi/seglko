@@ -1,13 +1,12 @@
 import { LuPhone } from "react-icons/lu";
-import { CiMail } from "react-icons/ci";
-import { CiLocationOn } from "react-icons/ci";
+import { CiMail, CiLocationOn } from "react-icons/ci";
 import { PiMailboxDuotone } from "react-icons/pi";
 import "../css/SocialMediaIcons.css";
 
 const Footer = () => {
   return (
     <footer
-      className=" mt-auto bg-[#fff9f2]"
+      className="mt-auto bg-[#fff9f2]"
       style={{
         backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/FooterBg.png)`,
         backgroundSize: "contain",
@@ -15,24 +14,25 @@ const Footer = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="h-auto lg:flex lg:flex-row px-16 justify-center py-16 ">
-        {/* Location  */}
-        <div className="w-3/12   flex flex-col gap-6 p-6 ">
-          <div className="flex flex-col gap-2">
-            <div className="flex flex-row items-center gap-2 ">
+      {/* Main Content */}
+      <div className="px-6 py-12 md:px-12 lg:px-16 flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap md:justify-between lg:justify-center gap-8">
+        {/* Contact Section */}
+        <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-6 p-4">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2">
               <p className="bg-yellow-400 rounded-xl p-2 text-xl">
                 <CiLocationOn />
               </p>
               <p>Our Location</p>
             </div>
-
-            <div className="flex flex-row items-center gap-2">
+            <div className="flex items-center gap-2">
               <p className="bg-yellow-400 rounded-xl p-2 text-xl">
                 <PiMailboxDuotone />
               </p>
               <p>Mail Us</p>
             </div>
           </div>
+
           <div className="flex flex-col gap-2 font-light">
             <h1 className="font-extrabold">Quick Contact</h1>
             <p className="flex items-center gap-2">
@@ -44,9 +44,12 @@ const Footer = () => {
               09810054878
             </p>
             <p className="flex items-center gap-2">
-              <CiMail /> admission.cell@seglko.org{" "}
+              <CiMail />
+              admission.cell@seglko.org
             </p>
-          </div>{" "}
+          </div>
+
+          {/* Social Media Icons */}
           <div>
             <ul className="iconsFooter flex mt-2">
               <li className="icon-contentFooter">
@@ -152,70 +155,86 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Programs  */}
-        <div className="w-2/12   text-gray-500 flex flex-col gap-2 p-6">
-          <h3 className="text-black text-lg">Programs</h3>
-          <p>MBA</p>
-          <p>BBA</p>
-          <p>MCA</p>
-          <p>M.Tech </p>
-          <p>BCA</p>
-          <p>B.Tech</p>
-          <p>M.Pharma</p>
-          <p>D.Pharma</p>
-          <p>B.Pharma</p>
-          <p>Polytechnic</p>
-        </div>
-
-        <div className="w-2/12   flex flex-col gap-20 text-gray-500 p-6">
-          <div className="flex flex-col gap-2">
-            <h3 className="text-black text-lg">Admissions</h3>
-            <p>Admission Process</p>
-            <p>Eligibility Criteria</p>
-            <p>Our Courses</p>
-            <p>Fee Structure</p>
+        {/* Programs */}
+        <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-3 p-4">
+          <h3 className="text-black text-lg text-center md:text-left">Programs</h3>
+          <div className="flex flex-wrap justify-between gap-2 text-gray-500">
+            <div>
+              <p>MBA</p>
+              <p>BBA</p>
+              <p>MCA</p>
+              <p>M.Tech</p>
+              <p>BCA</p>
+            </div>
+            <div>
+              <p>B.Tech</p>
+              <p>M.Pharma</p>
+              <p>D.Pharma</p>
+              <p>B.Pharma</p>
+              <p>Polytechnic</p>
+            </div>
           </div>
         </div>
 
-        <div className="w-2/12   flex flex-col gap-2 text-gray-500 p-6">
-          <h3 className="text-black text-lg">Campus</h3>
-
-          <p>Lecture Halls</p>
-          <p>Library</p>
-          <p>Gallery</p>
-          <p>Computer Lab</p>
-          <p>Cafeteria</p>
-          <p>Sports</p>
-          <p>Campus</p>
-          <p>Transport</p>
-          <p>Hostel</p>
-          <p>Medical</p>
+        {/* Admissions */}
+        <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-3 p-4 text-gray-500">
+          <h3 className="text-black text-lg text-center md:text-left">Admissions</h3>
+          <p>Admission Process</p>
+          <p>Eligibility Criteria</p>
+          <p>Our Courses</p>
+          <p>Fee Structure</p>
         </div>
 
-        <div className="w-3/12  text-gray-500 flex flex-col justify-between gap-20 py-6">
-          <div className="flex flex-col gap-3 ">
-            <h3 className="text-black text-lg">Quick Links</h3>
-            <p> → Saroj Institute of Technology & Management</p>
-            <p>→ Shivdan Singh Institute of Technology & Management</p>
-            <p>→ Saroj Institute of Management & Technology</p>
-            <p>→ Lucknow Institute Of Pharmacy</p>
-            <p>→ Saroj College Of Pharmacy</p>
+        {/* Campus */}
+        <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-3 p-4 text-gray-500">
+          <h3 className="text-black text-lg text-center md:text-left">Campus</h3>
+          <div className="flex flex-wrap justify-between gap-2">
+            <div>
+              <p>Lecture Halls</p>
+              <p>Library</p>
+              <p>Gallery</p>
+              <p>Computer Lab</p>
+              <p>Cafeteria</p>
+            </div>
+            <div>
+              <p>Sports</p>
+              <p>Campus</p>
+              <p>Transport</p>
+              <p>Hostel</p>
+              <p>Medical</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Links */}
+        <div className="w-full lg:w-3/12 flex flex-col justify-between gap-12 p-4">
+         <div className="flex flex-col gap-3">
+            <h3 className="text-black text-lg text-center sm:text-start">Quick Links</h3>
+            <div className="flex flex-row items-start gap-2">
+              <p>→</p>
+              <p>Saroj Institute of Technology & Management</p>
+            </div>
+            <div className="flex flex-row items-start gap-2">
+              <p>→</p>
+              <p>Shivdan Singh Institute of Technology & Management</p>
+            </div>
+            <div className="flex flex-row items-start gap-2">
+              <p>→</p>
+              <p>Saroj College Of Pharmacy</p>
+            </div>
           </div>
 
           <div className="flex flex-col gap-1">
-            <hr className="w-full h-[1px] bg-green-400 border-none" />
+            <hr className="w-full h-[1px] border-none bg-green-400" />
             <p>→ Privacy Policy</p>
             <p>→ Terms and Conditions</p>
           </div>
         </div>
       </div>
 
-      <div className="container text-center text-white bg-black py-4">
-        <p>
-          {" "}
-          © Copyright All Right Reserved &copy; {new Date().getFullYear()} Saroj
-          Educational Group (SEG)
-        </p>
+      {/* Footer Bottom */}
+      <div className="bg-black text-white text-center p-3">
+        © {new Date().getFullYear()} Saroj Educational Group (SEG). All Rights Reserved.
       </div>
     </footer>
   );
