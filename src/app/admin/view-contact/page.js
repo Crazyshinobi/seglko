@@ -2,10 +2,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { DataTable } from "../../../components/data-table";
-import { Button } from "@/components/ui/button";
-import { Archive } from "lucide-react";
 import { toast } from "sonner";
 import { AdminHeader } from "@/components/admin-header";
+import { DeleteButton } from "@/components/delete-button";
+import { RefreshCcw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function page() {
   const [data, setData] = useState([]);
@@ -46,16 +47,7 @@ export default function page() {
       header: "Actions",
       cell: ({ row }) => {
         const rowData = row.original;
-        return (
-          <Button
-            variant="destructive"
-            size="sm"
-            onClick={() => handleDelete(rowData._id)}
-          >
-            <Archive className="h-4 w-4" />
-            Delete
-          </Button>
-        );
+        return <DeleteButton onDelete={() => handleDelete(rowData._id)} />;
       },
     },
   ];
@@ -63,7 +55,6 @@ export default function page() {
   const fetchData = async () => {
     const result = await axios.get("/api/contact");
     const contacts = result?.data?.data;
-    console.log("contacts", contacts)
     setData(contacts);
   };
 
@@ -74,9 +65,10 @@ export default function page() {
 
   return (
     <>
-      <AdminHeader heading={"View Contacts"}/>
+      <AdminHeader heading={"View Contacts"} onRefresh={() => fetchData()}/>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
+          
           {data.length > 0 ? (
             <DataTable columns={columns} data={data} />
           ) : (

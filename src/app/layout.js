@@ -2,13 +2,12 @@
 
 import { Lora } from "next/font/google";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation"; // Use usePathname for current path
-import { AnimatePresence, motion } from "framer-motion"; // For page transitions
+import { usePathname } from "next/navigation"; 
+import { AnimatePresence, motion } from "framer-motion"; 
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
-import Curve from "./components/Curves/Curve"; // Page transition wrapper
 import LenisProvider from "./components/LenisProvider";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
@@ -26,7 +25,7 @@ const lora = Lora({
 });
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname(); // Get current path
+  const pathname = usePathname(); 
   const [isMounted, setIsMounted] = useState(false);
   const authRoutes = [
     "/admin",
@@ -93,9 +92,7 @@ export default function RootLayout({ children }) {
               {showHeaderAndFooter && <Header />}
               <AnimatePresence mode="wait">
                 <motion.div key={pathname}>
-                  <Curve backgroundColor="#B0AD98 z-[1001]">
-                    <Provider store={store}>{children}</Provider>
-                  </Curve>
+                  <Provider store={store}>{children}</Provider>
                 </motion.div>
               </AnimatePresence>
               {showHeaderAndFooter && <Footer />}

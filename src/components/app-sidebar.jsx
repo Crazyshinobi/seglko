@@ -26,11 +26,6 @@ import Link from "next/link";
 import Image from 'next/image';
 
 const data = {
-  user: {
-    name: "abc",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Contact Us",
@@ -49,16 +44,12 @@ const data = {
       icon: Receipt,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Add Placement",
+          url: "/admin/add-placement",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
+          title: "View Placement",
+          url: "/admin/view-placement",
         },
       ],
     },

@@ -21,7 +21,7 @@ export function LoginForm({ className, ...props }) {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const searchParams = useSearchParams();
-  const router = useRouter()
+  const router = useRouter();
   const rawCallbackUrl = searchParams.get("callbackUrl") ?? "/admin/dashboard";
   const callbackUrl = decodeURIComponent(
     rawCallbackUrl.split("?callbackUrl=")[0]
@@ -73,7 +73,9 @@ export function LoginForm({ className, ...props }) {
       {...props}
     >
       <div className="flex justify-center">
-        <Image src="/seglogo.png" height={200} width={120} alt="SEG Logo" />
+        <Link href={"/"}>
+          <Image src="/seglogo.png" height={200} width={120} alt="SEG Logo" />
+        </Link>
       </div>
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-2xl font-bold">Login to your account</h1>

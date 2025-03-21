@@ -9,9 +9,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { Moon, Sun } from "lucide-react";
+import { Moon, Sun, RefreshCcw } from "lucide-react";
 import { useTheme } from "next-themes";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -21,7 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 
-export const AdminHeader = ({ heading }) => {
+export const AdminHeader = ({ heading, onRefresh }) => {
   const { setTheme } = useTheme();
   return (
     <header className="flex h-16 shrink-0 justify-between items-center gap-2">
@@ -42,7 +41,14 @@ export const AdminHeader = ({ heading }) => {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <div className="px-4">
+      <div className="flex gap-5 items-center px-4">
+        {
+          onRefresh && (
+            <Button onClick={onRefresh} variant="outline" size="icon">
+              <RefreshCcw />
+            </Button>
+          )
+        }
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
