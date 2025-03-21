@@ -1,5 +1,4 @@
 import NavigationPages from '@/app/utils/NavigationPages';
-import Image from 'next/image';
 import React from 'react'
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMailUnread } from "react-icons/io";
@@ -8,11 +7,10 @@ export default function ContactPage() {
   return ( 
   <>
    <div >
-    <img src="/arrow.svg"
-     className="md:h-[40vh] lg:h-[35vh] w-full h-[26vh] object-fill"
-     
+    <img src="/ContactUsBanner.jpg" alt="Contact Us"
+     className="md:h-[40vh] lg:h-80 w-full h-[26vh] object-cover"    
      />
-   <h1>Contact Us</h1>
+  
    </div>
    
   <div>

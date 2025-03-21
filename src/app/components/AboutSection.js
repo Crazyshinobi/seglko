@@ -27,7 +27,7 @@ const sliderImages = [
   "/PlacementGraphic.JPEG",
   "/SarojTimesMagazine.JPEG",
   "/AboutSlider3.jpg",
-  "/PlacementGraphic2.png",
+  "/PlacementGraphic2.PNG",
   
 ];
 
@@ -35,15 +35,14 @@ export default function AboutSection() {
   return (
     <>
       <div
-        className="w-full mx-auto h-full"
+        className="w-full mx-auto h-full py-4 lg:bg-cover lg:bg-center"
         style={{
-          backgroundImage: `url(/AboutUsBg.png)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundImage: `url(/AboutUsBg5.png)`,
+         
         }}
       >
-        <div className="heading mx-auto text-center items-center max-w-7xl flex py-4 flex-col lg:flex-row w-full">
-          <h1 className="text-4xl lg:text-6xl w-11/12">
+        <div className="heading mx-auto text-center items-center max-w-7xl lg:flex py-4  hidden  lg:flex-row w-full">
+          <h1 className="text-4xl  lg:text-6xl  w-11/12">
             Welcome to Saroj Educational Group
           </h1>
 
@@ -68,7 +67,7 @@ export default function AboutSection() {
           whileInView={{ x: 500, y: -25, rotate: 360, opacity: 1 }}
           transition={{ duration: 2.5, ease: "easeInOut" }}
           viewport={{ once: true }}
-          className="absolute left-12 lg:flex hidden"
+          className="absolute left-12 xl:flex hidden 2xl:hidden"
         >
           <Image
             src="/AboutHeadingImg.png"
@@ -79,20 +78,20 @@ export default function AboutSection() {
         </motion.div>
 
         {/* The About us and the Slider  */}
-        <div className="flex flex-col lg:flex-row max-w-7xl mx-auto items-start">
+        <div className="flex md:flex-row lg:justify-evenly  lg:flex-row flex-col-reverse max-w-full  mx-auto items-center ">
           {/* LEFT SECTION  */}
-          <div className="flex flex-col gap-2 items-start min-h-screen w-full lg:w-3/5 p-2 justify-center ">
+          <div className="flex flex-col gap-2 items-start text-justify w-full  sm:w-3/5 md:w-2/4 p-3 justify-center 2xl:justify-start">
             <div className="">
               <h1 className="text-2xl lg:text-4xl">
                 Empowering Future Leaders,
               </h1>
             </div>
 
-            <div className=" h-24 w-full lg:w-2/3 overflow-hidden text-end">
+            <div className=" md:h-16   w-full lg:w-2/3 overflow-hidden text-end">
               <MorphingText texts={morphingText} className="" />
             </div>
             
-            <div className="content w-full lg:w-3/4 overflow-hidden text-lg  text-justify">
+            <div className="content w-full lg:w-3/4 overflow-hidden lg:text-lg md:text-sm md:p-2  text-justify">
               Welcome to Saroj Educational Group (SEG), established in 1997.
               Over the years, SEG has grown exponentially, earning recognition
               both in the industry and academia for its commitment to
@@ -105,23 +104,23 @@ export default function AboutSection() {
               create lasting value in their respective fields.
             </div>
 
-            <div className="connect w-full lg:w-3/4 space-y-8">
+            <div className="connect w-full lg:w-3/4 space-y-3 md:p-2">
               <h2>
                 Join us at Saroj Educational Group, where the journey towards
                 shaping the future begins. 🚀
               </h2>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 ">
                 <div>
                   <InteractiveHoverButton>Connect now</InteractiveHoverButton>
                 </div>
 
-                <div className="flex items-center gap-2 hover:underline">
+                <div className="flex items-center lg:gap-2  md:gap-2 hover:underline">
                   <a
                     href="https://www.youtube.com/watch?v=dvYzwISIIHI"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-light text-lg text-blue-900"
+                    className="font-light lg:text-lg md:text-lg text-base text-blue-900"
                   >
                     Watch Video{" "}
                   </a>{" "}
@@ -132,18 +131,18 @@ export default function AboutSection() {
               </div>
               
             </div>
-            <div className="h-auto flex flex-row w-5/6 bg-purple-300 mt-2">
-                    <div className="flex flex-col bg-blue-900 w-1/3 p-5"><p className="text-4xl font-extrabold text-white">400+</p><p className="text-white">Recruiters on Board</p></div>
-                    <div className="flex flex-col bg-yellow-500  w-[35%] p-5"><p className="text-4xl font-extrabold text-black">30.00 LPA</p> <p className="text-black text-base">Highest Salary </p></div>
-                    <div className="flex flex-col bg-yellow-500 w-1/3 p-5 border-l-2 border-dashed border-black"><p className="text-4xl font-extrabold text-black " >5.50 LPA</p><p  className="text-black">Average Salary</p></div>
+            <div className="h-auto flex flex-row lg:w-5/6 w-full bg-purple-300 mt-2">
+                    <div className="flex flex-col bg-blue-900 w-1/3 p-5"><p className="lg:text-4xl text-2xl font-extrabold text-white">400+</p><p className="text-white">Recruiters on Board</p></div>
+                    <div className="flex flex-col bg-yellow-500  w-[35%] p-5"><p className="lg:text-4xl text-2xl font-extrabold text-black">30.00 LPA</p> <p className="text-black text-base">Highest Salary </p></div>
+                    <div className="flex flex-col bg-yellow-500 w-1/3 p-5 border-l-2 border-dashed border-black"><p className="lg:text-4xl text-2xl font-extrabold text-black " >5.50 LPA</p><p  className="text-black">Average Salary</p></div>
                 </div>
           </div>
 
           {/* RIGHT SLIDER SECTION  */}
-          <div className="w-full lg:w-2/5 bg-blue-100 rounded-lg p-1">
+          <div className="w-full  md:w-2/4 lg:w-2/5 bg-blue-100 rounded-lg p-1 py-4 ">
             <div className="glimpse w-full lg:w-2/3 flex mx-auto">
               <div>
-                <p className="text-3xl lg:text-5xl ">Here are </p>{" "}
+                <p className="text-3xl xl:text-5xl ">Here are </p>{" "}
                 <p className="text-lg lg:text-xl text-center text-blue-500">
                   {" "}
                   Some College Glimpses{" "}
@@ -166,7 +165,7 @@ export default function AboutSection() {
                 loop={true}
                 navigation
                 modules={[Navigation, Autoplay]}
-                className="h-[50vh] lg:h-[86vh] relative lg:right-28"
+              className="md:h-[69vh] h-[80vh] lg:h-[86vh] xl:h-[75vh] 2xl:h-[86vh] sm:h-[69vh] relative lg:w-11/12 md:w-full lg:right-28 right-0"  
               >
                 {sliderImages.map((images, index) => (
                   <SwiperSlide
@@ -177,7 +176,7 @@ export default function AboutSection() {
                       src={images}
                       alt={`About Slider ${index}`}
                       layout="fill"
-                      objectFit="cover"
+                      objectFit="fill"
                       priority={index === 0}
                     />
                   </SwiperSlide>
