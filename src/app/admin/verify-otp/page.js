@@ -21,7 +21,8 @@ export default function VerifyOTPPage() {
         src="/futuristic3.jpg"
         alt="Futuristic Background"
         fill
-        className="absolute inset-0 object-cover"
+        className="absolute inset-0 object-
+         "
         priority
       />
 

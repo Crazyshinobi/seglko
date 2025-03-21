@@ -1,22 +1,27 @@
 import connectDb from "@/lib/dbConnect";
 import { NextResponse } from "next/server";
 import Contact from "@/models/Contact";
-import { verifyToken } from "@/lib/verifyToken";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../auth/[...nextauth]/route";
 
 export async function GET(req, res) {
   await connectDb();
-  const { valid, decoded, message } = verifyToken(req);
+  const session = await getServerSession(authOptions);
 
-  if (!valid) {
-    return NextResponse.json({ error: message }, { status: 401 });
-  } 
+  if (!session) {
+    return NextResponse.json(
+      { error: "Unauthorized access" },
+      { status: 401 }
+    );
+  }
 
-  if (decoded.role !== "admin") {
+  if (session.user.role !== "admin") {
     return NextResponse.json(
       { error: "You are not authorized to view this data" },
       { status: 403 }
     );
   }
+
 
   try {
     const contacts = await Contact.find();

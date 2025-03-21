@@ -1,19 +1,18 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
-  BookOpen,
-  Bot,
-  School,
+  Landmark,
+  Receipt,
+  Clipboard,
   Frame,
   Map,
   PieChart,
-  Settings2,
   MessageSquareMore,
-} from "lucide-react"
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavUser } from "@/components/nav-user"
+} from "lucide-react";
+import { NavMain } from "@/components/nav-main";
+import { NavProjects } from "@/components/nav-projects";
+import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -22,21 +21,16 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import Link from "next/link"
+} from "@/components/ui/sidebar";
+import Link from "next/link";
+import Image from 'next/image';
 
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Contact Us",
       url: "#",
       icon: MessageSquareMore,
-      isActive: true,
       items: [
         {
           title: "View Contact",
@@ -45,28 +39,24 @@ const data = {
       ],
     },
     {
-      title: "Models",
+      title: "Placement",
       url: "#",
-      icon: Bot,
+      icon: Receipt,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "Add Placement",
+          url: "/admin/add-placement",
         },
         {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
+          title: "View Placement",
+          url: "/admin/view-placement",
         },
       ],
     },
     {
-      title: "Documentation",
+      title: "Notice Board",
       url: "#",
-      icon: BookOpen,
+      icon: Clipboard,
       items: [
         {
           title: "Introduction",
@@ -87,9 +77,9 @@ const data = {
       ],
     },
     {
-      title: "Settings",
+      title: "Placement Update",
       url: "#",
-      icon: Settings2,
+      icon: Landmark,
       items: [
         {
           title: "General",
@@ -127,26 +117,23 @@ const data = {
       icon: Map,
     },
   ],
-}
+};
 
-export function AppSidebar({
-  ...props
-}) {
+export function AppSidebar({ ...props }) {
   return (
-    (<Sidebar variant="inset" {...props}>
+    <Sidebar variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/admin/dashboard">
-                <div
-                  className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                 <School className="size-4" />
-     
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg">
+                  <Image src="/seglogo.png" height={60} width={60} alt='Saroj Educational Group Logo' />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">Saroj Educational Group</span>
-                  <span className="truncate text-xs">Enterprise</span>
+                  <span className="truncate font-semibold">
+                    Saroj Educational Group
+                  </span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -158,8 +145,8 @@ export function AppSidebar({
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser />
       </SidebarFooter>
-    </Sidebar>)
+    </Sidebar>
   );
 }

@@ -1,8 +1,11 @@
 "use client";
-import { SidebarTrigger } from "@/components/ui/sidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { DataTable } from "./data-table";
+import { DataTable } from "../../../components/data-table";
+import { toast } from "sonner";
+import { AdminHeader } from "@/components/admin-header";
+import { DeleteButton } from "@/components/delete-button";
+import { RefreshCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function page() {
@@ -10,10 +13,14 @@ export default function page() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`/api/contact/${id}`);
-      setData((prev) => prev.filter((item) => item.id !== id));
+      const response = await axios.delete(`/api/contact/${id}`);
+      if (response.data.success) {
+        setData((prev) => prev.filter((item) => item._id !== id));
+        toast.success("Contact deleted successfully");
+      }
     } catch (error) {
       console.error("Failed to delete:", error);
+      toast.error(error.response?.data?.message || "Failed to delete contact");
     }
   };
 
@@ -40,14 +47,7 @@ export default function page() {
       header: "Actions",
       cell: ({ row }) => {
         const rowData = row.original;
-        return (
-          <Button
-            variant="destructive"
-            onClick={() => handleDelete(rowData._id)}
-          >
-            Delete
-          </Button>
-        );
+        return <DeleteButton onDelete={() => handleDelete(rowData._id)} />;
       },
     },
   ];
@@ -59,24 +59,20 @@ export default function page() {
   };
 
   useEffect(() => {
-    document.title = "View Contact - Seglko Admin";
+    document.title = "Seglko Admin - View Contact ";
     fetchData();
   }, []);
 
   return (
     <>
-      <header className="flex h-16 shrink-0 items-center gap-2">
-        <div className="flex items-center gap-2 px-4">
-          <SidebarTrigger className="-ml-1" />
-          <p>View Contacts</p>
-        </div>
-      </header>
+      <AdminHeader heading={"View Contacts"} onRefresh={() => fetchData()}/>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
+          
           {data.length > 0 ? (
             <DataTable columns={columns} data={data} />
           ) : (
-            <p className="text-center p-10">Loading...</p>
+            <p className="text-center p-10">No Contacts</p>
           )}
         </div>
       </div>
