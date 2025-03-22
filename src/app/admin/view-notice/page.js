@@ -14,7 +14,7 @@ export default function page() {
   const fetchData = async () => {
     try {
       setIsLoading(true);
-      const result = await axios.get("/api/placement");
+      const result = await axios.get("/api/notice");
       const placements = result?.data?.data;
       setData(placements);
     } catch (error) {
@@ -32,27 +32,20 @@ export default function page() {
       cell: ({ row }) => row.index + 1, // row index starts from 0, so add 1
     },
     {
-      accessorKey: "name",
-      header: "Name",
+      accessorKey: "title",
+      header: "Title",
     },
     {
-      accessorKey: "course",
-      header: "Course",
+      header: "Date",
+      cell: ({ row }) => {
+        const rowData = row.original;
+        return (
+        rowData.createdAt.split("T")[0].split("-").reverse().join("-")
+        );
+      },
     },
     {
-      accessorKey: "company",
-      header: "Company Name",
-    },
-    {
-      accessorKey: "designation",
-      header: "Job Role (Designation)",
-    },
-    {
-      accessorKey: "compensation",
-      header: "Package (₹ in LPA)",
-    },
-    {
-      accessorKey: "Student Image",
+      header: "Notice Image",
       cell: ({ row }) => {
         const rowData = row.original;
         return (
@@ -69,7 +62,7 @@ export default function page() {
   ];
 
   useEffect(() => {
-    document.title = "Seglko Admin - View Placement";
+    document.title = "Seglko Admin - View Notices";
     fetchData();
   }, []);
 
@@ -81,14 +74,14 @@ export default function page() {
         {isLoading ? (
             <div className="flex items-center justify-center h-[50vh]">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
-              <span className="ml-2">Loading Placements...</span>
+              <span className="ml-2">Loading Notices...</span>
             </div>
           ) : data.length > 0 ? (
             <DataTable columns={columns} data={data} />
           ) : (
             <div className="flex flex-col items-center justify-center h-[50vh] text-muted-foreground">
-              <p className="text-lg font-medium">No Placements found</p>
-              <p className="text-sm">Placements will appear here once submitted.</p>
+              <p className="text-lg font-medium">No Notices found</p>
+              <p className="text-sm">Notices will appear here once submitted.</p>
             </div>
           )}
         </div>

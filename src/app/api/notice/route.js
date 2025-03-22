@@ -1,6 +1,6 @@
 import connectDb from "@/lib/dbConnect";
 import { NextResponse } from "next/server";
-import Placement from "@/models/Placement";
+import Notice from "@/models/Notice";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { uploadFile } from "@/middleware/formidableMiddleware";
@@ -8,17 +8,17 @@ import { uploadFile } from "@/middleware/formidableMiddleware";
 export async function GET(req, res) {
   try {
     await connectDb();
-    const placements = await Placement.find();
+    const notice = await Notice.find();
     return NextResponse.json(
       {
         success: true,
-        message: "Placements fetched successfully",
-        data: placements,
+        message: "Notice fetched successfully",
+        data: notice,
       },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error fetching placements:", error);
+    console.error("Error fetching notice:", error);
     return NextResponse.json(
       {
         success: false,
@@ -44,14 +44,10 @@ export async function POST(req) {
     const formData = await req.formData();
 
     // Get form fields
-    const name = formData.get("name");
-    const course = formData.get("course");
-    const company = formData.get("company");
-    const designation = formData.get("designation");
-    const compensation = formData.get("compensation");
+    const title = formData.get("title");
 
     // Validate fields
-    if (!name || !course || !company || !designation || !compensation) {
+    if (!title) {
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 }
@@ -62,29 +58,25 @@ export async function POST(req) {
     const imagePath = await uploadFile(formData);
 
     // Create placement
-    const newPlacement = await Placement.create({
-      name,
-      course,
-      company,
-      designation,
-      compensation: parseFloat(compensation),
+    const newNotice = await Notice.create({
+      title,
       image: imagePath,
     });
 
     return NextResponse.json(
       {
         success: true,
-        message: "Placement created successfully",
-        data: newPlacement,
+        message: "Notice created successfully",
+        data: newNotice,
       },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error creating placement:", error);
+    console.error("Error creating notice:", error);
     return NextResponse.json(
       {
         success: false,
-        error: "Failed to create placement",
+        error: "Failed to create notice",
         details: error.message,
       },
       { status: 500 }

@@ -1,19 +1,18 @@
 import connectDb from "@/lib/dbConnect";
+import PlacementUpdate from "@/models/PlacementUpdate";
 import { NextResponse } from "next/server";
-import Placement from "@/models/Placement";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
-import { uploadFile } from "@/middleware/formidableMiddleware";
 
 export async function GET(req, res) {
   try {
     await connectDb();
-    const placements = await Placement.find();
+    const placementupdates = await PlacementUpdate.find();
     return NextResponse.json(
       {
         success: true,
-        message: "Placements fetched successfully",
-        data: placements,
+        message: "Placements Update fetched successfully",
+        data: placementupdates,
       },
       { status: 200 }
     );
@@ -41,50 +40,36 @@ export async function POST(req) {
     }
 
     await connectDb();
-    const formData = await req.formData();
-
-    // Get form fields
-    const name = formData.get("name");
-    const course = formData.get("course");
-    const company = formData.get("company");
-    const designation = formData.get("designation");
-    const compensation = formData.get("compensation");
+    const { company, course } = await req.json();
 
     // Validate fields
-    if (!name || !course || !company || !designation || !compensation) {
+    if (!company || !course) {
       return NextResponse.json(
         { error: "All fields are required" },
         { status: 400 }
       );
     }
 
-    // Upload file and get path
-    const imagePath = await uploadFile(formData);
-
     // Create placement
-    const newPlacement = await Placement.create({
-      name,
+    const newPlacementUpdate = await PlacementUpdate.create({
       course,
       company,
-      designation,
-      compensation: parseFloat(compensation),
-      image: imagePath,
     });
 
     return NextResponse.json(
       {
         success: true,
-        message: "Placement created successfully",
-        data: newPlacement,
+        message: "Placement Update created successfully",
+        data: newPlacementUpdate,
       },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error creating placement:", error);
+    console.error("Error creating placement update:", error);
     return NextResponse.json(
       {
         success: false,
-        error: "Failed to create placement",
+        error: "Failed to create placement update",
         details: error.message,
       },
       { status: 500 }
