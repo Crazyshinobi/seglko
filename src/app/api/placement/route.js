@@ -6,10 +6,10 @@ import { authOptions } from "../auth/[...nextauth]/route";
 import { uploadFile } from "@/middleware/formidableMiddleware";
 
 export async function GET(req, res) {
-  const session = await getServerSession(authOptions);
-  if (!session) {
-    return NextResponse.json({ error: "Unauthorized access" }, { status: 401 });
-  }
+  // const session = await getServerSession(authOptions);
+  // if (!session) {
+  //   return NextResponse.json({ error: "Unauthorized access" }, { status: 401 });
+  // }
 
   try {
     await connectDb();

@@ -6,9 +6,9 @@ import { IoMdMailUnread } from "react-icons/io";
 export default function ContactPage() {
   return ( 
   <>
-   <div >
+   <div className='w-full '>
     <img src="/ContactUsBanner.jpg" alt="Contact Us"
-     className="md:h-[40vh] lg:h-80 w-full h-[26vh] object-cover"    
+     className="md:h-[40vh] lg:h-80 w-full h-[26vh] object-cover" 
      />
   
    </div>
