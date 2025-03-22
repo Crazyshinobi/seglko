@@ -1,22 +1,36 @@
 "use client";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { DataTable } from "../../../components/data-table";
-import { toast } from "sonner";
 import { AdminHeader } from "@/components/admin-header";
-import { DeleteButton } from "@/components/delete-button";
+import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
+import { DataTable } from "../../../components/data-table";
+import { DeleteButton } from "@/components/delete-button";
+import { toast } from "sonner";
+import axios from "axios";
 
 export default function page() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchData = async () => {
+    try {
+      setIsLoading(true);
+      const result = await axios.get("/api/placement-update");
+      const placementUpdates = result?.data?.data;
+      setData(placementUpdates);
+    } catch (error) {
+      console.error("Failed to fetch contacts:", error);
+      toast.error("Failed to load contacts");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`/api/contact/${id}`);
+      const response = await axios.delete(`/api/placement-update/${id}`);
       if (response.data.success) {
         setData((prev) => prev.filter((item) => item._id !== id));
-        toast.success("Contact deleted successfully");
+        toast.success(response.data.message || "Placement Update deleted successfully");
       }
     } catch (error) {
       console.error("Failed to delete:", error);
@@ -28,28 +42,15 @@ export default function page() {
     {
       id: "serialNo",
       header: "S.No",
-      cell: ({ row }) => row.index + 1, // row index starts from 0, so add 1
+      cell: ({ row }) => row.index + 1,
     },
     {
-      accessorKey: "name",
-      header: "Name",
+      accessorKey: "company",
+      header: "Company Name",
     },
     {
-      accessorKey: "email",
-      header: "Email",
-    },
-    {
-      accessorKey: "message",
-      header: "Message",
-    },
-    {
-      header: "Date",
-      cell: ({ row }) => {
-        const rowData = row.original;
-        return (
-        rowData.createdAt.split("T")[0].split("-").reverse().join("-")
-        );
-      },
+      accessorKey: "course",
+      header: "Course",
     },
     {
       id: "actions",
@@ -61,42 +62,31 @@ export default function page() {
     },
   ];
 
-  const fetchData = async () => {
-    try {
-      setIsLoading(true);
-      const result = await axios.get("/api/contact");
-      const contacts = result?.data?.data;
-      setData(contacts);
-    } catch (error) {
-      console.error("Failed to fetch contacts:", error);
-      toast.error("Failed to load contacts");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   useEffect(() => {
-    document.title = "Seglko Admin - View Contact ";
+    document.title = "Seglko Admin - View Placement Updates ";
     fetchData();
   }, []);
 
   return (
     <>
-      <AdminHeader heading={"View Contacts"} onRefresh={() => fetchData()} />
+      <AdminHeader
+        heading={"View Placement Updates"}
+        onRefresh={() => fetchData()}
+      />
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-        <div className="min-h-[100vh] flex-1 rounded-xl md:min-h-min">
+        <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
           {isLoading ? (
             <div className="flex items-center justify-center h-[50vh]">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
-              <span className="ml-2">Loading contacts...</span>
+              <span className="ml-2">Loading Placements Update...</span>
             </div>
           ) : data.length > 0 ? (
             <DataTable columns={columns} data={data} />
           ) : (
             <div className="flex flex-col items-center justify-center h-[50vh] text-muted-foreground">
-              <p className="text-lg font-medium">No contacts found</p>
+              <p className="text-lg font-medium">No Placements Update found</p>
               <p className="text-sm">
-                Contacts will appear here once submitted.
+                Placements Update will appear here once submitted.
               </p>
             </div>
           )}

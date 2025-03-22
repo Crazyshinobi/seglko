@@ -59,20 +59,12 @@ const data = {
       icon: Clipboard,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: "Add Notice",
+          url: "/admin/add-notice",
         },
         {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          title: "View Notice",
+          url: "/admin/view-notice",
         },
       ],
     },
@@ -82,20 +74,12 @@ const data = {
       icon: Landmark,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: "Add Placement Update",
+          url: "/admin/add-placement-update",
         },
         {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
+          title: "View Placement Update",
+          url: "/admin/view-placement-update",
         },
       ],
     },
