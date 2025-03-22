@@ -63,7 +63,7 @@ export default function PlacementPage() {
     <>
       <div className="md:h-[40vh] lg:h-80 w-full h-[22vh]">
         <img
-          src="/PlacementBanner.png"
+          src="/PlacementBanner.PNG"
           alt="Placement Banner"
           className="w-full h-full object-cover"
         />
@@ -88,11 +88,11 @@ export default function PlacementPage() {
                   className="flex bg-white shadow-lg rounded-lg overflow-hidden p-4 gap-6"
                 >
                   {/* Student Image */}
-                  <div className="w-2/5 relative h-40 md:h-52">
+                  <div className="w-2/5 relative h-42 md:h-60">
                     <Image
                       src={placement.image || "/default-student.jpg"}
                       alt={placement.name}
-                      className="object-cover h-full w-full"
+                      className="object-cover h-full w-full object-top"
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
