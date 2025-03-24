@@ -129,30 +129,33 @@ const navLinks = [
     subLinks: [{ title: "Placement record 2024-25", href: "/" }],
   },
   {
-    title : "Explore More", href : "/", subLinks : [
-      {title : "Life @ SEG" , href: "/"},
-      {title : "Lecture Halls" , href: "/"},
-      {title : "Library" , href: "/"},
-      {title : "Gallery" , href: "/"},
-      {title : "Computer Labs" , href: "/"},
-      {title : "Cafeteria" , href: "/"},
-      {title : "Sports" , href: "/"},
-      {title : "Campus" , href: "/"},
-      {title : "Transport" , href: "/"},
-      {title : "Hostel" , href: "/"},
-    ]
+    title: "Explore More",
+    href: "/",
+    subLinks: [
+      { title: "Life @ SEG", href: "/" },
+      { title: "Lecture Halls", href: "/" },
+      { title: "Library", href: "/" },
+      { title: "Gallery", href: "/" },
+      { title: "Computer Labs", href: "/" },
+      { title: "Cafeteria", href: "/" },
+      { title: "Sports", href: "/" },
+      { title: "Campus", href: "/" },
+      { title: "Transport", href: "/" },
+      { title: "Hostel", href: "/" },
+    ],
   },
   {
-    title : "Contact Us", href : "/"
+    title: "Contact Us",
+    href: "/",
   },
   {
-    title : "Fee Payment", href : "/"
+    title: "Fee Payment",
+    href: "/",
   },
   {
-    title : "Career", href : "/"
+    title: "Career",
+    href: "/",
   },
-
-
 ];
 
 const variants = {
@@ -241,6 +244,18 @@ export const Header = () => {
     }));
   };
 
+  const closeAllDropdowns = () => {
+    setDropdownStates({
+      about: false,
+      programs: false,
+      admissions: false,
+      research: false,
+      institutions: false,
+      studentZone: false,
+      placements: false,
+      exploreMore: false,
+    });
+  };
   // Animation variants for the dropdown
   const dropdownVariants = {
     hidden: {
@@ -317,14 +332,17 @@ export const Header = () => {
               onMouseEnter={() => toggleDropdown("about", true)}
               onMouseLeave={() => toggleDropdown("about", false)}
             >
-              <Link href="/about" className="flex items-center">
+              <button
+                className="flex items-center "
+                onClick={() => toggleDropdown("about", !dropdownStates.about)}
+              >
                 <p className="text-sm ">About SEG </p>
                 {dropdownStates.about ? (
                   <MdKeyboardArrowDown />
                 ) : (
                   <MdKeyboardArrowUp />
                 )}
-              </Link>
+              </button>
 
               <AnimatePresence>
                 {dropdownStates.about && (
@@ -346,16 +364,22 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              History of SEG
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Established with a mission to empower students,
-                              fostering their growth through knowledge,
-                              leadership, and innovation."
-                            </p>
+                            <Link
+                              href="/about/history"
+                              onClick={closeAllDropdowns}
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                History of SEG
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Established with a mission to empower students,
+                                fostering their growth through knowledge,
+                                leadership, and innovation."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
+
                         {/* Mission and Vision */}
                         <motion.li
                           variants={itemVariants}
@@ -365,17 +389,23 @@ export const Header = () => {
                             <GiCheckeredFlag className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              {" "}
-                              Mission and Vision
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Driven by a commitment to excellence, SEG aims to
-                              shape the future by empowering students with
-                              knowledge, leadership, and innovation."
-                            </p>
+                            <Link
+                              href="/about/mission-vision"
+                              onClick={closeAllDropdowns}
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                {" "}
+                                Mission and Vision
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Driven by a commitment to excellence, SEG aims
+                                to shape the future by empowering students with
+                                knowledge, leadership, and innovation."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
+
                         {/* Why Join Seg */}
                         <motion.li
                           variants={itemVariants}
@@ -385,6 +415,10 @@ export const Header = () => {
                             <IoIosStarOutline className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/about/whyjoin"
+                              onClick={closeAllDropdowns}
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Why Join SEG
                             </h6>
@@ -393,6 +427,7 @@ export const Header = () => {
                               growth, academic excellence, and a supportive
                               community.
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -405,6 +440,10 @@ export const Header = () => {
                             <BsVectorPen className="text-5xl " />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/about/chairman-message"
+                              onClick={closeAllDropdowns}
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Chairman's Message
                             </h6>
@@ -413,6 +452,7 @@ export const Header = () => {
                               to empower students with knowledge, leadership,
                               and a vision for a brighter future."
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
                         {/* Student Success */}
@@ -1161,7 +1201,7 @@ export const Header = () => {
                       </div>
                       <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
                         <Image
-                          src='/segBanner.jpeg'
+                          src="/segBanner.jpeg"
                           alt="our institutions banner"
                           height={600}
                           width={600}
@@ -1514,7 +1554,10 @@ export const Header = () => {
 
             {/* Contact us */}
             <li className="p-3 hover:bg-green-50 rounded-md">
-              <Link href="/contact" className="flex items-center justify-center">
+              <Link
+                href="/contact"
+                className="flex items-center justify-center"
+              >
                 <p className="text-sm ">Contact us</p>
               </Link>
             </li>
@@ -1672,10 +1715,7 @@ const MobileNavLink = ({ title, href, subLinks, setActiveSubmenu }) => {
   };
 
   return (
-    <motion.div
-      variants={mobileLinkVars}
-      className="   uppercase text-black"
-    >
+    <motion.div variants={mobileLinkVars} className="   uppercase text-black">
       {subLinks && subLinks.length > 0 ? (
         <button onClick={handleClick} className="w-full text-left p-0">
           {title}
