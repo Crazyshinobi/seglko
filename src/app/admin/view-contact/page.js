@@ -2,14 +2,17 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { DataTable } from "../../../components/data-table";
+import { DataTableColumnHeader } from "@/components/column-header";
 import { toast } from "sonner";
 import { AdminHeader } from "@/components/admin-header";
 import { DeleteButton } from "@/components/delete-button";
 import { Loader2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
-export default function page() {
+export default function Page() {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [filters, setFilters] = useState({});
 
   const handleDelete = async (id) => {
     try {
@@ -27,29 +30,46 @@ export default function page() {
   const columns = [
     {
       id: "serialNo",
-      header: "S.No",
-      cell: ({ row }) => row.index + 1, // row index starts from 0, so add 1
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="S.No" />
+      ),
+      accessorFn: (_, index) => index + 1,
+      sortingFn: "basic",
     },
     {
+      id: "name",
       accessorKey: "name",
       header: "Name",
+      sortingFn: "alphanumeric",
+      filterable: true,
     },
     {
       accessorKey: "email",
+      id: "email",
       header: "Email",
+      filterable: true,
     },
     {
       accessorKey: "message",
       header: "Message",
+      cell: ({ row }) => (
+        <textarea
+          value={row.original.message}
+          disabled
+          className="w-full p-2 border rounded bg-gray-100 text-gray-700 resize-none"
+          rows={3}
+        />
+      ),
     },
     {
-      header: "Date",
-      cell: ({ row }) => {
-        const rowData = row.original;
-        return (
-        rowData.createdAt.split("T")[0].split("-").reverse().join("-")
-        );
-      },
+      accessorKey: "createdAt",
+      id: "createdAt",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Date" />
+      ),
+      cell: ({ row }) =>
+        row.original.createdAt.split("T")[0].split("-").reverse().join("-"),
+      sortingFn: "datetime",
     },
     {
       id: "actions",
@@ -80,6 +100,22 @@ export default function page() {
     fetchData();
   }, []);
 
+  const handleFilterChange = (event, columnId) => {
+    const value = event.target.value;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [columnId]: value,
+    }));
+  };
+
+  const filteredData = data.filter((row) => {
+    return Object.entries(filters).every(([columnId, filterValue]) => {
+      if (!filterValue) return true; // If no filter, show all
+      const cellValue = row[columnId]?.toString()?.toLowerCase();
+      return cellValue?.includes(filterValue.toLowerCase());
+    });
+  });
+
   return (
     <>
       <AdminHeader heading={"View Contacts"} onRefresh={() => fetchData()} />
@@ -91,7 +127,26 @@ export default function page() {
               <span className="ml-2">Loading contacts...</span>
             </div>
           ) : data.length > 0 ? (
-            <DataTable columns={columns} data={data} />
+            <>
+              <div className="mb-4">
+                {/* Filters Section */}
+                <div className="flex gap-4">
+                  {columns.map((column) =>
+                    column.filterable ? (
+                      <div key={column.id} className="flex flex-col">
+                        <Input
+                          id={column.id}
+                          placeholder={`Filter ${column.header}s...`}
+                          value={filters[column.id] || ""}
+                          onChange={(e) => handleFilterChange(e, column.id)}
+                        />
+                      </div>
+                    ) : null
+                  )}
+                </div>
+              </div>
+              <DataTable columns={columns} data={filteredData} />
+            </>
           ) : (
             <div className="flex flex-col items-center justify-center h-[50vh] text-muted-foreground">
               <p className="text-lg font-medium">No contacts found</p>

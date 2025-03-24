@@ -67,3 +67,73 @@ export async function DELETE(request, { params }) {
     );
   }
 }
+
+export async function PATCH(request, {params}) {
+  try {
+    await connectDb();
+    
+    // Get the session using NextAuth
+    const session = await getServerSession(authOptions);
+
+    // Check if user is authenticated
+    if (!session) {
+      return NextResponse.json(
+        { error: "Unauthorized access" },
+        { status: 401 }
+      );
+    }
+
+    // Check if user is admin
+    if (session.user.role !== "admin") {
+      return NextResponse.json(
+        { error: "You are not authorized to delete contacts" },
+        { status: 403 }
+      );
+    }
+
+    const { id } = await params;
+    const updateData = await request.json();
+
+    const existingPlacement = await PlacementUpdate.findById(id);
+
+    if (!existingPlacement) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Placement Update not found",
+        },
+        { status: 404 }
+      );
+    }
+
+    // Update the placement
+    const updatedPlacement = await PlacementUpdate.findByIdAndUpdate(
+      id,
+      { $set: updateData },
+      { new: true, runValidators: true }
+    );
+
+    if (updatedPlacement) {
+      return NextResponse.json(
+        {
+          success: true,
+          message: "Placement update updated successfully",
+          data: updatedPlacement,
+        },
+        { status: 200 }
+      );
+    }
+
+    throw new Error("Failed to update placement update");
+
+  } catch (error) {
+    console.error("Error deleting placement update:", error);
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Internal server error",
+      },
+      { status: 500 }
+    );
+  }
+}

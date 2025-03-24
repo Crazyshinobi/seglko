@@ -4,8 +4,9 @@ import axios from "axios";
 import { AdminHeader } from "@/components/admin-header";
 import { useEffect, useState } from "react";
 import { DataTable } from "@/components/data-table";
-import Image from "next/image";
+import { DataTableColumnHeader } from "@/components/column-header";
 import { Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 export default function page() {
   const [data, setData] = useState([]);
@@ -28,34 +29,45 @@ export default function page() {
   const columns = [
     {
       id: "serialNo",
-      header: "S.No",
-      cell: ({ row }) => row.index + 1, // row index starts from 0, so add 1
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="S.No" />
+      ),
+      accessorFn: (_, index) => index + 1,
+      sortingFn: "basic",
     },
     {
+      id: "title",
       accessorKey: "title",
-      header: "Title",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Title" />
+      ),
+      sortingFn: "alphanumeric",
     },
     {
-      header: "Date",
-      cell: ({ row }) => {
-        const rowData = row.original;
-        return (
-        rowData.createdAt.split("T")[0].split("-").reverse().join("-")
-        );
-      },
+      accessorKey: "createdAt",
+      id: "createdAt",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="Date" />
+      ),
+      cell: ({ row }) =>
+        row.original.createdAt.split("T")[0].split("-").reverse().join("-"),
+      sortingFn: "datetime",
     },
     {
+      accessorKey: "image",
+      id: "image", // Ensure it has a unique ID
       header: "Notice Image",
       cell: ({ row }) => {
         const rowData = row.original;
         return (
-          <Image
-            src={rowData.image}
-            width={280}
-            height={160}
-            alt={rowData.name}
-            className="object-cover rounded-md"
-          />
+          <div className="flex items-center justify-center">
+            <img
+              src={rowData.image}
+              alt={rowData.name}
+              className="w-28 h-16 object-cover rounded-md border shadow-sm"
+              loading="lazy"
+            />
+          </div>
         );
       },
     },
@@ -68,10 +80,10 @@ export default function page() {
 
   return (
     <>
-      <AdminHeader heading={"View Placements"} onRefresh={() => fetchData()} />
-      <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-        <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
-        {isLoading ? (
+      <AdminHeader heading={"View Notice"} onRefresh={() => fetchData()} />
+      <div className="flex justify-center flex-1 flex-col gap-4 p-4 pt-0">
+        <div className="min-h-[100vh] flex-1 rounded-xl md:min-h-min">
+          {isLoading ? (
             <div className="flex items-center justify-center h-[50vh]">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
               <span className="ml-2">Loading Notices...</span>
@@ -81,7 +93,9 @@ export default function page() {
           ) : (
             <div className="flex flex-col items-center justify-center h-[50vh] text-muted-foreground">
               <p className="text-lg font-medium">No Notices found</p>
-              <p className="text-sm">Notices will appear here once submitted.</p>
+              <p className="text-sm">
+                Notices will appear here once submitted.
+              </p>
             </div>
           )}
         </div>
