@@ -16,6 +16,7 @@ import { Provider } from "react-redux";
 import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "./providers/AuthProvider";
 import { ThemeProvider } from "@/components/theme-provider";
+import TopHeader from "./components/TopHeader";
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({
@@ -89,7 +90,7 @@ export default function RootLayout({ children }) {
             </ThemeProvider>
           ) : (
             <LenisProvider>
-              {showHeaderAndFooter && <Header />}
+              {showHeaderAndFooter && ( <><TopHeader/> <Header /></>)}
               <AnimatePresence mode="wait">
                 <motion.div key={pathname}>
                   <Provider store={store}>{children}</Provider>
