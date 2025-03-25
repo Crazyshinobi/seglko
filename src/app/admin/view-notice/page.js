@@ -1,31 +1,11 @@
 "use client";
 
-import axios from "axios";
-import { AdminHeader } from "@/components/admin-header";
-import { useEffect, useState } from "react";
-import { DataTable } from "@/components/data-table";
+import { ViewPage } from "@/components/view-page";
 import { DataTableColumnHeader } from "@/components/column-header";
-import { Loader2 } from "lucide-react";
-import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { Eye } from "lucide-react";
 
 export default function page() {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const fetchData = async () => {
-    try {
-      setIsLoading(true);
-      const result = await axios.get("/api/notice");
-      const placements = result?.data?.data;
-      setData(placements);
-    } catch (error) {
-      console.error("Failed to fetch contacts:", error);
-      toast.error("Failed to load contacts");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const columns = [
     {
       id: "serialNo",
@@ -38,10 +18,8 @@ export default function page() {
     {
       id: "title",
       accessorKey: "title",
-      header: ({ column }) => (
-        <DataTableColumnHeader column={column} title="Title" />
-      ),
-      sortingFn: "alphanumeric",
+      header: "Title",
+      filterable: true,
     },
     {
       accessorKey: "createdAt",
@@ -55,51 +33,39 @@ export default function page() {
     },
     {
       accessorKey: "image",
-      id: "image", // Ensure it has a unique ID
+      id: "image",
       header: "Notice Image",
       cell: ({ row }) => {
         const rowData = row.original;
         return (
-          <div className="flex items-center justify-center">
-            <img
-              src={rowData.image}
-              alt={rowData.name}
-              className="w-28 h-16 object-cover rounded-md border shadow-sm"
-              loading="lazy"
-            />
-          </div>
+          <a
+            href={`${process.env.NEXT_PUBLIC_BASE_URL}${rowData.image}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Button size="sm">
+              <Eye className="h-4 w-4" />
+              View Notice Image
+            </Button>
+          </a>
         );
       },
     },
   ];
 
-  useEffect(() => {
-    document.title = "Seglko Admin - View Notices";
-    fetchData();
-  }, []);
-
   return (
-    <>
-      <AdminHeader heading={"View Notice"} onRefresh={() => fetchData()} />
-      <div className="flex justify-center flex-1 flex-col gap-4 p-4 pt-0">
-        <div className="min-h-[100vh] flex-1 rounded-xl md:min-h-min">
-          {isLoading ? (
-            <div className="flex items-center justify-center h-[50vh]">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
-              <span className="ml-2">Loading Notices...</span>
-            </div>
-          ) : data.length > 0 ? (
-            <DataTable columns={columns} data={data} />
-          ) : (
-            <div className="flex flex-col items-center justify-center h-[50vh] text-muted-foreground">
-              <p className="text-lg font-medium">No Notices found</p>
-              <p className="text-sm">
-                Notices will appear here once submitted.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-    </>
+    <ViewPage
+      title="Notices"
+      endpoint="/api/notice"
+      columns={columns}
+      editableColumns={[
+        { id: "title", label: "Title", type: "text" },
+        { id: "image", label: "Notice Image", type: "file" },
+      ]}
+      emptyMessage={{
+        title: "No notices found",
+        description: "Notices will appear here once submitted.",
+      }}
+    />
   );
 }

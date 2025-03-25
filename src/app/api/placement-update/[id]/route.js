@@ -7,7 +7,7 @@ import { authOptions } from "../../auth/[...nextauth]/route";
 export async function DELETE(request, { params }) {
   try {
     await connectDb();
-    
+
     // Get the session using NextAuth
     const session = await getServerSession(authOptions);
 
@@ -55,7 +55,6 @@ export async function DELETE(request, { params }) {
     }
 
     throw new Error("Failed to delete placement update");
-
   } catch (error) {
     console.error("Error deleting placement update:", error);
     return NextResponse.json(
@@ -68,10 +67,10 @@ export async function DELETE(request, { params }) {
   }
 }
 
-export async function PATCH(request, {params}) {
+export async function PATCH(request, { params }) {
   try {
     await connectDb();
-    
+
     // Get the session using NextAuth
     const session = await getServerSession(authOptions);
 
@@ -92,7 +91,10 @@ export async function PATCH(request, {params}) {
     }
 
     const { id } = await params;
-    const updateData = await request.json();
+    const formData = await request.formData();
+
+    const company = formData.get("company");
+    const course = formData.get("course");
 
     const existingPlacement = await PlacementUpdate.findById(id);
 
@@ -109,7 +111,10 @@ export async function PATCH(request, {params}) {
     // Update the placement
     const updatedPlacement = await PlacementUpdate.findByIdAndUpdate(
       id,
-      { $set: updateData },
+       {
+        company,
+        course,
+      },
       { new: true, runValidators: true }
     );
 
@@ -125,7 +130,6 @@ export async function PATCH(request, {params}) {
     }
 
     throw new Error("Failed to update placement update");
-
   } catch (error) {
     console.error("Error deleting placement update:", error);
     return NextResponse.json(

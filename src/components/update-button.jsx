@@ -17,38 +17,68 @@ import { useState } from "react";
 import { toast } from "sonner";
 import axios from "axios";
 
-export function UpdateButton({ rowData, columns, onUpdate }) {
+export function UpdateButton({ endpoint, rowData, columns, onUpdate }) {
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState(() => {
     // Initialize form data from rowData
     const initialData = {};
     columns.forEach((column) => {
-      initialData[column.id] = rowData[column.id] || "";
+      if (column.type !== "file") {
+        initialData[column.id] = rowData[column.id] || "";
+      }
     });
     return initialData;
   });
-  const handleChange = (e, columnId) => {
-    setFormData((prev) => ({
-      ...prev,
-      [columnId]: e.target.value,
-    }));
+  const handleChange = (e, columnId, type) => {
+    if (type === "file") {
+      setFormData((prev) => ({
+        ...prev,
+        [columnId]: e.target.files[0],
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [columnId]: e.target.value,
+      }));
+    }
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      const response = await axios.patch(
-        `/api/placement-update/${rowData._id}`,
-        formData
-      );
+      const submitFormData = new FormData();
 
+      columns.forEach((column) => {
+        if (column.type === "file") {
+          if (formData[column.id]) {
+            submitFormData.append(column.id, formData[column.id]);
+          }
+        } else {
+          submitFormData.append(column.id, formData[column.id]);
+        }
+      });
+
+      const response = await axios.patch(
+        `${endpoint}/${rowData._id}`,
+        submitFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       if (response.data.success) {
         toast.success("Update successful");
         onUpdate(response.data.data);
+        setLoading(false);
         setOpen(false);
       }
     } catch (error) {
       console.error("Update failed:", error);
       toast.error(error.response?.data?.message || "Update failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,29 +97,47 @@ export function UpdateButton({ rowData, columns, onUpdate }) {
               Update the record
             </AlertDialogTitle>
 
-            <div className="grid gap-4 py-4">
+            <div className="grid sm:grid-cols-12 gap-6 py-4">
               {columns.map((column) => (
                 <div
                   key={column.id}
-                  className="grid grid-cols-4 items-center gap-4"
+                  className="lg:col-span-12 flex flex-col items-start gap-2"
                 >
-                  <label htmlFor={column.id} className="text-right">
+                  <Label htmlFor={column.id} className="text-right">
                     {column.label}
-                  </label>
-                  <Input
-                    id={column.id}
-                    type={column.type}
-                    value={formData[column.id]}
-                    onChange={(e) => handleChange(e, column.id)}
-                    className="col-span-3"
-                  />
+                  </Label>
+                  {column.type === "file" ? (
+                    <Input
+                      id={column.id}
+                      type="file"
+                      onChange={(e) => handleChange(e, column.id, "file")}
+                      className="col-span-3"
+                      accept="image/*"
+                    />
+                  ) : (
+                    <Input
+                      id={column.id}
+                      type={column.type}
+                      value={formData[column.id]}
+                      onChange={(e) => handleChange(e, column.id)}
+                      className="col-span-3"
+                    />
+                  )}
                 </div>
               ))}
             </div>
           </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction onClick={handleSubmit}>Update</AlertDialogAction>
+          <AlertDialogFooter className="flex mt-3">
+            <AlertDialogCancel className="basis-1/2 w-100">
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction
+              disabled={loading}
+              className="basis-1/2 w-100"
+              onClick={handleSubmit}
+            >
+              {loading ? "Updating...." : "Update"}
+            </AlertDialogAction>
           </AlertDialogFooter>
         </form>
       </AlertDialogContent>
