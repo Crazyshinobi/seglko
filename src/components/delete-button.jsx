@@ -16,7 +16,7 @@ export function DeleteButton({ onDelete }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" size="sm">
+        <Button size="sm">
           <Archive className="h-4 w-4" />
           Delete
         </Button>

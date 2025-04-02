@@ -39,17 +39,17 @@ const data = {
       ],
     },
     {
-      title: "Placement",
+      title: "Student Placement",
       url: "#",
       icon: Receipt,
       items: [
         {
-          title: "Add Placement",
-          url: "/admin/add-placement",
+          title: "Add Student Placement",
+          url: "/admin/add-student-placement",
         },
         {
-          title: "View Placement",
-          url: "/admin/view-placement",
+          title: "View Student Placement",
+          url: "/admin/view-student-placement",
         },
       ],
     },
