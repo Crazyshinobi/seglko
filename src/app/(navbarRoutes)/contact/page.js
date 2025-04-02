@@ -3,6 +3,10 @@ import React from 'react'
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMailUnread } from "react-icons/io";
 
+export const metadata = {
+  title: 'Contact Us- Saroj Educational Group',
+  description: 'Contact Saroj Educational Group (SEG) for admissions, queries, and more. Reach out via phone, email, or the contact form.',
+};
 export default function ContactPage() {
   return ( 
   <>

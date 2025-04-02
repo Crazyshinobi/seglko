@@ -1,6 +1,11 @@
 import NavigationPages from '@/app/utils/NavigationPages'
 import React from 'react'
 
+export const metadata = {
+  title: 'Why Join SEG - Saroj Educational Group',
+  description: 'Discover the benefits of joining Saroj Educational Group (SEG) and how it can shape your future.',
+};
+
 const page = () => {
   return (
     <>
@@ -20,10 +25,10 @@ const page = () => {
         Why Join Saroj Educational Group (SEG)?
       </h1>
 
-      <div className="space-y-10">
+      <div className="space-y-10 text-justify">
         {/* Academic Excellence */}
         <div className="bg-white shadow-lg rounded-lg p-6 md:p-8 lg:p-10">
-          <h2 className="text-3xl font-semibold text-blue-800 mb-4">Academic Excellence</h2>
+          <h2 className="text-3xl font-semibold text-blue-800 mb-4 ">Academic Excellence</h2>
           <p className="text-gray-700 text-lg">
             At SEG, we prioritize a robust academic foundation that balances theoretical knowledge with practical application. Our experienced faculty members, many of whom are industry experts and researchers, guide students through a comprehensive curriculum designed to meet global standards. Regular workshops, seminars, and industry interactions ensure that students stay updated with the latest advancements.
           </p>

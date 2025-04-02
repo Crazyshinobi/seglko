@@ -1,7 +1,14 @@
 import NavigationPages from "@/app/utils/NavigationPages";
 import React from "react";
 
+
+export const metadata = {
+    title : "SEG History | Saroj Educational Group",
+    description : "Discover the history of Saroj Educational Group (SEG) and how it has evolved over the years.",
+  };
+
 const page = () => {
+    
   return (
     <>
       <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">

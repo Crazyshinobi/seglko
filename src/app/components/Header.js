@@ -367,6 +367,7 @@ export const Header = () => {
                             <Link
                               href="/about/history"
                               onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
                             >
                               <h6 className="font-bold group-hover:text-blue-300 text-sm">
                                 History of SEG
@@ -392,6 +393,7 @@ export const Header = () => {
                             <Link
                               href="/about/mission-vision"
                               onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
                             >
                               <h6 className="font-bold group-hover:text-blue-300 text-sm">
                                 {" "}
@@ -415,18 +417,19 @@ export const Header = () => {
                             <IoIosStarOutline className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/about/whyjoin"
                               onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Why Join SEG
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              Join SEG to unlock opportunities for personal
-                              growth, academic excellence, and a supportive
-                              community.
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Why Join SEG
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                Join SEG to unlock opportunities for personal
+                                growth, academic excellence, and a supportive
+                                community.
+                              </p>
                             </Link>
                           </div>
                         </motion.li>
@@ -440,63 +443,30 @@ export const Header = () => {
                             <BsVectorPen className="text-5xl " />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/about/chairman-message"
                               onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Chairman's Message
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Under the guidance of our Chairman, SEG strives
-                              to empower students with knowledge, leadership,
-                              and a vision for a brighter future."
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Chairman's Message
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Under the guidance of our Chairman, SEG strives
+                                to empower students with knowledge, leadership,
+                                and a vision for a brighter future."
+                              </p>
                             </Link>
-                          </div>
-                        </motion.li>
-                        {/* Student Success */}
-                        <motion.li
-                          variants={itemVariants}
-                          className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
-                        >
-                          <div>
-                            <PiStudentFill className="text-5xl " />
-                          </div>
-                          <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Student Success
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "SEG is committed to fostering student success by
-                              providing a dynamic learning environment,
-                              empowering students to reach their full
-                              potential."
-                            </p>
                           </div>
                         </motion.li>
                       </div>
 
-                      <div className="right w-2/5">
-                        {/* Chairman Message */}
-                        <motion.li
-                          variants={itemVariants}
-                          className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
-                        >
-                          <div>
-                            <BsVectorPen className="text-5xl " />
-                          </div>
-                          <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Chairman's Message
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Under the guidance of our Chairman, SEG strives
-                              to empower students with knowledge, leadership,
-                              and a vision for a brighter future."
-                            </p>
-                          </div>
-                        </motion.li>
+                      <div className="right w-2/5 h-96 overflow-hidden">
+                        <img
+                          src="/AboutDropdownBanner.PNG"
+                          alt="About Dropdown image"
+                          className="w-full h-full object-fill"
+                        />
                       </div>
                     </ul>
                   </motion.div>
@@ -510,14 +480,19 @@ export const Header = () => {
               onMouseEnter={() => toggleDropdown("programs", true)}
               onMouseLeave={() => toggleDropdown("programs", false)}
             >
-              <Link href="#" className="flex items-center">
+              <button
+                className="flex items-center "
+                onClick={() =>
+                  toggleDropdown("programs", !dropdownStates.programs)
+                }
+              >
                 <p className="text-sm ">Programs </p>
                 {dropdownStates.programs ? (
                   <MdKeyboardArrowDown />
                 ) : (
                   <MdKeyboardArrowUp />
                 )}
-              </Link>
+              </button>
 
               <AnimatePresence>
                 {dropdownStates.programs && (
@@ -538,15 +513,22 @@ export const Header = () => {
                           <div>
                             <BsPersonGear className="text-2xl" />
                           </div>
+
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Master of Technology
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our M.Tech program offers advanced skills in
-                              engineering, with opportunities for research and
-                              innovation."
-                            </p>
+                            <Link
+                              href="/programs/master-of-technology"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Master of Technology
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our M.Tech program offers advanced skills in
+                                engineering, with opportunities for research and
+                                innovation."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -559,14 +541,20 @@ export const Header = () => {
                             <FaPeopleGroup className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Master of Business Administration
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "We offer an MBA program designed to develop
-                              leadership and strategic management skills for
-                              global business."
-                            </p>
+                            <Link
+                              href="/programs/master-of-business-administration"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Master of Business Administration
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "We offer an MBA program designed to develop
+                                leadership and strategic management skills for
+                                global business."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -579,13 +567,20 @@ export const Header = () => {
                             <FaComputer className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Masters in Computer Applications
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our MCA program equips students with expertise in
-                              software development, IT, and systems management."
-                            </p>
+                            <Link
+                              href="/programs/master-of-computer-application"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Masters in Computer Applications
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our MCA program equips students with expertise
+                                in software development, IT, and systems
+                                management."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -598,14 +593,20 @@ export const Header = () => {
                             <LiaCapsulesSolid className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              M.Pharm
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our M.Pharm program offers in-depth knowledge in
-                              pharmaceutical sciences, preparing students for
-                              advanced careers."
-                            </p>
+                            <Link
+                              href="/programs/m-pharma"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                M.Pharm
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our M.Pharm program offers in-depth knowledge
+                                in pharmaceutical sciences, preparing students
+                                for advanced careers."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -618,14 +619,20 @@ export const Header = () => {
                             <MdSettingsSuggest className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Bachelor of Technology
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our B.Tech program provides a solid foundation in
-                              engineering, preparing you for a successful career
-                              in technology."
-                            </p>
+                            <Link
+                              href="/programs/bachelor-of-technology"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Bachelor of Technology
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our B.Tech program provides a solid foundation
+                                in engineering, preparing you for a successful
+                                career in technology."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
                       </div>
@@ -640,14 +647,20 @@ export const Header = () => {
                             <MdOutlineEmojiPeople className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Bachelor of Business Administration
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our BBA program is designed to equip students
-                              with the skills and knowledge needed for
-                              leadership in business."
-                            </p>
+                            <Link
+                              href="/programs/bachelor-of-business-administration"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Bachelor of Business Administration
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our BBA program is designed to equip students
+                                with the skills and knowledge needed for
+                                leadership in business."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -660,14 +673,20 @@ export const Header = () => {
                             <RiComputerLine className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Bachelor in Computer Application
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our BCA program is focused on programming, system
-                              management, and application development in the IT
-                              industry."
-                            </p>
+                            <Link
+                              href="/programs/bachelor-of-computer-application"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Bachelor in Computer Application
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our BCA program is focused on programming,
+                                system management, and application development
+                                in the IT industry."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -680,14 +699,20 @@ export const Header = () => {
                             <BsCapsulePill className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              B.Pharm
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our B.Pharm program offers a comprehensive
-                              education in pharmaceutical sciences, preparing
-                              students for diverse roles."
-                            </p>
+                            <Link
+                              href="/programs/b-pharma"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                B.Pharm
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our B.Pharm program offers a comprehensive
+                                education in pharmaceutical sciences, preparing
+                                students for diverse roles."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -700,14 +725,20 @@ export const Header = () => {
                             <CiMedicalCase className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Diploma in Pharmacy
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our Diploma in Pharmacy program prepares students
-                              with practical skills to excel in the healthcare
-                              and pharmacy sectors."
-                            </p>
+                            <Link
+                              href="/programs/d-pharma"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                D.Pharma
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our D.Pharma program prepares students with
+                                practical skills to excel in the healthcare and
+                                pharmacy sectors."
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -720,6 +751,11 @@ export const Header = () => {
                             <GiDiploma className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/programs/polytechnic"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Diploma Programmes
                             </h6>
@@ -728,6 +764,7 @@ export const Header = () => {
                               industry-relevant skills, ensuring career
                               readiness."
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
                       </div>
@@ -743,14 +780,17 @@ export const Header = () => {
               onMouseEnter={() => toggleDropdown("admissions", true)}
               onMouseLeave={() => toggleDropdown("admissions", false)}
             >
-              <Link href="#" className="flex items-center">
+               <button
+                className="flex items-center "
+                onClick={() => toggleDropdown("admissions", !dropdownStates.admissions)}
+              >
                 <p className="text-sm ">Admission </p>
                 {dropdownStates.admissions ? (
                   <MdKeyboardArrowDown />
                 ) : (
                   <MdKeyboardArrowUp />
                 )}
-              </Link>
+              </button>
 
               <AnimatePresence>
                 {dropdownStates.admissions && (
@@ -763,7 +803,7 @@ export const Header = () => {
                   >
                     <ul className="ps-14 pt-4 flex">
                       <div className="left flex flex-col gap-3 lg:w-2/5">
-                        {/* M.Tech */}
+                        {/*  Admission Process */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
@@ -772,6 +812,11 @@ export const Header = () => {
                             <FcProcess className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/admission/admission-process"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Admission Process
                             </h6>
@@ -779,10 +824,11 @@ export const Header = () => {
                               "Follow our seamless process to secure your seat
                               and begin your academic journey with us."
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
-                        {/* MBA */}
+                        {/*  Eligibility Criteria */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
@@ -791,6 +837,11 @@ export const Header = () => {
                             <FaPersonCircleCheck className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/admission/eligibility"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Eligibility Criteria
                             </h6>
@@ -799,10 +850,11 @@ export const Header = () => {
                               understand the requirements for a successful
                               application."
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
-                        {/* MCA */}
+                        {/*  Our Courses */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
@@ -853,14 +905,17 @@ export const Header = () => {
               onMouseEnter={() => toggleDropdown("research", true)}
               onMouseLeave={() => toggleDropdown("research", false)}
             >
-              <Link href="#" className="flex items-center">
+                <button
+                className="flex items-center "
+                onClick={() => toggleDropdown("research", !dropdownStates.research)}
+              >
                 <p className="text-sm ">R & D</p>
                 {dropdownStates.research ? (
                   <MdKeyboardArrowDown />
                 ) : (
                   <MdKeyboardArrowUp />
                 )}
-              </Link>
+              </button>
 
               <AnimatePresence>
                 {dropdownStates.research && (
@@ -882,6 +937,11 @@ export const Header = () => {
                             <SiRoamresearch className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/research/research-projects"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               R & D Projects
                             </h6>
@@ -890,6 +950,7 @@ export const Header = () => {
                               cutting-edge research and technological
                               advancements."
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -902,6 +963,11 @@ export const Header = () => {
                             <GrTechnology className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/research/technologies-developed"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Technologies Developed
                             </h6>
@@ -910,6 +976,7 @@ export const Header = () => {
                               developed, revolutionizing industries and
                               enhancing everyday life."
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -922,6 +989,11 @@ export const Header = () => {
                             <FaAward className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/research/award-projects"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Award Winning Projects
                             </h6>
@@ -930,6 +1002,7 @@ export const Header = () => {
                               award-winning projects, setting new standards in
                               the field."
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -942,6 +1015,11 @@ export const Header = () => {
                             <IoBookOutline className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/research/research-publications"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Research & Publications
                             </h6>
@@ -950,6 +1028,7 @@ export const Header = () => {
                               contributing to the advancement of knowledge and
                               industry practices."
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
                       </div>
@@ -1220,13 +1299,13 @@ export const Header = () => {
               onMouseEnter={() => toggleDropdown("placements", true)}
               onMouseLeave={() => toggleDropdown("placements", false)}
             >
-              <Link href="#" className="flex items-center">
+              <Link href="/placements" className="flex items-center">
                 <p className="text-sm ">Placements</p>
-                {dropdownStates.placements ? (
+                {/* {dropdownStates.placements ? (
                   <MdKeyboardArrowDown />
                 ) : (
                   <MdKeyboardArrowUp />
-                )}
+                )} */}
               </Link>
 
               {/* <AnimatePresence>
