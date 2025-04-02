@@ -129,7 +129,9 @@ export const coursesData = {
         "The Design Thinking Market will grow during the forecast period based on the increasing need of companies and organisations to respond to the needs of various fields, including consumers."
       ],
       jobRoles : [
-
+       "Design Engineer",
+       "Design Strategist",
+       "Industrial Product Designer"
       ]
   },
 };

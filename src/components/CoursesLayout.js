@@ -263,6 +263,20 @@ export default function CourseLayout({ course }) {
 )}
 
 
+{/* Potential Job Roles Section */}
+{/* {course.jobRoles && (
+  <section className="bg-white p-6 rounded-lg shadow-sm mt-8">
+    <h2 className="text-xl font-bold text-gray-800 mb-4">Potential Job Roles</h2>
+    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {course.jobRoles.map((role, index) => (
+        <li key={index} className="bg-gray-100 px-4 py-2 rounded-md text-gray-700">
+          {role}
+        </li>
+      ))}
+    </ul>
+  </section> */}
+
+
 
 
     </div>
