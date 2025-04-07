@@ -228,7 +228,7 @@ export const coursesData = {
     ],
     jobRoles: ["Data Analyst", "Data Scientist", "DevOps Engineer"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/statistics-using-r-python/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
     
   },
 
@@ -341,7 +341,7 @@ export const coursesData = {
       "Artificial Intelligence Assistant System Engineer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/artificial-intelligence/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
 
   "machine-learning": {
@@ -444,7 +444,7 @@ export const coursesData = {
       "Computational Linguist",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/machine-learning/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
 
   "deep-learning-and-neural-network": {
@@ -533,7 +533,7 @@ export const coursesData = {
       "The Deep Learning market size will grow at a CAGR of 7.3% during the forecast period (2024-2031).",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/deep-learning-neural-networks/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
 
   "information-security": {
@@ -617,7 +617,8 @@ export const coursesData = {
       "Information Security Executive",
       "Network Engineer",
     ],
-    courseurl : "https://www.tcsion.com/courses/industry-honour-course/information-security/"
+    courseurl : "https://www.tcsion.com/courses/industry-honour-course/information-security/",
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
 
   "cloud-computing": {
@@ -740,7 +741,7 @@ export const coursesData = {
       "Cloud Architect",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/cloud-computing/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
   "innovation-and-entrepreneurship": {
     id: "innovation-and-entrepreneurship",
@@ -848,7 +849,7 @@ export const coursesData = {
       "Design Researcher",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/entrepreneurship-innovation/",
-    courseBanner : '/tcs/innovation.png',
+    courseBanner : '/tcs/innovation.PNG',
   },
 
   "design-thinking1": {
@@ -986,7 +987,7 @@ export const coursesData = {
       "Industrial Product Designer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/design-thinking/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
   "data-analysis-excel": {
     id: "data-analysis-excel",
@@ -1072,7 +1073,7 @@ export const coursesData = {
       "Data Analytics Consultant",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/data-analysis-with-excel/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
 
   "data-mining-and-warehousing": {
@@ -1179,7 +1180,7 @@ export const coursesData = {
     ],
     jobRoles: ["Data Mining Engineer", "Data Scientist", "Data Analyst"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/data-mining-and-warehousing/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
   "data-modeling-and-visualization": {
     id: "data-modeling-and-visualization",
@@ -1282,7 +1283,7 @@ export const coursesData = {
     ],
     jobRoles: ["Tableau Developer", "Data Modeler", "Data Analyst"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/data-modeling-and-visualization/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
 
   "data-analytics-and-reporting": {
@@ -1397,7 +1398,7 @@ export const coursesData = {
     ],
     jobRoles: ["Junior Data Scientist", "Data Modeler", "Data Analyst"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/data-analytics-and-reporting/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
 
   "big-data-on-cloud": {
@@ -1542,7 +1543,7 @@ export const coursesData = {
     ],
     jobRoles: ["Big Data Engineer", "Big Data Developer", "Big Data Architect"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/big-data-on-cloud/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
   "info-security": {
     id: "info-security",
@@ -1626,7 +1627,7 @@ export const coursesData = {
       "Network Engineer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/information-security/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
   "innovation-and-entrepreneurship1": {
     id: "innovation-and-entrepreneurship1",
@@ -1733,7 +1734,8 @@ export const coursesData = {
       "CIO (Chief Innovation Officer)",
       "Design Researcher",
     ],
-    courseurl : "https://www.tcsion.com/courses/industry-honour-course/entrepreneurship-innovation/"
+    courseurl : "https://www.tcsion.com/courses/industry-honour-course/entrepreneurship-innovation/",
+    courseBanner : '/tcs/innovation.PNG',
   },
 };
 

@@ -1,8 +1,5 @@
 export const Links = [
-    {
-        title : "Courses",
-        href : "/"
-    },
+  
     {
         title : "Our Recruiters",
         href : "/"
@@ -17,25 +14,25 @@ export const Links = [
     },
     {
         title : "Career",
-        href : "/"
+        href : "/career"
     },
 ]
 
 export const FooterLinks = [
     {
         title : "Facebook",
-        href : "/"
+        href : "https://www.facebook.com/SEGofficial"
     },
     {
         title : "Instagram",
-        href : "/"
+        href : "https://www.instagram.com/segindia/"
     },
     {
         title : "Linkedin",
-        href : "/"
+        href : "https://www.linkedin.com/company/saroj-educational-group/"
     },
     {
         title : "Youtube",
-        href : "/"
+        href : "https://www.youtube.com/@sarojeducationalgroup1018"
     },
 ]

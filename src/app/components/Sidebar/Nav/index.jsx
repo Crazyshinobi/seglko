@@ -62,7 +62,10 @@ export default function index() {
               exit="exit"
               initial="initial"
             >
-              <a href={link.href}>{link.title}</a>
+              <a  href={link.href} 
+              target="_blank"
+              rel="noopener noreferrer"
+              >{link.title}</a>
             </motion.div>
           </div>
           );
