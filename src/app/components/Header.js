@@ -54,38 +54,34 @@ const navLinks = [
     title: "About SEG",
     href: "/",
     subLinks: [
-      { title: "History of SEG", href: "/" },
-      { title: "Why Join SEG", href: "/" },
-      { title: "Mission and Vision", href: "/" },
-      { title: "Chairman's Message", href: "/" },
-      { title: "Student Success", href: "/" },
+      { title: "History of SEG", href: "/about/history" },
+      { title: "Why Join SEG", href: "/about/whyjoin" },
+      { title: "Mission and Vision", href: "/mission-vision" },
+      { title: "Chairman's Message", href: "/about/chairman-message" },
     ],
   },
   {
     title: "Programs",
     href: "/",
     subLinks: [
-      { title: "M.Tech", href: "/" },
-      { title: "B.Tech", href: "/" },
-      { title: "MBA", href: "/" },
-      { title: "BBA", href: "/" },
-      { title: "MCA", href: "/" },
-      { title: "BCA", href: "/" },
-      { title: "LLB", href: "/" },
-      { title: "BALLB", href: "/" },
-      { title: "M.Pharma", href: "/" },
-      { title: "B.Pharma", href: "/" },
-      { title: "Diploma in Pharmacy", href: "/" },
-      { title: "Diploma Programmes", href: "/" },
+      { title: "M.Tech", href: "/programs/master-of-technology" },
+      { title: "B.Tech", href: "/programs/bachelor-of-technology" },
+      { title: "MBA", href: "/programs/master-of-business-administration" },
+      { title: "BBA", href: "/programs/bachelor-of-business-administration" },
+      { title: "MCA", href: "/programs/master-of-computer-application" },
+      { title: "BCA", href: "/programs/bachelor-of-computer-application" },
+      { title: "M.Pharma", href: "/programs/m-pharma" },
+      { title: "B.Pharma", href: "/programs/b-pharma" },
+      { title: "Diploma in Pharmacy", href: "/programs/d-pharma" },
+      { title: "Diploma Programmes", href: "/programs/" },
     ],
   },
   {
     title: "Admission",
     href: "/",
     subLinks: [
-      { title: "Admission Process", href: "/" },
-      { title: "Eligibility Criteria", href: "/" },
-      { title: "Our Courses", href: "/" },
+      { title: "Admission Process", href: "/admission/admission-process" },
+      { title: "Eligibility Criteria", href: "/admission/eligibility" },
       { title: "Fee Structure", href: "/" },
     ],
   },
@@ -93,10 +89,16 @@ const navLinks = [
     title: "Research",
     href: "/",
     subLinks: [
-      { title: "R & D Projects", href: "/" },
-      { title: "Technologies Developed", href: "/" },
-      { title: "Award Winning Projects", href: "/" },
-      { title: "Research & Publications", href: "/" },
+      { title: "R & D Projects", href: "/research/research-projects" },
+      {
+        title: "Technologies Developed",
+        href: "/research/technologies-developed",
+      },
+      { title: "Award Winning Projects", href: "/research/award-projects" },
+      {
+        title: "Research & Publications",
+        href: "/research/research-publications",
+      },
     ],
   },
   {
@@ -118,15 +120,14 @@ const navLinks = [
     href: "/",
     subLinks: [
       { title: "Student Login", href: "/" },
-      { title: "Student Notice", href: "/" },
+      { title: "Student Notice", href: "/studentzone/student-notices" },
       { title: "Student of the Month", href: "/" },
       { title: "Our Gold Medalist", href: "/" },
     ],
   },
   {
     title: "Placements",
-    href: "/",
-    subLinks: [{ title: "Placement record 2024-25", href: "/" }],
+    href: "/placements",
   },
   {
     title: "Explore More",
@@ -146,7 +147,7 @@ const navLinks = [
   },
   {
     title: "Contact Us",
-    href: "/",
+    href: "/contact",
   },
   {
     title: "Fee Payment",
@@ -751,19 +752,19 @@ export const Header = () => {
                             <GiDiploma className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/programs/polytechnic"
                               onClick={closeAllDropdowns}
                               className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Diploma Programmes
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our diploma programs offer practical training and
-                              industry-relevant skills, ensuring career
-                              readiness."
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Diploma Programmes
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our diploma programs offer practical training
+                                and industry-relevant skills, ensuring career
+                                readiness."
+                              </p>
                             </Link>
                           </div>
                         </motion.li>
@@ -780,9 +781,11 @@ export const Header = () => {
               onMouseEnter={() => toggleDropdown("admissions", true)}
               onMouseLeave={() => toggleDropdown("admissions", false)}
             >
-               <button
+              <button
                 className="flex items-center "
-                onClick={() => toggleDropdown("admissions", !dropdownStates.admissions)}
+                onClick={() =>
+                  toggleDropdown("admissions", !dropdownStates.admissions)
+                }
               >
                 <p className="text-sm ">Admission </p>
                 {dropdownStates.admissions ? (
@@ -812,18 +815,18 @@ export const Header = () => {
                             <FcProcess className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/admission/admission-process"
                               onClick={closeAllDropdowns}
                               className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Admission Process
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Follow our seamless process to secure your seat
-                              and begin your academic journey with us."
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Admission Process
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Follow our seamless process to secure your seat
+                                and begin your academic journey with us."
+                              </p>
                             </Link>
                           </div>
                         </motion.li>
@@ -837,43 +840,24 @@ export const Header = () => {
                             <FaPersonCircleCheck className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/admission/eligibility"
                               onClick={closeAllDropdowns}
                               className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Eligibility Criteria
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Our eligibility criteria are designed to help you
-                              understand the requirements for a successful
-                              application."
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Eligibility Criteria
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Our eligibility criteria are designed to help
+                                you understand the requirements for a successful
+                                application."
+                              </p>
                             </Link>
                           </div>
                         </motion.li>
 
-                        {/*  Our Courses */}
-                        <motion.li
-                          variants={itemVariants}
-                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
-                        >
-                          <div>
-                            <GiBookshelf className="text-2xl" />
-                          </div>
-                          <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Our Courses
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Explore a diverse range of programs designed to
-                              shape your future and foster academic excellence."
-                            </p>
-                          </div>
-                        </motion.li>
-
-                        {/* M.Pharm */}
+                        {/* Fee Structure*/}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
@@ -905,9 +889,11 @@ export const Header = () => {
               onMouseEnter={() => toggleDropdown("research", true)}
               onMouseLeave={() => toggleDropdown("research", false)}
             >
-                <button
+              <button
                 className="flex items-center "
-                onClick={() => toggleDropdown("research", !dropdownStates.research)}
+                onClick={() =>
+                  toggleDropdown("research", !dropdownStates.research)
+                }
               >
                 <p className="text-sm ">R & D</p>
                 {dropdownStates.research ? (
@@ -937,24 +923,24 @@ export const Header = () => {
                             <SiRoamresearch className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/research/research-projects"
                               onClick={closeAllDropdowns}
                               className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              R & D Projects
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Explore our innovative R&D projects, driving
-                              cutting-edge research and technological
-                              advancements."
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                R & D Projects
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Explore our innovative R&D projects, driving
+                                cutting-edge research and technological
+                                advancements."
+                              </p>
                             </Link>
                           </div>
                         </motion.li>
 
-                        {/* MBA */}
+                        {/*   Technologies Developed */}
                         <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
@@ -963,19 +949,19 @@ export const Header = () => {
                             <GrTechnology className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/research/technologies-developed"
                               onClick={closeAllDropdowns}
                               className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Technologies Developed
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "We take pride in the technologies we've
-                              developed, revolutionizing industries and
-                              enhancing everyday life."
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Technologies Developed
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "We take pride in the technologies we've
+                                developed, revolutionizing industries and
+                                enhancing everyday life."
+                              </p>
                             </Link>
                           </div>
                         </motion.li>
@@ -989,19 +975,19 @@ export const Header = () => {
                             <FaAward className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/research/award-projects"
                               onClick={closeAllDropdowns}
                               className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Award Winning Projects
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Discover the groundbreaking work behind our
-                              award-winning projects, setting new standards in
-                              the field."
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Award Winning Projects
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Discover the groundbreaking work behind our
+                                award-winning projects, setting new standards in
+                                the field."
+                              </p>
                             </Link>
                           </div>
                         </motion.li>
@@ -1015,19 +1001,19 @@ export const Header = () => {
                             <IoBookOutline className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                          <Link
+                            <Link
                               href="/research/research-publications"
                               onClick={closeAllDropdowns}
                               className="flex flex-col gap-2"
                             >
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Research & Publications
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Explore our extensive research and publications,
-                              contributing to the advancement of knowledge and
-                              industry practices."
-                            </p>
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Research & Publications
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Explore our extensive research and
+                                publications, contributing to the advancement of
+                                knowledge and industry practices."
+                              </p>
                             </Link>
                           </div>
                         </motion.li>
@@ -1181,14 +1167,19 @@ export const Header = () => {
               onMouseEnter={() => toggleDropdown("studentZone", true)}
               onMouseLeave={() => toggleDropdown("studentZone", false)}
             >
-              <Link href="#" className="flex items-center">
-                <p className="text-sm ">Student Zone</p>
+              <button
+                className="flex items-center "
+                onClick={() =>
+                  toggleDropdown("studentZone", !dropdownStates.studentZone)
+                }
+              >
+                <p className="text-sm">Student Zone</p>
                 {dropdownStates.studentZone ? (
                   <MdKeyboardArrowDown />
                 ) : (
                   <MdKeyboardArrowUp />
                 )}
-              </Link>
+              </button>
 
               <AnimatePresence>
                 {dropdownStates.studentZone && (
@@ -1268,13 +1259,19 @@ export const Header = () => {
                             <FaRegClipboard className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Student Notice
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                              "Important updates and announcements for SEG
-                              students — stay informed and engaged!"
-                            </p>
+                            <Link
+                              href="/studentzone/student-notices"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                              <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                                Student Notice
+                              </h6>
+                              <p className="text-gray-400 text-sm">
+                                "Important updates and announcements for SEG
+                                students — stay informed and engaged!"
+                              </p>
+                            </Link>
                           </div>
                         </motion.li>
                       </div>
@@ -1301,104 +1298,7 @@ export const Header = () => {
             >
               <Link href="/placements" className="flex items-center">
                 <p className="text-sm ">Placements</p>
-                {/* {dropdownStates.placements ? (
-                  <MdKeyboardArrowDown />
-                ) : (
-                  <MdKeyboardArrowUp />
-                )} */}
               </Link>
-
-              {/* <AnimatePresence>
-                {dropdownStates.placements && (
-                  <motion.div
-                    className="absolute w-full mt-3 pb-3 left-0 bg-white shadow-lg drop-shadow-xl h-auto"
-                    variants={dropdownVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                  >
-                    <ul className="ps-14 pt-4 flex">
-                      <div className="left flex flex-col gap-4 lg:w-1/3  py-2">
-                        <motion.li
-                          variants={itemVariants}
-                          className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
-                        >
-                          <div>
-                            <CiLogin className="text-2xl" />
-                          </div>
-                          <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Student Login 
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                            To access the SEG portal, please enter your credentials.
-                            </p>
-                          </div>
-                        </motion.li>
-
-                        <motion.li
-                          variants={itemVariants}
-                          className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
-                        >
-                          <div>
-                          <GiMedal className="text-2xl" />
-                          </div>
-                          <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                            Our Gold Medalist
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                            "SEG proudly honors our Gold Medalist — a true symbol of excellence and dedication."
-                            </p>
-                          </div>
-                        </motion.li>
-
-                        <motion.li
-                          variants={itemVariants}
-                          className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
-                        >
-                          <div>
-                          <GoTrophy className="text-2xl" />
-                          </div>
-                          <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                            Student of the Month 
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                            "SEG's Student of the Month shines with dedication, excellence, and hard work." 
-                            </p>
-                            
-                          </div>
-                        </motion.li>
-
-                     
-                      </div>
-                      <div className="middle flex flex-col gap-4 py-2 lg:w-1/3">
-                         <motion.li
-                          variants={itemVariants}
-                          className="group flex items-center gap-6 hover:bg-blue-50 p-3 rounded-md"
-                        >
-                          <div>
-                            <FaRegClipboard className="text-2xl" />
-                          </div>
-                          <div className="flex flex-col gap-2">
-                          <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                             Student Notice
-                            </h6>
-                            <p className="text-gray-400 text-sm">
-                            "Important updates and announcements for SEG students — stay informed and engaged!"
-                            </p>
-                          </div>
-                        </motion.li>
-                       
-                      </div>
-                      <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
-                       <Image src={SegBanner} alt="our institutions banner" height={600} width={600} className="h-full w-auto object-cover" />
-                      </div>
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence> */}
             </li>
 
             {/* Explore more Dropdown */}
@@ -1712,6 +1612,7 @@ export const Header = () => {
                         href={link.href}
                         subLinks={link.subLinks}
                         setActiveSubmenu={setActiveSubmenu}
+                        toggleMenu={toggleMenu}
                       />
                     </div>
                   ))}
@@ -1754,6 +1655,7 @@ export const Header = () => {
                         title={subLink.title}
                         href={subLink.href}
                         setActiveSubmenu={setActiveSubmenu}
+                        toggleMenu={toggleMenu}
                       />
                     </div>
                   ))}
@@ -1786,10 +1688,12 @@ const mobileLinkVars = {
   },
 };
 
-const MobileNavLink = ({ title, href, subLinks, setActiveSubmenu }) => {
+const MobileNavLink = ({ title, href, subLinks, setActiveSubmenu, toggleMenu }) => {
   const handleClick = () => {
     if (subLinks && subLinks.length > 0) {
       setActiveSubmenu({ title, subLinks });
+    }else{
+      toggleMenu()
     }
   };
 
@@ -1800,10 +1704,10 @@ const MobileNavLink = ({ title, href, subLinks, setActiveSubmenu }) => {
           {title}
         </button>
       ) : (
-        <Link className=" " href={href}>
+        <Link className=" " href={href} onClick={handleClick}>
           {title}
         </Link>
-      )}
+      )}  
     </motion.div>
   );
 };

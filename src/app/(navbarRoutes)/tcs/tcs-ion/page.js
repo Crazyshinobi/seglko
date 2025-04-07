@@ -34,6 +34,7 @@ export default function page() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {program.courses.map((courseId) => {
                   const course = coursesData[courseId];
+                  
                   return (
                    <Link
                    key={courseId}
@@ -43,6 +44,9 @@ export default function page() {
                       <h4 className="font-medium text-gray-800 mb-1">{course.title}</h4>
                       <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
                         Semester {course.semester}
+                      </span>
+                      <span className="inline-block bg-yellow-100 text-blue-800 text-xs px-2 py-1 ml-4 rounded-full">
+                        View Details
                       </span>
                       </Link>
                     
