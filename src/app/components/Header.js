@@ -73,7 +73,7 @@ const navLinks = [
       { title: "M.Pharma", href: "/programs/m-pharma" },
       { title: "B.Pharma", href: "/programs/b-pharma" },
       { title: "Diploma in Pharmacy", href: "/programs/d-pharma" },
-      { title: "Diploma Programmes", href: "/programs/" },
+      { title: "Diploma Programmes", href: "/programs/polytechnic" },
     ],
   },
   {
@@ -151,11 +151,11 @@ const navLinks = [
   },
   {
     title: "Fee Payment",
-    href: "/",
+    href: "/fees-payment",
   },
   {
     title: "Career",
-    href: "/",
+    href: "/career",
   },
 ];
 
@@ -304,7 +304,7 @@ export const Header = () => {
 
   return (
     <>
-      <div className="flex  bg-white z-[5000] overflow-hidden xl:justify-normal xl:gap-24 justify-between items-center shadow-lg">
+      <div className="flex sticky top-0  bg-white z-[5000]  xl:justify-normal xl:gap-24 justify-between items-center shadow-lg">
         <div className="nav hidden xl:flex">
           <Link href="/">
             <Image

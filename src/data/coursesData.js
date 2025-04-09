@@ -134,7 +134,7 @@ export const coursesData = {
       "Industrial Product Designer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/design-thinking/",
-    courseBanner : '/tcs/cloudComputing.png',
+    courseBanner : '/tcs/cloudComputing.PNG',
   },
   "statistics-r-python": {
     id: "statistics-r-python",
@@ -228,7 +228,7 @@ export const coursesData = {
     ],
     jobRoles: ["Data Analyst", "Data Scientist", "DevOps Engineer"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/statistics-using-r-python/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/R-Python.png',
     
   },
 
@@ -618,7 +618,7 @@ export const coursesData = {
       "Network Engineer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/information-security/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/informationSecurity.PNG',
   },
 
   "cloud-computing": {

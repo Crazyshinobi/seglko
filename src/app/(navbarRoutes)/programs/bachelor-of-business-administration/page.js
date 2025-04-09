@@ -25,7 +25,7 @@ const page = () => {
       <div className="bg-gradient-to-b from-blue-50 to-gray-100 py-16 px-4 sm:px-8 lg:px-16 xl:px-32 space-y-16">
         {/* Hero Section */}
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl font-bold text-blue-900 mb-6 leading-tight">
+          <h1 className="text-4xl font-bold text-blue-900 mb-6 leading-tight">
             Bachelor of Business Administration{" "}
             <span className="text-blue-600">(BBA)</span>
           </h1>

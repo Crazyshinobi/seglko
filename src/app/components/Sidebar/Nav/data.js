@@ -1,16 +1,13 @@
 export const Links = [
   
-    {
-        title : "Our Recruiters",
-        href : "/"
-    },
+ 
     {
         title : "Gallery",
         href : "/"
     },
     {
         title : "Fees",
-        href : "/"
+        href : "/fees-payment"
     },
     {
         title : "Career",

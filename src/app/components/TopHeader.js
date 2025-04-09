@@ -7,11 +7,10 @@ export default function TopHeader() {
         
         <Link href='/about/whyjoin'><p className='hover:text-blue-600'>Why SEG?</p></Link>
         <p>Alumni</p>
-        <p>E-Brochure</p>
-        <p>ERP LOGIN</p>
+        <p>ERP LOGIN</p> 
        <Link href='/career'> <p className='hover:text-blue-600'>Career</p></Link>
         <p>Toll Free No: 1800-180-7686</p>
-        <button className='bg-blue-600 text-white py-1 px-3 rounded-md'>Pay Fee Online</button>
+        <Link href="/fees-payment" className='bg-blue-600 text-white py-1 px-3 rounded-md'>Pay Fee Online</Link>
 
     </div>
   )

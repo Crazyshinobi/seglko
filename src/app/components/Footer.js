@@ -2,6 +2,7 @@ import { LuPhone } from "react-icons/lu";
 import { CiMail, CiLocationOn } from "react-icons/ci";
 import { PiMailboxDuotone } from "react-icons/pi";
 import "../css/SocialMediaIcons.css";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -19,34 +20,37 @@ const Footer = () => {
         {/* Contact Section */}
         <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-6 p-4">
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2">
-              <p className="bg-yellow-400 rounded-xl p-2 text-xl">
+            <a href="https://www.google.com/maps/place/Saroj+Educational+Group/@28.5681223,77.2440271,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd309eebed77:0x5d235d9023c29428!8m2!3d28.5681223!4d77.246602!16s%2Fg%2F1tfs96nm?entry=ttu&g_ep=EgoyMDI1MDQwNi4wIKXMDSoASAFQAw%3D%3D"
+             target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 hover:text-blue-400">
+              <p className="bg-yellow-400 rounded-xl p-2 text-xl group-hover:text-black">
                 <CiLocationOn />
               </p>
-              <p>Our Location</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <p className="bg-yellow-400 rounded-xl p-2 text-xl">
+              <p className="group-hover:text-blue-400">Our Location</p>
+            </a>
+            <a href="mailto:admission.cell@seglko.org" className="group flex items-center gap-2 hover:text-blue-400">
+              
+              <p className="bg-yellow-400 rounded-xl p-2 text-xl group-hover:text-black">
                 <PiMailboxDuotone />
               </p>
-              <p>Mail Us</p>
-            </div>
+              <p className="group-hover:text-blue-400">Mail Us</p>
+              
+            </a>
           </div>
 
           <div className="flex flex-col gap-2 font-light">
             <h1 className="font-extrabold">Quick Contact</h1>
-            <p className="flex items-center gap-2">
+            <a  href="tel:09555699988" className="flex items-center gap-2">
               <LuPhone />
               09555699988
-            </p>
-            <p className="flex items-center gap-2">
+            </a>
+            <a  href="tel:09810054878" className="flex items-center gap-2">
               <LuPhone />
               09810054878
-            </p>
-            <p className="flex items-center gap-2">
+            </a>
+            <a href="mailto:admission.cell@seglko.org" className="flex items-center gap-2">
               <CiMail />
               admission.cell@seglko.org
-            </p>
+            </a>
           </div>
 
           {/* Social Media Icons */}
@@ -157,37 +161,69 @@ const Footer = () => {
 
         {/* Programs */}
         <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-3 p-4">
-          <h3 className="text-black text-lg text-center md:text-left">Programs</h3>
+          <h3 className="text-black text-lg text-center md:text-left">
+            Programs
+          </h3>
           <div className="flex flex-wrap justify-between gap-2 text-gray-500">
             <div>
-              <p>MBA</p>
-              <p>BBA</p>
-              <p>MCA</p>
-              <p>M.Tech</p>
-              <p>BCA</p>
+              <p>
+                <Link href="/programs/master-of-business-administration">
+                  MBA
+                </Link>
+              </p>
+
+              <p>
+                <Link href="/programs/bachelor-of-business-administration">
+                  BBA
+                </Link>
+              </p>
+              <p>
+                <Link href="/programs/master-of-computer-application">MCA</Link>
+              </p>
+              <p>
+                <Link href="/programs/master-of-technology">M.Tech</Link>
+              </p>
+              <p>
+                <Link href="/programs/bachelor-of-computer-application">
+                  BCA
+                </Link>
+              </p>
             </div>
             <div>
-              <p>B.Tech</p>
-              <p>M.Pharma</p>
-              <p>D.Pharma</p>
-              <p>B.Pharma</p>
-              <p>Polytechnic</p>
+              <p>
+                <Link href="/programs/bachelor-of-technology">B.Tech</Link>
+              </p>
+              <p>
+                <Link href="/programs/m-pharma">M.Pharma</Link>
+              </p>
+              <p>
+                <Link href="/programs/d-pharma">D.Pharma</Link>
+              </p>
+              <p>
+                <Link href="/programs/b-pharma">B.Pharma</Link>
+              </p>
+              <p>
+                <Link href="/programs/polytechnic">Polytechnic</Link>
+              </p>
             </div>
           </div>
         </div>
 
         {/* Admissions */}
         <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-3 p-4 text-gray-500">
-          <h3 className="text-black text-lg text-center md:text-left">Admissions</h3>
-          <p>Admission Process</p>
-          <p>Eligibility Criteria</p>
-          <p>Our Courses</p>
-          <p>Fee Structure</p>
+          <h3 className="text-black text-lg text-center md:text-left">
+            Admissions
+          </h3>
+          <Link href="/admission/admission-process">Admission Process</Link>
+          <Link href="/admission/eligibility">Eligibility Criteria</Link>
+          <Link href="">Fee Structure</Link>
         </div>
 
         {/* Campus */}
         <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-3 p-4 text-gray-500">
-          <h3 className="text-black text-lg text-center md:text-left">Campus</h3>
+          <h3 className="text-black text-lg text-center md:text-left">
+            Campus
+          </h3>
           <div className="flex flex-wrap justify-between gap-2">
             <div>
               <p>Lecture Halls</p>
@@ -208,8 +244,10 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div className="w-full lg:w-3/12 flex flex-col justify-between gap-12 p-4">
-         <div className="flex flex-col gap-3">
-            <h3 className="text-black text-lg text-center sm:text-start">Quick Links</h3>
+          <div className="flex flex-col gap-3">
+            <h3 className="text-black text-lg text-center sm:text-start">
+              Quick Links
+            </h3>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
               <p>Saroj Institute of Technology & Management</p>
@@ -226,15 +264,16 @@ const Footer = () => {
 
           <div className="flex flex-col gap-1">
             <hr className="w-full h-[1px] border-none bg-green-400" />
-            <p>→ Privacy Policy</p>
-            <p>→ Terms and Conditions</p>
+            <Link href="/privacy-policy">→ Privacy Policy</Link>
+            <Link href="/terms-and-conditions">→ Terms and Conditions</Link>
           </div>
         </div>
       </div>
 
       {/* Footer Bottom */}
       <div className="bg-black text-white text-center p-3">
-        © {new Date().getFullYear()} Saroj Educational Group (SEG). All Rights Reserved.
+        © {new Date().getFullYear()} Saroj Educational Group (SEG). All Rights
+        Reserved.
       </div>
     </footer>
   );
