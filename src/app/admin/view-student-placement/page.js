@@ -79,7 +79,7 @@ export default function page() {
         { id: "compensation", label: "Package (₹ in LPA)", type: "text" },
         { id: "image", label: "Student Image", type: "file" },
       ]}
-      emptyMessage={{
+      emptyMessage={{      
         title: "No Student Placements found",
         description: "Student Placements will appear here once submitted.",
       }}
