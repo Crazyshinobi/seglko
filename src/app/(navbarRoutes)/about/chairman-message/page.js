@@ -1,7 +1,13 @@
 import NavigationPages from '@/app/utils/NavigationPages'
 import React from 'react'
 
+export const metadata = {
+  title : "Chairman's Message | Saroj Educational Group",
+  description : "Read the message from Mr. Sunil Singh, Chairman of Saroj Educational Group, and discover his vision for the future of education.",
+};
+
 const page = () => {
+
   return (
     <>
       <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">

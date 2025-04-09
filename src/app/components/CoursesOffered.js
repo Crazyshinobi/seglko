@@ -13,6 +13,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
 
 export default function CoursesOffered() {
   const selectedCourse = useSelector((state) => state.course.selectedCourse);
@@ -205,9 +206,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">3 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/bachelor-of-computer-application" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -247,9 +248,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">4 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/bachelor-of-technology" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -289,9 +290,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">2 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/master-of-technology" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -330,9 +331,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">2 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/master-of-computer-application" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -369,9 +370,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">2 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/master-of-business-administration" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -409,9 +410,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">3 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/bachelor-of-business-administration" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -447,9 +448,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">3 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/polytechnic" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -487,9 +488,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">2 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/d-pharma" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -525,9 +526,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">2 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/m-pharma" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -566,9 +567,9 @@ export default function CoursesOffered() {
                         <p className="text-lg font-bold">4 Year</p>
                       </div>
 
-                      <button className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
+                      <Link href="/programs/b-pharma" className="bg-white py-2 px-4 rounded-lg font-extrabold text-lg flex w-fit">
                         View Program Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -698,9 +699,9 @@ export default function CoursesOffered() {
                 software development, and networking, preparing them for careers
                 in the IT industry.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/bachelor-of-computer-application" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -713,9 +714,9 @@ export default function CoursesOffered() {
                 technical skills and practical knowledge in engineering fields,
                 preparing students for innovation and industry roles.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/bachelor-of-technology" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -728,9 +729,9 @@ export default function CoursesOffered() {
                 offering specialization in engineering and technology, aimed at
                 research and high-level technical careers.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/master-of-technology" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -745,9 +746,9 @@ export default function CoursesOffered() {
                 focused on advanced computer science, software development, and
                 application management for IT careers.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/master-of-computer-application" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -762,9 +763,9 @@ export default function CoursesOffered() {
                 designed to develop managerial and leadership skills, preparing
                 students for corporate roles and entrepreneurship.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/master-of-business-administration" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -779,9 +780,9 @@ export default function CoursesOffered() {
                 offering foundational knowledge in business management, finance,
                 and entrepreneurship.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/bachelor-of-business-administration" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -794,9 +795,9 @@ export default function CoursesOffered() {
                 on advanced pharmaceutical research, drug development, and
                 clinical practices.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/m-pharma" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -811,9 +812,9 @@ export default function CoursesOffered() {
                 pharmaceutical science, drug formulation, and healthcare
                 practices.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/b-pharma" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -826,9 +827,9 @@ export default function CoursesOffered() {
                 basic pharmaceutical knowledge, practical skills, and pharmacy
                 operations.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/d-pharma" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
 
@@ -841,9 +842,9 @@ export default function CoursesOffered() {
                 education and practical training in various engineering and
                 applied sciences.
               </p>
-              <button className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
+              <Link href="/programs/polytechnic" className="bg-yellow-200 px-4 py-1 rounded-md mt-2">
                 View program details
-              </button>
+              </Link>
             </AccordionContent>
           </AccordionItem>
         </Accordion>

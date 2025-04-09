@@ -11,12 +11,15 @@ export default function PlacementPage() {
   const [PlacementData, setPlacementData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 6;
 
   // Pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = PlacementData.slice(indexOfFirstItem, indexOfLastItem);
+  const sortedData = [...PlacementData].sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+  const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
 
   const totalPages = Math.ceil(PlacementData.length / itemsPerPage);
 

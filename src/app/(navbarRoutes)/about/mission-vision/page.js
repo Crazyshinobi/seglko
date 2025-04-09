@@ -1,7 +1,15 @@
 import NavigationPages from '@/app/utils/NavigationPages'
 import React from 'react'
 
+
+export const metadata = {
+  title : "Mission & Vision | Saroj Educational Group",
+  description : "Discover the mission and vision of Saroj Educational Group (SEG) and how it shapes the future of education.",
+};
+
+
 const page = () => {
+ 
   return (
     <>
     <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">
