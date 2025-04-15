@@ -95,7 +95,7 @@ export default function PlacementPage() {
             <Image
               src={placement.image || "/default-student.jpg"}
               alt={placement.name}
-              className="object-cover h-full w-full object-top"
+              className="object-cover h-full w-full lg:object-top object-top"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
             />

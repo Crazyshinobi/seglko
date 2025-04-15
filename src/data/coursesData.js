@@ -134,7 +134,7 @@ export const coursesData = {
       "Industrial Product Designer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/design-thinking/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/DesignThinking.PNG',
   },
   "statistics-r-python": {
     id: "statistics-r-python",
@@ -987,7 +987,7 @@ export const coursesData = {
       "Industrial Product Designer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/design-thinking/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/DesignThinking.PNG',
   },
   "data-analysis-excel": {
     id: "data-analysis-excel",
@@ -1180,7 +1180,7 @@ export const coursesData = {
     ],
     jobRoles: ["Data Mining Engineer", "Data Scientist", "Data Analyst"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/data-mining-and-warehousing/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/DataMining.PNG',
   },
   "data-modeling-and-visualization": {
     id: "data-modeling-and-visualization",
@@ -1543,7 +1543,7 @@ export const coursesData = {
     ],
     jobRoles: ["Big Data Engineer", "Big Data Developer", "Big Data Architect"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/big-data-on-cloud/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/BigData.PNG',
   },
   "info-security": {
     id: "info-security",

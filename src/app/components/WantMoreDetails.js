@@ -30,7 +30,7 @@ export default function WantMoreDetails(){
           </div>
         </div>
 
-       <Link href="/tcs/tcs-ion">
+       <Link href="/tcs-ion">
        <div className="flex justify-start items-center text-blue-900 text-xl w-full">
           TCS Courses{" "}
           <motion.div

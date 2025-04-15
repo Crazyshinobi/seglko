@@ -11,7 +11,7 @@ export default function Button({ isActive, setIsActive }) {
         transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
       >
         <div className={styles.el}>
-          <PerspectiveText isActive={!isActive} label="Menu" />
+          <PerspectiveText isActive={!isActive} label="Explore" />
         </div>
 
         <div className={styles.el}>

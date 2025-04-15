@@ -3,6 +3,13 @@ import React from 'react'
 import { degreePrograms, coursesData } from '@/data/coursesData';
 import Link from 'next/link';
 
+
+export const metadata = {
+  title: 'TCS ION Courses - Saroj Educational Group',
+  description: 'Explore the courses offered by TCS ION at Saroj Educational Group. Enhance your skills and knowledge with our specialized programs.',
+};
+
+
 export default function page() {
   
   return (
@@ -14,7 +21,6 @@ export default function page() {
       className="w-full h-full object-fit"
     />
   </div>
-
   <div>
     <NavigationPages/>
   </div>
@@ -38,7 +44,7 @@ export default function page() {
                   return (
                    <Link
                    key={courseId}
-                   href={`/tcs/tcs-ion/courses/${courseId}`}
+                   href={`/tcs-ion/${courseId}`}
                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                    
                       <h4 className="font-medium text-gray-800 mb-1">{course.title}</h4>

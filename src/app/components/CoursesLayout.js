@@ -460,7 +460,7 @@ export default function CourseLayout({ course }) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="fixed inset-0 flex items-center justify-center p-4 z-50 bg-black bg-opacity-30"
+                  className="fixed inset-0 flex items-center z-[6000] justify-center p-4  bg-black bg-opacity-30"
                   onClick={() => setSelectedMentor(null)}
                 >
                   <motion.div

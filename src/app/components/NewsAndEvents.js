@@ -165,9 +165,9 @@ export default function NewsAndEvents() {
           <div className="rounded-md text-xl sm:text-2xl md:text-3xl text-center font-bold text-white bg-blue-800 py-2">
             Student Notice Board
           </div>
-          <div className="flex justify-center items-center text-green-600 flex-row mx-auto w-4/5">
+          <div className="flex justify-center items-center text-green-600 flex-row mx-auto w-11/12">
             <span className="before:content-[''] before:block before:w-32 sm:before:w-40 md:before:w-56 before:h-[1px] before:bg-green-600 before:mr-2"></span>
-            <Link href="/studentzone/student-notices" className="flex items-center justify-center text-sm sm:text-base md:text-lg">Read all Notices<IoIosArrowRoundForward/></Link>
+            <Link href="/studentzone/student-notices" className="flex items-center justify-center text-sm sm:text-base md:text-base">Read all Notices<IoIosArrowRoundForward/></Link>
           </div>
 
           {/* Notices List */}
@@ -208,7 +208,7 @@ export default function NewsAndEvents() {
 
         {/* Notice Image Modal */}
         {selectedImage && (
-          <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+          <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-[5001]">
             <div className="relative bg-white p-4 rounded-lg shadow-lg">
               {/* Close Button */}
               <button

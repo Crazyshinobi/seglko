@@ -168,7 +168,7 @@ export default function CoursesOffered() {
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="text-start"
+                className="text-justify"
               >
                 {selectedCourse === "BCA" && (
                   <div className="flex flex-col gap-6">
@@ -599,7 +599,7 @@ export default function CoursesOffered() {
                 {selectedCourse === "BTech" && (
                   <div className="w-full">
                     <img
-                      src="/MtechCourseImg.jpg"
+                      src="/BtechImg.jpg"
                       alt="BTech Course Image"
                       className=" object-cover"
                     />
@@ -618,7 +618,7 @@ export default function CoursesOffered() {
                 {selectedCourse === "MCA" && (
                   <div className="w-full">
                     <img
-                      src="/BcaCourseImg.jpg"
+                      src="/McaImg.jpg"
                       alt="MCA Course Image"
                       className=" object-cover"
                     />
@@ -663,7 +663,7 @@ export default function CoursesOffered() {
                 {selectedCourse === "M.Pharma" && (
                   <div className="w-full">
                     <img
-                      src="/MtechCourseImg.jpg"
+                      src="/MPharmaImg.jpg"
                       alt="M.Pharma Course Image"
                       className=" object-cover"
                     />
@@ -672,7 +672,7 @@ export default function CoursesOffered() {
                 {selectedCourse === "B.Pharma" && (
                   <div className="w-full">
                     <img
-                      src="/BbaCourseImg.jpg"
+                      src="/BPharmaImg.jpg"
                       alt="B.Pharma Course Image"
                       className=" object-cover"
                     />
@@ -693,7 +693,7 @@ export default function CoursesOffered() {
               Bachelor's of Computer Applications (BCA)
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Bachelor of Computer Applications (BCA) is a 3-year program that
                 equips students with essential skills in computer science,
                 software development, and networking, preparing them for careers
@@ -709,7 +709,7 @@ export default function CoursesOffered() {
           <AccordionItem value="btech">
             <AccordionTrigger>Bachelor of Technology (B.Tech)</AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Bachelor of Technology (B.Tech) is a 4-year program focused on
                 technical skills and practical knowledge in engineering fields,
                 preparing students for innovation and industry roles.
@@ -724,7 +724,7 @@ export default function CoursesOffered() {
           <AccordionItem value="mtech">
             <AccordionTrigger>Master of Technology (M.Tech)</AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Master of Technology (M.Tech) is a 2-year advanced program
                 offering specialization in engineering and technology, aimed at
                 research and high-level technical careers.
@@ -741,7 +741,7 @@ export default function CoursesOffered() {
               Master of Computer Applications (MCA)
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Master of Computer Applications (MCA) is a 2-year program
                 focused on advanced computer science, software development, and
                 application management for IT careers.
@@ -758,7 +758,7 @@ export default function CoursesOffered() {
               Master of Business Administration (MBA)
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Master of Business Administration (MBA) is a 2-year program
                 designed to develop managerial and leadership skills, preparing
                 students for corporate roles and entrepreneurship.
@@ -775,7 +775,7 @@ export default function CoursesOffered() {
               Bachelor of Business Administration (BBA)
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Bachelor of Business Administration (BBA) is a 3-year program
                 offering foundational knowledge in business management, finance,
                 and entrepreneurship.
@@ -790,7 +790,7 @@ export default function CoursesOffered() {
           <AccordionItem value="mpharma">
             <AccordionTrigger>Master of Pharmacy (M. Pharma)</AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Master of Pharmacy (M. Pharma) is a 2-year program that focuses
                 on advanced pharmaceutical research, drug development, and
                 clinical practices.
@@ -807,7 +807,7 @@ export default function CoursesOffered() {
               Bachelor of Pharmacy (B. Pharma)
             </AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Bachelor of Pharmacy (B. Pharma) is a 4-year program covering
                 pharmaceutical science, drug formulation, and healthcare
                 practices.
@@ -822,7 +822,7 @@ export default function CoursesOffered() {
           <AccordionItem value="dpharma">
             <AccordionTrigger>Diploma in Pharmacy (D. Pharma)</AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Diploma in Pharmacy (D. Pharma) is a 2-year program focusing on
                 basic pharmaceutical knowledge, practical skills, and pharmacy
                 operations.
@@ -837,7 +837,7 @@ export default function CoursesOffered() {
           <AccordionItem value="polytechnic">
             <AccordionTrigger>Polytechnic Diploma</AccordionTrigger>
             <AccordionContent>
-              <p className="text-slate-500">
+              <p className="text-slate-500 mb-2 text-justify">
                 Polytechnic is a 3-year diploma course offering technical
                 education and practical training in various engineering and
                 applied sciences.

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 
 const items = [
   { id: 1, url: "/HappeningsImage1.jpg" },
@@ -10,50 +10,58 @@ const items = [
   { id: 4, url: "/SarojTimesMagazine.JPEG" },
   { id: 5, url: "/HappeningsImage1.jpg" },
   { id: 6, url: "/SarojTimesMagazine.JPEG" },
-
 ];
 
 export default function Happenings() {
-  const [width, setWidth] = useState(0);
+  const x = useMotionValue(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const containerRef = useRef(null);
 
-  useEffect(() => {
-    // Calculate total width of all images
-    const imageWidth = 256; // w-64 = 16rem = 256px
-    const totalWidth = items.length * imageWidth;
-    setWidth(totalWidth);
-  }, []);
+  useAnimationFrame((t, delta) => {
+    if (!isPaused) {
+      const velocity = 50; // pixels per second
+      const moveBy = (velocity * delta) / 1000; // delta is in ms
+      x.set(x.get() - moveBy);
+
+      const containerWidth = containerRef.current?.offsetWidth || 0;
+      const contentWidth = items.length * 300 * 2; // since doubled (items x 2), each image ~300px
+
+      if (Math.abs(x.get()) >= contentWidth / 2) {
+        x.set(0); // loop seamlessly
+      }
+    }
+  });
 
   return (
     <div>
-      <div className="py-7 max-w-7xl  mx-auto">
-        <h1 className="text-5xl lg:text-6xl font-bold ">
-          Happenings
-          </h1>
+      <div className="py-7 max-w-7xl mx-auto">
+        <h1 className="text-5xl lg:text-6xl font-bold">Happenings</h1>
       </div>
-        <div className="overflow-hidden w-full relative py-2">
-      <motion.div
-        className="flex space-x-4"
-        initial={{ x: 0 }}
-        animate={{ x: ["0%", "-60%"] }}
-        transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+
+      <div
+        className="overflow-hidden w-full relative py-2"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        ref={containerRef}
       >
-        {/* Duplicate Reels for Infinite Scroll */}
-        {[...items, ...items].map((item, index) => (
-          <div
-            key={index}
-            className="relative group px-2 h-[300px] lg:h-[500px] md:h-[350px] w-[300px] lg:w-[420px] flex-shrink-0"
-          >
-            {/* Image */}
-            <img
-              src={item.url}
-              alt={`Instagram Reel ${index + 1}`}
-              className="rounded-lg shadow-lg w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        ))}
-      </motion.div>
+        <motion.div
+          className="flex space-x-4 will-change-transform"
+          style={{ x }}
+        >
+          {[...items, ...items].map((item, index) => (
+            <div
+              key={index}
+              className="relative group px-2 h-[300px] lg:h-[400px] md:h-[350px] w-[300px] lg:w-[380px] flex-shrink-0"
+            >
+              <img
+                src={item.url}
+                alt={`Instagram Reel ${index + 1}`}
+                className="rounded-lg shadow-lg w-full h-full object-fill transform group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          ))}
+        </motion.div>
+      </div>
     </div>
-    </div>
-   
   );
 }
