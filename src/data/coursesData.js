@@ -341,7 +341,7 @@ export const coursesData = {
       "Artificial Intelligence Assistant System Engineer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/artificial-intelligence/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/AI-FOR-REAL-WORLD.png',
   },
 
   "machine-learning": {
@@ -444,7 +444,7 @@ export const coursesData = {
       "Computational Linguist",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/machine-learning/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/ML-FOR-REAL-WORLD.png',
   },
 
   "deep-learning-and-neural-network": {
@@ -533,7 +533,7 @@ export const coursesData = {
       "The Deep Learning market size will grow at a CAGR of 7.3% during the forecast period (2024-2031).",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/deep-learning-neural-networks/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/APPLICATION-OF-DEEP-LEARNING.png',
   },
 
   "information-security": {
@@ -1073,7 +1073,7 @@ export const coursesData = {
       "Data Analytics Consultant",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/data-analysis-with-excel/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/DATA-ANALYSIS-WITH-EXCEL.png',
   },
 
   "data-mining-and-warehousing": {
@@ -1283,7 +1283,7 @@ export const coursesData = {
     ],
     jobRoles: ["Tableau Developer", "Data Modeler", "Data Analyst"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/data-modeling-and-visualization/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/Datamodelling.PNG',
   },
 
   "data-analytics-and-reporting": {
@@ -1543,7 +1543,7 @@ export const coursesData = {
     ],
     jobRoles: ["Big Data Engineer", "Big Data Developer", "Big Data Architect"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/big-data-on-cloud/",
-    courseBanner : '/tcs/BigData.PNG',
+    courseBanner : '/tcs/DATA-ANALYTICS.png',
   },
   "info-security": {
     id: "info-security",
