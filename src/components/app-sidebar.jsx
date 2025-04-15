@@ -9,7 +9,9 @@ import {
   Map,
   PieChart,
   MessageSquareMore,
+  BriefcaseBusiness
 } from "lucide-react";
+
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
@@ -80,6 +82,21 @@ const data = {
         {
           title: "View Placement Update",
           url: "/admin/view-placement-update",
+        },
+      ],
+    },
+    {
+      title: "Jobs",
+      url: "#",
+      icon: BriefcaseBusiness,
+      items: [
+        {
+          title: "Add Job Post",
+          url: "/admin/add-job",
+        },
+        {
+          title: "View Job Post",
+          url: "/admin/view-job",
         },
       ],
     },

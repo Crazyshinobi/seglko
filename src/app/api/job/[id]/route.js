@@ -1,6 +1,6 @@
 import connectDb from "@/lib/dbConnect";
 import { NextResponse } from "next/server";
-import PlacementUpdate from "@/models/PlacementUpdate";
+import Job from "@/models/Job";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../auth/[...nextauth]/route";
 
@@ -29,34 +29,34 @@ export async function DELETE(request, { params }) {
 
     const { id } = await params;
 
-    const placementUpdate = await PlacementUpdate.findById(id);
+    const job = await Job.findById(id);
 
-    if (!placementUpdate) {
+    if (!job) {
       return NextResponse.json(
         {
           success: false,
-          message: "Placement Update not found",
+          message: "Job not found",
         },
         { status: 404 }
       );
     }
 
-    const deletePlacementUpdate = await PlacementUpdate.findByIdAndDelete(id);
+    const deleteJob = await Job.findByIdAndDelete(id);
 
-    if (deletePlacementUpdate) {
+    if (deleteJob) {
       return NextResponse.json(
         {
           success: true,
-          message: "Placement update deleted successfully",
-          data: deletePlacementUpdate,
+          message: "Job deleted successfully",
+          data: deleteJob,
         },
         { status: 200 }
       );
     }
 
-    throw new Error("Failed to delete placement update");
+    throw new Error("Failed to delete job");
   } catch (error) {
-    console.error("Error deleting placement update:", error);
+    console.error("Error deleting job:", error);
     return NextResponse.json(
       {
         success: false,
@@ -93,37 +93,37 @@ export async function PATCH(request, { params }) {
     const { id } = await params;
     const formData = await request.formData();
 
-    const company = formData.get("company");
-    const course = formData.get("course");
+    const name = formData.get("name");
+    const subject = formData.get("subject");
 
-    const existingPlacement = await PlacementUpdate.findById(id);
+    const existingJob = await Job.findById(id);
 
-    if (!existingPlacement) {
+    if (!existingJob) {
       return NextResponse.json(
         {
           success: false,
-          message: "Placement Update not found",
+          message: "Job not found",
         },
         { status: 404 }
       );
     }
 
     // Update the placement
-    const updatedPlacement = await PlacementUpdate.findByIdAndUpdate(
+    const updatedJob = await Job.findByIdAndUpdate(
       id,
        {
-        company,
-        course,
+        name,
+        subject,
       },
       { new: true, runValidators: true }
     );
 
-    if (updatedPlacement) {
+    if (updatedJob) {
       return NextResponse.json(
         {
           success: true,
-          message: "Placement update updated successfully",
-          data: updatedPlacement,
+          message: "Job updated successfully",
+          data: updatedJob,
         },
         { status: 200 }
       );
