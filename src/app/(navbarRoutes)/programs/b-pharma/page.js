@@ -11,7 +11,7 @@ const page = () => {
     <>
        <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">
         <img
-          src="/BPHARMABANNER.jpg"
+          src="/BPharmaBanner.png"
           alt="B.Pharma Banner"
           className="w-full h-full object-fit"
         />

@@ -1398,7 +1398,7 @@ export const coursesData = {
     ],
     jobRoles: ["Junior Data Scientist", "Data Modeler", "Data Analyst"],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/data-analytics-and-reporting/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/DATA-ANALYTICS.png',
   },
 
   "big-data-on-cloud": {
@@ -1627,7 +1627,7 @@ export const coursesData = {
       "Network Engineer",
     ],
     courseurl : "https://www.tcsion.com/courses/industry-honour-course/information-security/",
-    courseBanner : '/tcs/cloudComputing.PNG',
+    courseBanner : '/tcs/informationSecurity.PNG',
   },
   "innovation-and-entrepreneurship1": {
     id: "innovation-and-entrepreneurship1",
