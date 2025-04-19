@@ -599,7 +599,7 @@ export default function CoursesOffered() {
                 {selectedCourse === "BTech" && (
                   <div className="w-full">
                     <img
-                      src="/BtechImg.jpg"
+                      src="/BTechImg.jpg"
                       alt="BTech Course Image"
                       className=" object-cover"
                     />
