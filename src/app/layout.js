@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
 
   const isAuthRoute = authRoutes.includes(pathname);
   const isAdminDashboard = pathname.startsWith("/admin/") && !isAuthRoute;
-  const showHeaderAndFooter = !isAuthRoute && !isAdminDashboard;
+  const showHeaderAndFooter = !isAuthRoute && !isAdminDashboard ;;
 
   useEffect(() => {
     setIsMounted(true);

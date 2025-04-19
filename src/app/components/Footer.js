@@ -20,34 +20,40 @@ const Footer = () => {
         {/* Contact Section */}
         <div className="w-full md:w-[45%] lg:w-1/5 flex flex-col gap-6 p-4">
           <div className="flex flex-col gap-3">
-            <a href="https://www.google.com/maps/place/Saroj+Educational+Group/@28.5681223,77.2440271,17z/data=!3m1!4b1!4m6!3m5!1s0x390cfd309eebed77:0x5d235d9023c29428!8m2!3d28.5681223!4d77.246602!16s%2Fg%2F1tfs96nm?entry=ttu&g_ep=EgoyMDI1MDQwNi4wIKXMDSoASAFQAw%3D%3D"
-             target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 hover:text-blue-400">
+            <Link
+              href="/locations"
+              className="group flex items-center gap-2 hover:text-blue-400"
+            >
               <p className="bg-yellow-400 rounded-xl p-2 text-xl group-hover:text-black">
                 <CiLocationOn />
               </p>
-              <p className="group-hover:text-blue-400">Our Location</p>
-            </a>
-            <a href="mailto:admission.cell@seglko.org" className="group flex items-center gap-2 hover:text-blue-400">
-              
+              <p className="group-hover:text-blue-400">Our Locations</p>
+            </Link>
+            <a
+              href="mailto:admission.cell@seglko.org"
+              className="group flex items-center gap-2 hover:text-blue-400"
+            >
               <p className="bg-yellow-400 rounded-xl p-2 text-xl group-hover:text-black">
                 <PiMailboxDuotone />
               </p>
               <p className="group-hover:text-blue-400">Mail Us</p>
-              
             </a>
           </div>
 
           <div className="flex flex-col gap-2 font-light">
             <h1 className="font-extrabold">Quick Contact</h1>
-            <a  href="tel:09555699988" className="flex items-center gap-2">
+            <a href="tel:09555699988" className="flex items-center gap-2">
               <LuPhone />
               09555699988
             </a>
-            <a  href="tel:09810054878" className="flex items-center gap-2">
+            <a href="tel:09810054878" className="flex items-center gap-2">
               <LuPhone />
               09810054878
             </a>
-            <a href="mailto:admission.cell@seglko.org" className="flex items-center gap-2">
+            <a
+              href="mailto:admission.cell@seglko.org"
+              className="flex items-center gap-2"
+            >
               <CiMail />
               admission.cell@seglko.org
             </a>
