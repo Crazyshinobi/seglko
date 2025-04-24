@@ -1,6 +1,10 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import Head from 'next/head';
+import React from 'react'
+
+
+
 
 const colleges = [
   {
@@ -250,122 +254,122 @@ export default function CollegesListPage() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {filteredColleges.map((college) => (
-                    <>
-                      <tr 
-                        key={college.id} 
-                        className="hover:bg-gray-50 cursor-pointer"
-                        onClick={() => toggleExpand(college.id)}
-                      >
-                        <td className="px-4 md:px-6 py-4 whitespace-nowrap">
-                          <div className="flex items-center">
-                            <div className="flex-shrink-0 h-10 w-10">
-                              <img className="h-10 w-10 rounded-full" src={college.image} alt={college.name} />
-                            </div>
-                            <div className="ml-3">
-                              <div className="text-sm font-medium text-gray-900">{college.name}</div>
-                              <div className="text-xs text-gray-500">{college.address}</div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="px-4 md:px-6 py-4">
-                          <div className="flex flex-wrap gap-1">
-                            {college.programs.slice(0, 3).map((program, index) => (
-                              <span
-                                key={index}
-                                className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded"
-                              >
-                                {program}
-                              </span>
-                            ))}
-                            {college.programs.length > 3 && (
-                              <span className="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">
-                                +{college.programs.length - 3}
-                              </span>
-                            )}
-                          </div>
-                        </td>
-                        <td className="px-4 md:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {college.established}
-                        </td>
-                        <td className="px-4 md:px-6 py-4 whitespace-nowrap text-sm font-medium">
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedCollege(college);
-                            }}
-                            className="text-blue-600 hover:text-blue-900 mr-3 text-xs md:text-sm"
-                          >
-                            Details
-                          </button>
-                          <a
-                            href={college.mapsUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-green-600 hover:text-green-900 text-xs md:text-sm"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            Map
-                          </a>
-                        </td>
-                      </tr>
-                      {expandedCollege === college.id && (
-                        <tr>
-                          <td colSpan="4" className="px-4 md:px-6 py-4 bg-gray-50">
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                              <div className="md:col-span-2">
-                                <h3 className="font-semibold mb-2 text-sm md:text-base">About</h3>
-                                <p className="text-gray-700 text-xs md:text-sm">{college.description}</p>
-                                
-                                {/* Diploma Courses Table */}
-                                {college.diplomaCourses && (
-                                  <div className="mt-3 md:mt-4">
-                                    <h3 className="font-semibold mb-2 text-sm md:text-base">Diploma Courses</h3>
-                                    <div className="overflow-x-auto">
-                                      <table className="min-w-full divide-y divide-gray-200">
-                                        <thead className="bg-gray-100">
-                                          <tr>
-                                            <th className="px-2 md:px-4 py-1 md:py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course Name</th>
-                                            <th className="px-2 md:px-4 py-1 md:py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
-                                            <th className="px-2 md:px-4 py-1 md:py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Seats</th>
-                                            <th className="px-2 md:px-4 py-1 md:py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Annual Fee</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody className="bg-white divide-y divide-gray-200">
-                                          {college.diplomaCourses.map((course, index) => (
-                                            <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                                              <td className="px-2 md:px-4 py-1 md:py-2 whitespace-nowrap text-xs md:text-sm text-gray-900">{course.name}</td>
-                                              <td className="px-2 md:px-4 py-1 md:py-2 whitespace-nowrap text-xs md:text-sm text-gray-500">{course.duration}</td>
-                                              <td className="px-2 md:px-4 py-1 md:py-2 whitespace-nowrap text-xs md:text-sm text-gray-500">{course.seats}</td>
-                                              <td className="px-2 md:px-4 py-1 md:py-2 whitespace-nowrap text-xs md:text-sm text-gray-500">{course.fee}</td>
-                                            </tr>
-                                          ))}
-                                        </tbody>
-                                      </table>
-                                    </div>
-                                  </div>
-                                )}
-                              </div>
-                              <div>
-                                <h3 className="font-semibold mb-2 text-sm md:text-base">All Programs</h3>
-                                <div className="flex flex-wrap gap-2">
-                                  {college.programs.map((program, index) => (
-                                    <span
-                                      key={index}
-                                      className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded"
-                                    >
-                                      {program}
-                                    </span>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                          </td>
-                        </tr>
-                      )}
-                    </>
+  {filteredColleges.map((college) => (
+    <React.Fragment key={college.id}>
+      <tr
+        className="hover:bg-gray-50 cursor-pointer"
+        onClick={() => toggleExpand(college.id)}
+      >
+        <td className="px-4 md:px-6 py-4 whitespace-nowrap">
+          <div className="flex items-center">
+            <div className="flex-shrink-0 h-10 w-10">
+              <img className="h-10 w-10 rounded-full" src={college.image} alt={college.name} />
+            </div>
+            <div className="ml-3">
+              <div className="text-sm font-medium text-gray-900">{college.name}</div>
+              <div className="text-xs text-gray-500">{college.address}</div>
+            </div>
+          </div>
+        </td>
+        <td className="px-4 md:px-6 py-4">
+          <div className="flex flex-wrap gap-1">
+            {college.programs.slice(0, 3).map((program, index) => (
+              <span
+                key={index}
+                className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded"
+              >
+                {program}
+              </span>
+            ))}
+            {college.programs.length > 3 && (
+              <span className="text-xs bg-gray-100 text-gray-800 px-2 py-1 rounded">
+                +{college.programs.length - 3}
+              </span>
+            )}
+          </div>
+        </td>
+        <td className="px-4 md:px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+          {college.established}
+        </td>
+        <td className="px-4 md:px-6 py-4 whitespace-nowrap text-sm font-medium">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedCollege(college);
+            }}
+            className="text-blue-600 hover:text-blue-900 mr-3 text-xs md:text-sm"
+          >
+            Details
+          </button>
+          <a
+            href={college.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-600 hover:text-green-900 text-xs md:text-sm"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Map
+          </a>
+        </td>
+      </tr>
+
+      {expandedCollege === college.id && (
+        <tr>
+          <td colSpan="4" className="px-4 md:px-6 py-4 bg-gray-50">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="md:col-span-2">
+                <h3 className="font-semibold mb-2 text-sm md:text-base">About</h3>
+                <p className="text-gray-700 text-xs md:text-sm">{college.description}</p>
+
+                {college.diplomaCourses && (
+                  <div className="mt-3 md:mt-4">
+                    <h3 className="font-semibold mb-2 text-sm md:text-base">Diploma Courses</h3>
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-100">
+                          <tr>
+                            <th className="px-2 md:px-4 py-1 md:py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Course Name</th>
+                            <th className="px-2 md:px-4 py-1 md:py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Duration</th>
+                            <th className="px-2 md:px-4 py-1 md:py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Seats</th>
+                            <th className="px-2 md:px-4 py-1 md:py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Annual Fee</th>
+                          </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                          {college.diplomaCourses.map((course, index) => (
+                            <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                              <td className="px-2 md:px-4 py-1 md:py-2 whitespace-nowrap text-xs md:text-sm text-gray-900">{course.name}</td>
+                              <td className="px-2 md:px-4 py-1 md:py-2 whitespace-nowrap text-xs md:text-sm text-gray-500">{course.duration}</td>
+                              <td className="px-2 md:px-4 py-1 md:py-2 whitespace-nowrap text-xs md:text-sm text-gray-500">{course.seats}</td>
+                              <td className="px-2 md:px-4 py-1 md:py-2 whitespace-nowrap text-xs md:text-sm text-gray-500">{course.fee}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+              </div>
+              <div>
+                <h3 className="font-semibold mb-2 text-sm md:text-base">All Programs</h3>
+                <div className="flex flex-wrap gap-2">
+                  {college.programs.map((program, index) => (
+                    <span
+                      key={index}
+                      className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded"
+                    >
+                      {program}
+                    </span>
                   ))}
-                </tbody>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      )}
+    </React.Fragment>
+  ))}
+</tbody>
+
               </table>
             )}
           </div>
