@@ -339,8 +339,9 @@ export const Header = () => {
               >
                 <p className="text-sm ">About SEG </p>
                 {dropdownStates.about ? (
-                  <MdKeyboardArrowDown />
-                ) : (
+                <MdKeyboardArrowDown />
+                  
+                ) : ( 
                   <MdKeyboardArrowUp />
                 )}
               </button>

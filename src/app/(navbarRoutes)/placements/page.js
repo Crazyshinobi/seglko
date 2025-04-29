@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Calendar, Briefcase, IndianRupee } from "lucide-react";
 import BeatLoader from "react-spinners/BeatLoader";
+import { FaBook } from "react-icons/fa6";
 
 export default function PlacementPage() {
   document.title = "Placements - Saroj Educational Group";
@@ -114,6 +115,9 @@ export default function PlacementPage() {
               </div>
               <div className="bg-yellow-200 flex items-center gap-1 px-2 py-1 rounded-md font-semibold text-sm md:text-base">
                 <Briefcase size={16} /> {placement.company}
+              </div>
+              <div className="bg-yellow-200 flex items-center gap-1 px-2 py-1 rounded-md font-semibold text-sm md:text-base">
+                <FaBook size={16} /> {placement.course}
               </div>
               <div className="bg-yellow-200 flex items-center gap-1 px-2 py-1 rounded-md font-semibold text-sm md:text-base">
                 <IndianRupee size={16} /> {placement.compensation} LPA
