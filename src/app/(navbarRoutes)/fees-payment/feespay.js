@@ -30,24 +30,24 @@ export default function FeesPayment() {
       logo: "/SSITM.jpg",
       themeColor: "bg-green-600",
     },
-    {
-      name: "SAROJ INSTITUTE OF MANAGEMENT & TECHNOLOGY",
-      location: "LUCKNOW",
-      code: "529",
-      paymentLink: "https://smartpay.easebuzz.in/75671/Application",
-      qrCode: "/SIMTQR.png",
-      logo: "/SIMT.jpg",
-      themeColor: "bg-purple-600",
-    },
-    {
-      name: "LUCKNOW INSTITUTE OF PHARMACY",
-      location: "LUCKNOW",
-      code: "572",
-      paymentLink: "https://smartpay.easebuzz.in/75672/Application#",
-      qrCode: "/LIPQR.jpg",
-      logo: "/LIP.jpeg",
-      themeColor: "bg-red-600",
-    },
+    // {
+    //   name: "SAROJ INSTITUTE OF MANAGEMENT & TECHNOLOGY",
+    //   location: "LUCKNOW",
+    //   code: "529",
+    //   paymentLink: "https://smartpay.easebuzz.in/75671/Application",
+    //   qrCode: "/SIMTQR.png",
+    //   logo: "/SIMT.jpg",
+    //   themeColor: "bg-purple-600",
+    // },
+    // {
+    //   name: "LUCKNOW INSTITUTE OF PHARMACY",
+    //   location: "LUCKNOW",
+    //   code: "572",
+    //   paymentLink: "https://smartpay.easebuzz.in/75672/Application#",
+    //   qrCode: "/LIPQR.jpg",
+    //   logo: "/LIP.jpeg",
+    //   themeColor: "bg-red-600",
+    // },
   ];
 
   const [selectedQrCode, setSelectedQrCode] = useState(null);
