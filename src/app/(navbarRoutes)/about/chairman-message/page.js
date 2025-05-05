@@ -12,7 +12,7 @@ const page = () => {
     <>
       <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">
         <img
-          src="/HistoryBanner.PNG"
+          src="/ChairmanMessageBanner.PNG"
           alt="History of Seg Banner"
           className="w-full h-full object-fit"
         />
