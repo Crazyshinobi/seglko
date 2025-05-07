@@ -46,8 +46,8 @@ export default function AwardWinningProjects() {
     <>
       <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">
         <img
-          src="/PlacementBanner.PNG"
-          alt="History of Seg Banner"
+          src="/AwardProjectBanner.PNG"
+          alt="Award Project Banner"
           className="w-full h-full object-fit"
         />
       </div>
