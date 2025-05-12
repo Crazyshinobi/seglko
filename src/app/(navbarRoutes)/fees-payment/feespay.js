@@ -9,6 +9,7 @@ import {
   FaExternalLinkAlt,
   FaTimes,
 } from "react-icons/fa";
+import NavigationPages from "@/app/utils/NavigationPages";
 
 export default function FeesPayment() {
   const institutes = [
@@ -61,6 +62,18 @@ export default function FeesPayment() {
   };
 
   return (
+   <>
+    <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">
+    <img
+      src="/FeesBanner.PNG"
+      alt="Fees Banner Image"
+      className="w-full h-full object-fit"
+    />
+  </div>
+
+  <div>
+    <NavigationPages />
+  </div>
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0 }}
@@ -219,5 +232,6 @@ export default function FeesPayment() {
         )}
       </motion.div>
     </div>
+    </>
   );
 }

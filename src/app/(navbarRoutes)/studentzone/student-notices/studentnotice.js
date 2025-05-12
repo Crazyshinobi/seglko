@@ -45,8 +45,8 @@ export default function StudentNotice() {
     <>
     <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">
       <img
-        src="/polytechnic.PNG"
-        alt="polytechnic Banner"
+        src="/StudentNoticeBanner.PNG"
+        alt="Student Notice Banner"
         className="w-full h-full object-fit"
       />
     </div>
