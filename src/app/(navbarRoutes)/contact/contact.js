@@ -43,7 +43,6 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Working");
 
     if (validateForm()) {
       setLoading(true);
