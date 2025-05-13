@@ -38,7 +38,7 @@ export default function ContactPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/contact`;
+  const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/contact`;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
