@@ -1,80 +1,50 @@
-'use client';
+"use client";
 
 import { useEffect } from 'react';
+import Script from 'next/script';
 
-export default function NoPaperPopupButton() {
+export default function PopupForm() {
   useEffect(() => {
-    const existingScript = document.querySelector(
-      'script[src="https://in8cdn.npfs.co/js/widget/npfwpopup.js"]'
-    );
-
-    function initWidget() {
-      if (typeof window.NpfWidgetsInit === 'function') {
-        window.NpfWidgetsInit({
-          widgetId: 'c4686ca3db50effadb9f24fc7ca22401',
-          baseurl: 'widgets.in8.nopaperforms.com',
-          formTitle: 'Enquiry Form',
-          titleColor: '#FF0033',
-          backgroundColor: '#ddd',
-          iframeHeight: '500px',
-          buttonbgColor: '#4c79dc',
-          buttonTextColor: '#FFF',
+    const showPopup = () => {
+      if (window.NpfWidgetsInit) {
+        const widget = new window.NpfWidgetsInit({
+          // your config here
         });
-        return true;
+        // Trigger the popup
+        document.querySelector('.npfWidget-c4686ca3db50effadb9f24fc7ca22401')?.click();
       }
-      return false;
-    }
+    };
 
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://in8cdn.npfs.co/js/widget/npfwpopup.js';
-      script.async = true;
-
-      script.onload = () => {
-        // Try immediately
-        if (!initWidget()) {
-          // Retry every 100ms until available (timeout after ~5s)
-          let attempts = 0;
-          const maxAttempts = 50; 
-          const interval = setInterval(() => {
-            attempts++;
-            if (initWidget() || attempts >= maxAttempts) {
-              clearInterval(interval);
-              if (attempts >= maxAttempts) {
-                console.error('NpfWidgetsInit not available after timeout');
-              }
-            }
-          }, 100);
-        }
-      };
-
-      document.body.appendChild(script);
+    // Check if script is already loaded
+    if (window.NpfWidgetsInit) {
+      showPopup();
     } else {
-      // Script already loaded — try to init immediately, with same retry logic
-      if (!initWidget()) {
-        let attempts = 0;
-        const maxAttempts = 50; 
-        const interval = setInterval(() => {
-          attempts++;
-          if (initWidget() || attempts >= maxAttempts) {
-            clearInterval(interval);
-            if (attempts >= maxAttempts) {
-              console.error('NpfWidgetsInit not available after timeout');
-            }
-          }
-        }, 100);
-      }
+      // If not, wait for it to load
+      window.addEventListener('npfWidgetLoaded', showPopup);
     }
+
+    return () => {
+      window.removeEventListener('npfWidgetLoaded', showPopup);
+    };
   }, []);
 
   return (
-    <div className="fixed right-4 bottom-4 z-50">
-      <button
-        type="button"
-        className="npfWidgetButton npfWidget-c4686ca3db50effadb9f24fc7ca22401 bg-blue-6 00text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-700 transition"
+    <>
+      <Script 
+        src="https://in8cdn.npfs.co/js/widget/npfwpopup.js" 
+        strategy="afterInteractive"
+        onLoad={() => {
+          window.dispatchEvent(new Event('npfWidgetLoaded'));
+        }}
+      />
+      
+      <button 
+        type="button" 
+        className="npfWidgetButton npfWidget-c4686ca3db50effadb9f24fc7ca22401"
+        style={{ display: 'none' }} // Hide the button if you want auto-popup
       >
         Enquire Now!
       </button>
-    </div>
+    </>
   );
 }

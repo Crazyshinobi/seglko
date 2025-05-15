@@ -17,7 +17,7 @@ import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "./providers/AuthProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import TopHeader from "./components/TopHeader";
-import NoPaperPopupButton from "@/popupForm/NoPaperPopupButton";
+import PopupForm from "@/popupForm/NoPaperPopupButton";
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({
@@ -100,7 +100,7 @@ export default function RootLayout({ children }) {
                 <motion.div key={pathname}>
                   <Provider store={store}>
                     {children}
-                    <NoPaperPopupButton />
+                    <PopupForm />
                   </Provider>
                 </motion.div>
               </AnimatePresence>
