@@ -17,7 +17,6 @@ import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "./providers/AuthProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import TopHeader from "./components/TopHeader";
-// import PopupForm from "./components/NoPaperPopupButton";
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({

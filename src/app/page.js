@@ -22,7 +22,7 @@ const Home = () => {
     <>
       {/* <HeroSection /> */}
       {/* <ChatBot/> */}
-      <PopupForm/>
+      {/* <PopupForm/> */}
       <AboutSection />
       <LatestNews />
       <CoursesOffered />

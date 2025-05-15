@@ -28,7 +28,6 @@ const sliderImages = [
   "/SarojTimesMagazine.JPEG",
   "/AboutSlider3.jpg",
   "/PlacementGraphic2.PNG",
-  
 ];
 
 export default function AboutSection() {
@@ -38,7 +37,6 @@ export default function AboutSection() {
         className="w-full mx-auto h-full py-4 lg:bg-cover lg:bg-center"
         style={{
           backgroundImage: `url(/AboutUsBg5.png)`,
-         
         }}
       >
         <div className="heading mx-auto text-center items-center max-w-7xl lg:flex py-4  hidden  lg:flex-row w-full">
@@ -90,7 +88,7 @@ export default function AboutSection() {
             <div className=" md:h-16   w-full lg:w-2/3 overflow-hidden text-end">
               <MorphingText texts={morphingText} className="" />
             </div>
-            
+
             <div className="content w-full lg:w-3/4 overflow-hidden lg:text-lg md:text-sm md:p-2  text-justify">
               Welcome to Saroj Educational Group (SEG), established in 1997.
               Over the years, SEG has grown exponentially, earning recognition
@@ -111,9 +109,16 @@ export default function AboutSection() {
               </h2>
 
               <div className="flex items-center gap-3 ">
-                <div>
-                  <InteractiveHoverButton>Connect now</InteractiveHoverButton>
-                </div>
+                <a
+                  href="https://seglko.in8.nopaperforms.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <InteractiveHoverButton>
+                    {" "}
+                    Register now{" "}
+                  </InteractiveHoverButton>
+                </a>
 
                 <div className="flex items-center lg:gap-2  md:gap-2 hover:underline">
                   <a
@@ -129,13 +134,27 @@ export default function AboutSection() {
                   </p>
                 </div>
               </div>
-              
             </div>
             <div className="h-auto flex flex-row lg:w-5/6 w-full bg-purple-300 mt-2">
-                    <div className="flex flex-col bg-blue-900 w-1/3 p-5"><p className="lg:text-4xl text-2xl font-extrabold text-white">400+</p><p className="text-white">Recruiters on Board</p></div>
-                    <div className="flex flex-col bg-yellow-500  w-[35%] p-5"><p className="lg:text-4xl text-2xl font-extrabold text-black">30.00 LPA</p> <p className="text-black text-base">Highest Salary </p></div>
-                    <div className="flex flex-col bg-yellow-500 w-1/3 p-5 border-l-2 border-dashed border-black"><p className="lg:text-4xl text-2xl font-extrabold text-black " >5.50 LPA</p><p  className="text-black">Average Salary</p></div>
-                </div>
+              <div className="flex flex-col bg-blue-900 w-1/3 p-5">
+                <p className="lg:text-4xl text-2xl font-extrabold text-white">
+                  400+
+                </p>
+                <p className="text-white">Recruiters on Board</p>
+              </div>
+              <div className="flex flex-col bg-yellow-500  w-[35%] p-5">
+                <p className="lg:text-4xl text-2xl font-extrabold text-black">
+                  30.00 LPA
+                </p>{" "}
+                <p className="text-black text-base">Highest Salary </p>
+              </div>
+              <div className="flex flex-col bg-yellow-500 w-1/3 p-5 border-l-2 border-dashed border-black">
+                <p className="lg:text-4xl text-2xl font-extrabold text-black ">
+                  5.50 LPA
+                </p>
+                <p className="text-black">Average Salary</p>
+              </div>
+            </div>
           </div>
 
           {/* RIGHT SLIDER SECTION  */}
@@ -165,7 +184,7 @@ export default function AboutSection() {
                 loop={true}
                 navigation
                 modules={[Navigation, Autoplay]}
-              className="md:h-[69vh] h-[80vh] lg:h-[86vh] xl:h-[75vh] 2xl:h-[86vh] sm:h-[69vh] relative lg:w-11/12 md:w-full lg:right-28 right-0"  
+                className="md:h-[69vh] h-[80vh] lg:h-[86vh] xl:h-[75vh] 2xl:h-[86vh] sm:h-[69vh] relative lg:w-11/12 md:w-full lg:right-28 right-0"
               >
                 {sliderImages.map((images, index) => (
                   <SwiperSlide
