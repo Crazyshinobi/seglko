@@ -33,12 +33,14 @@ const page = () => {
             program, designed to equip you with essential skills and knowledge.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition-all transform hover:scale-105">
+            <a
+              href="https://seglko.in8.nopaperforms.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition-all transform hover:scale-105"
+            >
               Apply Now
-            </button>
-            <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-3 rounded-full font-semibold transition-all">
-              Download Brochure
-            </button>
+            </a>
           </div>
         </div>
 
@@ -458,12 +460,20 @@ const page = () => {
             rewarding career in pharmaceutical sciences.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-white text-green-800 hover:bg-gray-100 px-8 py-3 rounded-full font-bold shadow-lg transition-all transform hover:scale-105">
+            <a
+              href="https://seglko.in8.nopaperforms.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-green-800 hover:bg-gray-100 px-8 py-3 rounded-full font-bold shadow-lg transition-all transform hover:scale-105"
+            >
               Apply Now
-            </button>
-            <button className="border-2 border-white text-white hover:bg-green-700 px-8 py-3 rounded-full font-bold transition-all">
+            </a>
+            <a
+              href="tel:09555699988"
+              className="border-2 border-white text-white hover:bg-green-700 px-8 py-3 rounded-full font-bold transition-all"
+            >
               Contact Admissions
-            </button>
+            </a>
           </div>
         </div>
       </div>

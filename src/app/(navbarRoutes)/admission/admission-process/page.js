@@ -218,20 +218,12 @@ export default function page() {
   return (
     <>
       <div className="relative w-full h-[40vh] bg-blue-900">
-        <div className="absolute inset-0 bg-black opacity-40"></div>
         <img
           src="/AdmissionProcessBanner.PNG"
           alt="Admission Process Banner"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center px-4">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">Admission Process</h1>
-            <p className="text-lg text-blue-100 max-w-2xl mx-auto">
-              Simple 5-step process to join our institution
-            </p>
-          </div>
-        </div>
+      
       </div>
 
       <div>
@@ -267,6 +259,8 @@ export default function page() {
                   </p>
                   <a 
                     href="https://seglko.in8.nopaperforms.com/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
                   >
                     Start Registration

@@ -2,8 +2,8 @@
 
 import { Lora } from "next/font/google";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation"; 
-import { AnimatePresence, motion } from "framer-motion"; 
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Header } from "./components/Header";
@@ -17,6 +17,7 @@ import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "./providers/AuthProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import TopHeader from "./components/TopHeader";
+import NoPaperPopupButton from "@/popupForm/NoPaperPopupButton";
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({
@@ -26,7 +27,7 @@ const lora = Lora({
 });
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
   const [isMounted, setIsMounted] = useState(false);
   const authRoutes = [
     "/admin",
@@ -38,7 +39,7 @@ export default function RootLayout({ children }) {
 
   const isAuthRoute = authRoutes.includes(pathname);
   const isAdminDashboard = pathname.startsWith("/admin/") && !isAuthRoute;
-  const showHeaderAndFooter = !isAuthRoute && !isAdminDashboard ;;
+  const showHeaderAndFooter = !isAuthRoute && !isAdminDashboard;
 
   useEffect(() => {
     setIsMounted(true);
@@ -90,10 +91,17 @@ export default function RootLayout({ children }) {
             </ThemeProvider>
           ) : (
             <LenisProvider>
-              {showHeaderAndFooter && ( <><TopHeader/> <Header /></>)}
+              {showHeaderAndFooter && (
+                <>
+                  <TopHeader /> <Header />
+                </>
+              )}
               <AnimatePresence mode="wait">
                 <motion.div key={pathname}>
-                  <Provider store={store}>{children}</Provider>
+                  <Provider store={store}>
+                    {children}
+                    <NoPaperPopupButton />
+                  </Provider>
                 </motion.div>
               </AnimatePresence>
               {showHeaderAndFooter && <Footer />}

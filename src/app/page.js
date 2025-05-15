@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <>
       {/* <HeroSection /> */}
-      <ChatBot/>
+      {/* <ChatBot/> */}
       <AboutSection />
       <LatestNews />
       <CoursesOffered />
