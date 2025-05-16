@@ -20,7 +20,6 @@ export const metadata = {
 const Home = () => {
   return (
     <>
-      {/* <HeroSection /> */}
       {/* <ChatBot/> */}
       {/* <PopupForm/> */}
       <AboutSection />
