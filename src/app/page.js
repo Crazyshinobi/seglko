@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <>
       {/* <ChatBot/> */}
-      {/* <PopupForm/> */}
+      <PopupForm/>
       <AboutSection />
       <LatestNews />
       <CoursesOffered />

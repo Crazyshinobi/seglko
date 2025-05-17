@@ -1,63 +1,69 @@
-"use client";
+'use client'
+import { useEffect } from "react";
 
-import { useEffect, useState } from "react";
-
-const PopupForm = ()=> {
-  const [showForm, setShowForm] = useState(false);
-  const widgetId = "c4686ca3db50effadb9f24fc7ca22401";
-  const formUrl = `https://widgets.in8.nopaperforms.com/${widgetId}?embed=popup`;
-
+const PopupForm = () => {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowForm(true);
-    }, 10000);
-    return () => clearTimeout(timer);
+    // Load the external popup script
+    const script1 = document.createElement("script");
+    script1.src = "https://in8cdn.npfs.co/js/widget/npfwpopup.js";
+    script1.async = true;
+    document.body.appendChild(script1);
+
+    script1.onload = () => {
+      // Initialize the popup widget
+      const initScript = document.createElement("script");
+      initScript.innerHTML = `
+        window.npfWidgetInstance = new NpfWidgetsInit({
+          widgetId: "c4686ca3db50effadb9f24fc7ca22401",
+          baseurl: "widgets.in8.nopaperforms.com",
+          formTitle: "Enquiry Form",
+          titleColor: "#FF0033",
+          backgroundColor: "#ddd",
+          iframeHeight: "500px",
+          buttonbgColor: "#4c79dc",
+          buttonTextColor: "#FFF",
+        });
+      `;
+      document.body.appendChild(initScript);
+
+      // Automatically open popup on load 
+      setTimeout(() => {
+        const btn = document.querySelector(
+          ".npfWidgetButton.npfWidget-c4686ca3db50effadb9f24fc7ca22401"
+        );
+        if (btn) btn.click();
+      }, 2000);
+    };
+
+    return () => {
+      // Cleanup the script when component unmounts
+      document.body.removeChild(script1);
+    };
   }, []);
 
-  const toggleForm = () => setShowForm(!showForm);
-
   return (
-    <>
-      {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center">
-          <div className="bg-white p-4 rounded-lg w-full max-w-2xl h-[80vh]">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold" style={{ color: "#FF0033" }}>
-                Enquiry Form
-              </h2>
-              <button
-                onClick={toggleForm}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                ×
-              </button>
-            </div>
-            <iframe
-              src={formUrl}
-              className="w-full h-full border-0"
-              title="Enquiry Form"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      )}
-
-      <div className="fixed right-0 top-1/2 transform -translate-y-1/2 z-[10000]">
-        <button
-          onClick={toggleForm}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-l-lg shadow-lg
-                   transition-all duration-300 ease-in-out cursor-pointer"
-          style={{
-            writingMode: "vertical-rl",
-            textOrientation: "mixed",
-          }}
-          aria-label="Enquire Now"
-        >
-          Enquire Now
-        </button>
-      </div>
-    </>
+    <button
+      type="button"
+      className="npfWidgetButton npfWidget-c4686ca3db50effadb9f24fc7ca22401"
+      style={{
+        position: "fixed",
+        right: "-60px",
+        top: "50%",
+        transform: "translateY(-50%) rotate(-90deg)",
+        cursor: "pointer",
+        backgroundColor: "#dc2626", 
+        color: "#fff", 
+        padding: "0.6rem 2rem", 
+        borderRadius: "0.375rem 0.375rem 0 0.375rem", 
+        boxShadow:
+          "0 10px 15px -3px rgba(220, 38, 38, 0.5), 0 4px 6px -2px rgba(220, 38, 38, 0.25)", 
+        transition: "background-color 0.3s ease", 
+        zIndex: 50,
+      }}
+    >
+      Enquire Now!
+    </button>
   );
-}
+};
 
 export default PopupForm;
