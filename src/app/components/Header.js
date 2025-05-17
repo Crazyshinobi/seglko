@@ -56,7 +56,7 @@ const navLinks = [
     subLinks: [
       { title: "History of SEG", href: "/about/history" },
       { title: "Why Join SEG", href: "/about/whyjoin" },
-      { title: "Mission and Vision", href: "/mission-vision" },
+      { title: "Mission and Vision", href: "/about/mission-vision" },
       { title: "Chairman's Message", href: "/about/chairman-message" },
     ],
   },
