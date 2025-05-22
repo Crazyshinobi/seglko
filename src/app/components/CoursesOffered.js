@@ -22,11 +22,11 @@ export default function CoursesOffered() {
   return (
     <>
     {/* Larger Screen courses  */}
-      <div className="h-86vh  overflow-hidden lg:block hidden">
-        <div className=" h-[86vh] flex flex-row">
+      <div className="h-auto  overflow-hidden lg:block hidden">
+        <div className=" h-auto flex flex-row"  >
           {/* Sidebar: Course Selection */}
           <div
-            className=" w-[45%] p-6 h-full flex flex-col gap-1"
+            className=" w-[45%] p-6 h-auto flex flex-col gap-1"
             style={{
               backgroundImage: `url(/CoursesBg.png)`,
               backgroundPosition: "top",
@@ -156,7 +156,7 @@ export default function CoursesOffered() {
           <div className="flex flex-row w-full ">
             {/* Course Information Section */}
             <div
-              className="w-2/4  p-6 flex items-start justify-start min-h-[250px]"
+              className="xl:w-2/4 w-full  p-6 flex items-start justify-start min-h-[250px]"
               style={{
                 backgroundImage: `url(/CoursesBg.png)`,
                 backgroundPosition: "top",
@@ -577,7 +577,7 @@ export default function CoursesOffered() {
             </div>
 
             {/* Image Section */}
-            <div className="w-2/4 h-full flex items-start justify-start bg-green-600 ">
+            <div className="xl:w-2/4 xl:flex h-full hidden items-start justify-start bg-green-600 ">
               <motion.div
                 key={selectedCourse}
                 initial={{ opacity: 0 }}
