@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMailUnread } from "react-icons/io";
 import toast, { Toaster } from "react-hot-toast";
+import Link from "next/link";
 
 export default function ContactPage() {
   const [data, setData] = useState({
@@ -115,10 +116,17 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-8">
-            <h3 className="font-semibold text-gray-800 text-4xl">Location</h3>
+            <h3 className="font-semibold text-gray-800 text-4xl">Delhi Head Office Location</h3>
             <p className="text-gray-600 mt-2">
               L-5, First Floor, Lajpat Nagar - II, Delhi, Delhi, India, 110024
             </p>
+          </div>
+
+          <div className="mt-8">
+            <h3 className="font-semibold text-gray-800 text-4xl">Our Colleges Locations</h3>
+            <Link href='/locations' className="text-blue-600 mt-2 text-xl">
+              View Locations
+            </Link>
           </div>
 
           <div className="mt-6 rounded-lg overflow-hidden shadow-lg border border-gray-300">
