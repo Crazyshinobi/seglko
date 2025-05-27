@@ -17,6 +17,8 @@ import { Toaster } from "@/components/ui/sonner";
 import AuthProvider from "./providers/AuthProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import TopHeader from "./components/TopHeader";
+import PopupForm from "./components/NoPaperPopupButton";
+
 
 const inter = Inter({ subsets: ["latin"] });
 const lora = Lora({
@@ -71,6 +73,7 @@ export default function RootLayout({ children }) {
           {isAuthRoute ? (
             <>
               {children}
+              
               <Toaster />
             </>
           ) : isAdminDashboard ? (
@@ -99,6 +102,7 @@ export default function RootLayout({ children }) {
                 <motion.div key={pathname}>
                   <Provider store={store}>
                     {children}
+                    <PopupForm/>
                   </Provider>
                 </motion.div>
               </AnimatePresence>
