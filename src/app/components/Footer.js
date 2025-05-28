@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer
-      className="mt-auto bg-[#fff9f2]"
+      className="mt-auto bg-[#fff9f2] mb-8"
       style={{
         backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/FooterBg.png)`,
         backgroundSize: "contain",

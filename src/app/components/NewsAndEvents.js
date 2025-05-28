@@ -72,7 +72,7 @@ export default function NewsAndEvents() {
         </div>
 
         {/* News Section */}
-        <div className="p-2 flex flex-col lg:flex-row gap-4 border  w-full justify-start">
+        <div className="p-2 flex flex-col lg:flex-row gap-4   w-full justify-start">
           {/* Left News Section */}
           <div className="w-full lg:w-1/4 h-auto flex flex-col py-4">
             <div className="w-full flex flex-col gap-6 sm:gap-8 md:gap-10 items-center justify-center">

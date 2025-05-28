@@ -3,16 +3,16 @@ import Marquee from "react-fast-marquee";
 
 export default function LatestNews() {
   return (
-    <div className="w-full bg-blue-100 px-2  sm:py-1 flex flex-col sm:flex-row items-center  ">
+    <div className="w-full fixed bottom-0 z-[6000]  flex flex-col sm:flex-row items-center  ">
       {/* Label Section */}
-      <div className="bg-red-600 text-white text-sm sm:text-base px-4 py-2 font-semibold rounded-md shadow-sm w-full sm:w-auto text-center sm:text-left">
+      {/* <div className="bg-red-600 text-white text-sm sm:text-base px-4 py-2 font-semibold rounded-md shadow-sm w-full sm:w-auto text-center sm:text-left">
         Latest Updates:
-      </div>
+      </div> */}
 
       {/* Marquee Section */}
-      <div className="flex-1 w-full overflow-hidden rounded-md shadow-sm">
+      <div className="flex-1 w-full overflow-hidden rounded-t-xl shadow-sm">
         <Marquee
-          className="bg-blue-900 text-white text-sm sm:text-base px-4 py-2"
+          className="bg-red-700 text-white text-sm sm:text-base px-4 py-2"
           speed={50}
           gradient={false}
           pauseOnHover

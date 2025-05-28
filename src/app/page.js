@@ -24,8 +24,8 @@ const Home = () => {
       <AboutSection />
       <LatestNews />
       <CompaniesTieUps/>
-      <CoursesOffered />
       <PlacementSection />
+      <CoursesOffered />
       <NewsAndEvents />
       <Happenings />
       <OurInstitutions />

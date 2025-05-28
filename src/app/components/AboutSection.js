@@ -36,7 +36,7 @@ export default function AboutSection() {
       <div
         className="w-full mx-auto h-full py-4 lg:bg-cover lg:bg-center"
         style={{
-          backgroundImage: `url(/AboutUsBg5.png)`,
+          backgroundImage: `url(/AboutUsBg1.png)`,
         }}
       >
         <div className="heading mx-auto text-center items-center max-w-7xl lg:flex py-4  hidden  lg:flex-row w-full">
