@@ -24,13 +24,13 @@ const Home = () => {
       <AboutSection />
       <LatestNews />
       <CompaniesTieUps/>
+      <WantMoreDetails/>
       <PlacementSection />
       <CoursesOffered />
       <NewsAndEvents />
       <Happenings />
       <OurInstitutions />
       <LifeSeg />
-      <WantMoreDetails/>
     </>
   );
 };

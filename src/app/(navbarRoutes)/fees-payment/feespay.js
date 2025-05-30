@@ -2,10 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  FaUniversity,
-  FaQrcode,
   FaLink,
-  FaSearch,
   FaExternalLinkAlt,
   FaTimes,
 } from "react-icons/fa";
@@ -40,15 +37,15 @@ export default function FeesPayment() {
     //   logo: "/SIMT.jpg",
     //   themeColor: "bg-purple-600",
     // },
-    // {
-    //   name: "LUCKNOW INSTITUTE OF PHARMACY",
-    //   location: "LUCKNOW",
-    //   code: "572",
-    //   paymentLink: "https://smartpay.easebuzz.in/75672/Application#",
-    //   qrCode: "/LIPQR.jpg",
-    //   logo: "/LIP.jpeg",
-    //   themeColor: "bg-red-600",
-    // },
+    {
+      name: "LUCKNOW INSTITUTE OF PHARMACY",
+      location: "LUCKNOW",
+      code: "572",
+      paymentLink: "https://smartpay.easebuzz.in/75672/Application#",
+      qrCode: "/LIPQR.jpg",
+      logo: "/LIP.jpeg",
+      themeColor: "bg-red-600",
+    },
   ];
 
   const [selectedQrCode, setSelectedQrCode] = useState(null);

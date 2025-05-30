@@ -7,7 +7,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer
-      className="mt-auto bg-[#fff9f2] mb-8"
+      className="mt-auto bg-[#fff9f2] "
       style={{
         backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(/FooterBg.png)`,
         backgroundSize: "contain",
@@ -222,7 +222,7 @@ const Footer = () => {
           </h3>
           <Link href="/admission/admission-process">Admission Process</Link>
           <Link href="/admission/eligibility">Eligibility Criteria</Link>
-          <Link href="">Fee Structure</Link>
+          <Link href="/admission/fees-structure">Fee Structure</Link>
         </div>
 
         {/* Campus */}
@@ -233,15 +233,23 @@ const Footer = () => {
           <div className="flex flex-wrap justify-between gap-2">
             <div>
               <p>Lecture Halls</p>
-              <p>Library</p>
-              <p>Gallery</p>
-              <p>Computer Lab</p>
+              <Link href="/explore-more/library-img">
+                <p>Library</p>
+              </Link>
+              <Link href="/explore-more/gallery">
+                <p>Gallery</p>
+              </Link>
+              <Link href="/explore-more/computer-labs">
+                <p>Computer Labs</p>
+              </Link>
               <p>Cafeteria</p>
             </div>
             <div>
               <p>Sports</p>
               <p>Campus</p>
-              <p>Transport</p>
+              <Link href="/explore-more/transport">
+                <p></p> Transport
+              </Link>
               <p>Hostel</p>
               <p>Medical</p>
             </div>
@@ -277,7 +285,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-black text-white text-center p-3">
+      <div className="bg-black text-white text-center p-3 py-8">
         © {new Date().getFullYear()} Saroj Educational Group (SEG). All Rights
         Reserved.
       </div>

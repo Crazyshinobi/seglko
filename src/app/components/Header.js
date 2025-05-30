@@ -133,15 +133,15 @@ const navLinks = [
     title: "Explore More",
     href: "/",
     subLinks: [
-      { title: "Life @ SEG", href: "/" },
+      { title: "Life @ SEG", href: "/explore-more/life-seg" },
       { title: "Lecture Halls", href: "/" },
-      { title: "Library", href: "/" },
-      { title: "Gallery", href: "/" },
-      { title: "Computer Labs", href: "/" },
+      { title: "Library", href: "/explore-more/library-img" },
+      { title: "Gallery", href: "/explore-more/gallery" },
+      { title: "Computer Labs", href: "/explore-more/computer-labs" },
       { title: "Cafeteria", href: "/" },
       { title: "Sports", href: "/" },
       { title: "Campus", href: "/" },
-      { title: "Transport", href: "/" },
+      { title: "Transport", href: "/explore-more/transport" },
       { title: "Hostel", href: "/" },
     ],
   },
@@ -867,7 +867,12 @@ export const Header = () => {
                             <FcDocument className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
-                            <h6 className="font-bold group-hover:text-blue-300 text-sm">
+                          <Link
+                              href="/admission/fees-structure"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+                           <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Fee Structure
                             </h6>
                             <p className="text-gray-400 text-sm">
@@ -875,6 +880,7 @@ export const Header = () => {
                               structure to make an informed decision about your
                               studies."
                             </p>
+                           </Link>
                           </div>
                         </motion.li>
                       </div>
@@ -1337,6 +1343,7 @@ export const Header = () => {
                             <FaStreetView className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                            <Link href='/explore-more/life-seg'>
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Life @ SEG
                             </h6>
@@ -1344,6 +1351,7 @@ export const Header = () => {
                               Experience a vibrant journey of learning, growth,
                               and endless possibilities at Life @ SEG!
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -1375,6 +1383,7 @@ export const Header = () => {
                             <IoLibraryOutline className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link href='/explore-more/library-img'>
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Library
                             </h6>
@@ -1382,6 +1391,7 @@ export const Header = () => {
                               A treasure trove of knowledge with a vast
                               collection of resources for curious minds.
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -1394,6 +1404,7 @@ export const Header = () => {
                             <TfiGallery className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link href='/explore-more/gallery'>
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Gallery
                             </h6>
@@ -1402,6 +1413,7 @@ export const Header = () => {
                               creativity—capturing the essence of our vibrant
                               community.
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
                       </div>
@@ -1416,6 +1428,7 @@ export const Header = () => {
                             <HiOutlineComputerDesktop className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link href='/explore-more/computer-labs'>
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Computer Labs
                             </h6>
@@ -1424,6 +1437,7 @@ export const Header = () => {
                               learning with the latest technology and hands-on
                               experiences.{" "}
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
                         {/*  Cafeteria */}
@@ -1496,6 +1510,7 @@ export const Header = () => {
                             <FaBus className="text-2xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link href='/explore-more/transport'>
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Transport
                             </h6>
@@ -1504,6 +1519,7 @@ export const Header = () => {
                               learning with the latest technology and hands-on
                               experiences.{" "}
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
                         {/*  Hostel */}

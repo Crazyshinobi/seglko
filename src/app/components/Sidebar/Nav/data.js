@@ -3,7 +3,7 @@ export const Links = [
  
     {
         title : "Gallery",
-        href : "/"
+        href : "/explore-more/gallery"
     },
     {
         title : "Fees",

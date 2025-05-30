@@ -116,7 +116,7 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-8">
-            <h3 className="font-semibold text-gray-800 text-4xl">Delhi Head Office Location</h3>
+            <h3 className="font-semibold text-gray-800 text-4xl">Delhi Head Office </h3>
             <p className="text-gray-600 mt-2">
               L-5, First Floor, Lajpat Nagar - II, Delhi, Delhi, India, 110024
             </p>
