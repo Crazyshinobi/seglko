@@ -82,7 +82,7 @@ const navLinks = [
     subLinks: [
       { title: "Admission Process", href: "/admission/admission-process" },
       { title: "Eligibility Criteria", href: "/admission/eligibility" },
-      { title: "Fee Structure", href: "/fees-structure" },
+      { title: "Fee Structure", href: "/admission/fees-structure" },
     ],
   },
   {
