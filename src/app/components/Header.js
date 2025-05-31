@@ -113,6 +113,7 @@ const navLinks = [
       // { title: "Saroj College of Law", href: "/" },
       { title: "Saroj College of Pharmacy", href: "/scp" },
       { title: "Saroj College of Engineering and Polytechnic", href: "/scep" },
+      { title: "Lucknow Institute of Pharmacy", href: "/lip" },
     ],
   },
   {
@@ -1111,7 +1112,7 @@ export const Header = () => {
                         </motion.li>
 
                         {/* Saroj College of Law */}
-                        {/* <motion.li
+                        <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
@@ -1119,15 +1120,21 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/lip"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
-                              Saroj College of Law
+                              Lucknow Institute of Pharmacy
                             </h6>
                             <p className="text-gray-400 text-sm">
-                              Approved by Bar Council of India (BCI) and
+                              Approved by Pharmacy Council of India (PCI) and
                               affiliated to AKTU,Lucknow,College Code :
                             </p>
+                            </Link>
                           </div>
-                        </motion.li> */}
+                        </motion.li>
                       </div>
                       <div className="middle flex flex-col gap-4 py-2 lg:w-1/3">
                         {/*  Saroj College of Pharmacy */}
@@ -1180,6 +1187,7 @@ export const Header = () => {
                             </Link>
                           </div>
                         </motion.li>
+
                       </div>
                       <div className="right flex flex-col gap-3 lg:w-1/3 pr-2">
                         <Image

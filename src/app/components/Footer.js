@@ -278,6 +278,10 @@ const Footer = () => {
               <p>→</p>
               <Link href='/scep'>Saroj College of Engineering and Polytechnic</Link>
             </div>
+            <div className="flex flex-row items-start gap-2">
+              <p>→</p>
+              <Link href='/lip'>Lucknow Institute of Pharmacy</Link>
+            </div>
             
           </div>
 

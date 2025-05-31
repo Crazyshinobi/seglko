@@ -1,68 +1,80 @@
-import Link from "next/link";
-import Head from "next/head";
+"use client";
 
-export default function FeeStructure() {
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import NavigationPages from "@/app/utils/NavigationPages";
+
+const FeeStructure = () => {
+  const [selectedPdf, setSelectedPdf] = useState(null);
+  const iframeRef = useRef(null);
+
+  const handlePdfSelect = (pdf) => {
+    setSelectedPdf(pdf);
+  };
+
   return (
-    <div className=" bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <Head>
-        <title>College Fee Structure</title>
-        <meta
-          name="description"
-          content="Compare fee structures of different colleges"
-        />
-      </Head>
-
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-3xl font-bold text-center text-indigo-700 mb-8">
-          College Fee Structure
-        </h1>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {/* Saroj Institute Card */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
-          
-              <a className="block"
-                href="/pdfs/SITM-Fee-Structure.pdf#toolbar=0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className="p-6">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                    Saroj Institute of Technology and Management
-                  </h2>
-                  <p className="text-gray-600 mb-4">
-                    Click to view detailed fee structure
-                  </p>
-                  <div className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium inline-block">
-                    View Fees
-                  </div>
-                </div>
-              </a>
-          </div>
-
-          {/* Shivdan Singh Institute Card */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
-          
-              <a className="block"
-              href="/pdfs/SSITM-Fee-Structure.pdf#toolbar=0"
-              target="_blank"
-              rel="noopener noreferrer"
-              >
-                <div className="p-6">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                    Shivdan Singh Institute of Technology and Management
-                  </h2>
-                  <p className="text-gray-600 mb-4">
-                    Click to view detailed fee structure
-                  </p>
-                  <div className="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium inline-block">
-                    View Fees
-                  </div>
-                </div>
-              </a>
-          </div>
-        </div>
+    <>
+      <div className="relative w-full h-[30vh] bg-blue-900 flex items-center justify-center">
+        <h1 className="text-white text-4xl font-bold">Fees Structures</h1>
       </div>
-    </div>
+
+      <NavigationPages />
+
+      <section className="container max-w-7xl py-12 w-full md:w-[80%] mx-auto gap-4 flex flex-col lg:flex-row">
+        {/* PDF Names Section - Aligned to the Start */}
+        <div className="lg:w-2/5 mb-4 lg:mb-0 text-left">
+          {[
+            {
+              label: "SITM Fee Structure",
+              link: "/pdfs/SITM-Fee-Structure.pdf",
+            },
+            {
+              label: "SSITM Fee Structure",
+              link: "/pdfs/SSITM-Fee-Structure.pdf",
+            },
+          ].map((item, index) => (
+            <button
+              key={index}
+              onClick={() => handlePdfSelect(item.link)}
+              className="text-lg text-black uppercase bg-[#ffc107] border-[#ffc107] text-left py-2 px-4 rounded-lg mb-2 w-full"
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        {/* PDF Viewer Section */}
+        <div className="lg:w-3/5">
+          {selectedPdf ? (
+            <div className="relative w-full h-[80vh]">
+              <iframe
+                ref={iframeRef}
+                src={`${selectedPdf}#toolbar=0&navpanes=0`}
+                title="Selected PDF"
+                className="w-full h-full"
+                frameBorder="0"
+                style={{
+                  pointerEvents: "auto",
+                  userSelect: "none",
+                  WebkitUserSelect: "none",
+                  MozUserSelect: "none",
+                  msUserSelect: "none",
+                }}
+              ></iframe>
+              <div
+                className="absolute inset-0 pointer-events-none"
+                onContextMenu={(e) => e.preventDefault()}
+              ></div>
+            </div>
+          ) : (
+            <p className="text-center text-gray-500">
+              Select a document to view the PDF.
+            </p>
+          )}
+        </div>
+      </section>
+    </>
   );
-}
+};
+
+export default FeeStructure;
