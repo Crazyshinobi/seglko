@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 
 
 export default function CriteriaContent() {
-    const [title, setTitle] = useState("Eligibility Criteria - Saroj Educational Group");
     const [activeTab, setActiveTab] = useState('undergraduate');
   const [expandedSections, setExpandedSections] = useState([]);
 
@@ -28,11 +27,7 @@ export default function CriteriaContent() {
         title: 'Age Limit',
         content: 'Candidates must be between 17-21 years of age at the time of admission.'
       },
-      {
-        id: 'ug3',
-        title: 'Entrance Examination',
-        content: 'Must qualify the SEG Entrance Test (SEGET) with minimum 50th percentile.'
-      }
+     
     ],
     postgraduate: [
       {
@@ -40,13 +35,9 @@ export default function CriteriaContent() {
         title: 'Academic Requirements',
         content: 'Bachelor\'s degree with minimum 55% aggregate marks in relevant discipline from a recognized university.'
       },
+     
       {
         id: 'pg2',
-        title: 'Entrance Examination',
-        content: 'Valid score in SEGPGET or national-level tests like GATE/NET (for specific programs).'
-      },
-      {
-        id: 'pg3',
         title: 'Work Experience',
         content: 'Minimum 1 year work experience required for executive programs (waiver available for exceptional candidates).'
       }

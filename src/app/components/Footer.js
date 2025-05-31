@@ -264,16 +264,21 @@ const Footer = () => {
             </h3>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
-              <p>Saroj Institute of Technology & Management</p>
+              <Link href='/sitm'>Saroj Institute of Technology & Management</Link>
             </div>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
-              <p>Shivdan Singh Institute of Technology & Management</p>
+              <Link href='/ssitm'>Shivdan Singh Institute of Technology & Management</Link>
             </div>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
-              <p>Saroj College Of Pharmacy</p>
+              <Link href='/scp'>Saroj College of Pharmacy</Link>
             </div>
+            <div className="flex flex-row items-start gap-2">
+              <p>→</p>
+              <Link href='/scep'>Saroj College of Engineering and Polytechnic</Link>
+            </div>
+            
           </div>
 
           <div className="flex flex-col gap-1">

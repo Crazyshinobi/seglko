@@ -107,12 +107,12 @@ const navLinks = [
     subLinks: [
       {
         title: "Shivdan Singh Institute of Technology and Management",
-        href: "/",
+        href: "/ssitm",
       },
-      { title: "Saroj Institute of Technology and Management", href: "/" },
-      { title: "Saroj College of Law", href: "/" },
-      { title: "Saroj College of Pharmacy", href: "/" },
-      { title: "Saroj College of Engineering and Polytechnic", href: "/" },
+      { title: "Saroj Institute of Technology and Management", href: "/sitm" },
+      // { title: "Saroj College of Law", href: "/" },
+      { title: "Saroj College of Pharmacy", href: "/scp" },
+      { title: "Saroj College of Engineering and Polytechnic", href: "/scep" },
     ],
   },
   {
@@ -1066,6 +1066,12 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/ssitm"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Shivdan Singh Institute of Technology and
                               Management
@@ -1074,6 +1080,7 @@ export const Header = () => {
                               Approved by AICTE and affiliated to
                               AKTU,Lucknow,College Code : 007
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
@@ -1086,6 +1093,12 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/sitm"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Saroj Institute of Technology and Management
                             </h6>
@@ -1093,11 +1106,12 @@ export const Header = () => {
                               Approved by AICTE and affiliated to
                               AKTU,Lucknow,College Code : 123
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
 
                         {/* Saroj College of Law */}
-                        <motion.li
+                        {/* <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
@@ -1113,7 +1127,7 @@ export const Header = () => {
                               affiliated to AKTU,Lucknow,College Code :
                             </p>
                           </div>
-                        </motion.li>
+                        </motion.li> */}
                       </div>
                       <div className="middle flex flex-col gap-4 py-2 lg:w-1/3">
                         {/*  Saroj College of Pharmacy */}
@@ -1125,6 +1139,12 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/scp"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Saroj College of Pharmacy
                             </h6>
@@ -1132,6 +1152,7 @@ export const Header = () => {
                               Approved by Pharmacy Council of India and
                               affiliated to AKTU,Lucknow,College Code : 2031
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
                         {/* Saroj College of Engineering and Polytechnic */}
@@ -1143,6 +1164,12 @@ export const Header = () => {
                             <HiOutlineBuildingLibrary className="text-5xl" />
                           </div>
                           <div className="flex flex-col gap-2">
+                          <Link
+                              href="/scep"
+                              onClick={closeAllDropdowns}
+                              className="flex flex-col gap-2"
+                            >
+
                             <h6 className="font-bold group-hover:text-blue-300 text-sm">
                               Saroj College of Engineering and Polytechnic
                             </h6>
@@ -1150,6 +1177,7 @@ export const Header = () => {
                               Approved by AICTE and affiliated to
                               AKTU,Lucknow,College Code :
                             </p>
+                            </Link>
                           </div>
                         </motion.li>
                       </div>
