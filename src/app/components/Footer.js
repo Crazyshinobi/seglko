@@ -305,7 +305,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Bottom */}
-      <div className="bg-black text-white text-center p-3 py-8">
+      <div className="bg-black text-white text-center p-3 xl:pb-10 pb-10">
         © {new Date().getFullYear()} Saroj Educational Group (SEG). All Rights
         Reserved.
       </div>
