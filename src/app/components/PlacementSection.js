@@ -212,8 +212,8 @@ export default function PlacementSection() {
                       12.00LPA
                     </h1>
                     <Image
-                      src="/tender-palm-logo.png"
-                      alt="Tender palm logo"
+                      src="/techmech-logo.png"
+                      alt="Techmech logo"
                       className="bg-white p-2 rounded"
                       width={120} // Adjusted width
                       height={40} // Adjusted height
