@@ -220,9 +220,11 @@ const Footer = () => {
           <h3 className="text-black text-lg text-center md:text-left">
             Admissions
           </h3>
-          <Link href="/admission/admission-process">Admission Process</Link>
-          <Link href="/admission/eligibility">Eligibility Criteria</Link>
-          <Link href="/admission/fees-structure">Fee Structure</Link>
+          <div className="flex flex-wrap justify-between gap-1 text-gray-500">
+            <Link href="/admission/admission-process">Admission Process</Link>
+            <Link href="/admission/eligibility">Eligibility Criteria</Link>
+            <Link href="/admission/fees-structure">Fee Structure</Link>
+          </div>
         </div>
 
         {/* Campus */}
@@ -232,7 +234,7 @@ const Footer = () => {
           </h3>
           <div className="flex flex-wrap justify-between gap-2">
             <div>
-              <p>Lecture Halls</p>
+              {/* <p>Lecture Halls</p> */}
               <Link href="/explore-more/library-img">
                 <p>Library</p>
               </Link>
@@ -242,16 +244,20 @@ const Footer = () => {
               <Link href="/explore-more/computer-labs">
                 <p>Computer Labs</p>
               </Link>
-              <p>Cafeteria</p>
+              {/* <p>Cafeteria</p> */}
             </div>
             <div>
-              <p>Sports</p>
-              <p>Campus</p>
-              <Link href="/explore-more/transport">
-                <p></p> Transport
+              <Link href="/explore-more/sports">
+                <p>Sports</p>
               </Link>
-              <p>Hostel</p>
-              <p>Medical</p>
+              <Link href="/explore-more/campus">
+                <p>Campus</p>
+              </Link>
+              <Link href="/explore-more/transport">
+                <p>Transport</p>
+              </Link>
+              {/* <p>Hostel</p> */}
+              {/* <p>Medical</p> */}
             </div>
           </div>
         </div>
@@ -264,25 +270,30 @@ const Footer = () => {
             </h3>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
-              <Link href='/sitm'>Saroj Institute of Technology & Management</Link>
+              <Link href="/sitm">
+                Saroj Institute of Technology & Management
+              </Link>
             </div>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
-              <Link href='/ssitm'>Shivdan Singh Institute of Technology & Management</Link>
+              <Link href="/ssitm">
+                Shivdan Singh Institute of Technology & Management
+              </Link>
             </div>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
-              <Link href='/scp'>Saroj College of Pharmacy</Link>
+              <Link href="/scp">Saroj College of Pharmacy</Link>
             </div>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
-              <Link href='/scep'>Saroj College of Engineering and Polytechnic</Link>
+              <Link href="/scep">
+                Saroj College of Engineering and Polytechnic
+              </Link>
             </div>
             <div className="flex flex-row items-start gap-2">
               <p>→</p>
-              <Link href='/lip'>Lucknow Institute of Pharmacy</Link>
+              <Link href="/lip">Lucknow Institute of Pharmacy</Link>
             </div>
-            
           </div>
 
           <div className="flex flex-col gap-1">

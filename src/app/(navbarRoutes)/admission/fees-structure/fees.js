@@ -1,15 +1,26 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import NavigationPages from "@/app/utils/NavigationPages";
 
 const FeeStructure = () => {
-  const [selectedPdf, setSelectedPdf] = useState(null);
-  const iframeRef = useRef(null);
+  const router = useRouter();
 
-  const handlePdfSelect = (pdf) => {
-    setSelectedPdf(pdf);
+  const feeStructures = [
+    {
+      label: "SITM Fee Structure",
+      path: "/admission/fees-structure/sitm", // Route to SITM fee structure page
+    },
+    {
+      label: "SSITM Fee Structure",
+      path: "/admission/fees-structure/ssitm", // Route to SSITM fee structure page
+    },
+  ];
+
+  const handleNavigation = (path) => {
+    router.push(path);
   };
 
   return (
@@ -20,57 +31,19 @@ const FeeStructure = () => {
 
       <NavigationPages />
 
-      <section className="container max-w-7xl py-12 w-full md:w-[80%] mx-auto gap-4 flex flex-col lg:flex-row">
-        {/* PDF Names Section - Aligned to the Start */}
-        <div className="lg:w-2/5 mb-4 lg:mb-0 text-left">
-          {[
-            {
-              label: "SITM Fee Structure",
-              link: "/pdfs/SITM-Fee-Structure.pdf",
-            },
-            {
-              label: "SSITM Fee Structure",
-              link: "/pdfs/SSITM-Fee-Structure.pdf",
-            },
-          ].map((item, index) => (
-            <button
+      <section className="container max-w-7xl py-12 w-full md:w-[80%] mx-auto">
+        <div className="flex flex-col space-y-4">
+          {feeStructures.map((item, index) => (
+            <motion.button
               key={index}
-              onClick={() => handlePdfSelect(item.link)}
-              className="text-lg text-black uppercase bg-[#ffc107] border-[#ffc107] text-left py-2 px-4 rounded-lg mb-2 w-full"
+              onClick={() => handleNavigation(item.path)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="text-lg text-black uppercase bg-[#ffc107] hover:bg-[#ffca28] text-center py-3 px-6 rounded-lg w-full md:w-1/2 mx-auto transition-colors duration-200"
             >
               {item.label}
-            </button>
+            </motion.button>
           ))}
-        </div>
-
-        {/* PDF Viewer Section */}
-        <div className="lg:w-3/5">
-          {selectedPdf ? (
-            <div className="relative w-full h-[80vh]">
-              <iframe
-                ref={iframeRef}
-                src={`${selectedPdf}#toolbar=0&navpanes=0`}
-                title="Selected PDF"
-                className="w-full h-full"
-                frameBorder="0"
-                style={{
-                  pointerEvents: "auto",
-                  userSelect: "none",
-                  WebkitUserSelect: "none",
-                  MozUserSelect: "none",
-                  msUserSelect: "none",
-                }}
-              ></iframe>
-              <div
-                className="absolute inset-0 pointer-events-none"
-                onContextMenu={(e) => e.preventDefault()}
-              ></div>
-            </div>
-          ) : (
-            <p className="text-center text-gray-500">
-              Select a document to view the PDF.
-            </p>
-          )}
         </div>
       </section>
     </>

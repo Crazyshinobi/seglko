@@ -36,7 +36,7 @@ export default function CoursesOffered() {
             {" "}
             {/* Fixed height for parent container */}
             <h1 className="text-3xl mb-4">
-              Our Great <br />
+              Our Academic <br />
               <strong className="text-5xl"> Programs</strong>
             </h1>
             {/* Scrollable container */}
