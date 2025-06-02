@@ -17,55 +17,54 @@ const galleryImages = [
   { id: 10, src: '/gallery/sports-meet-11.jpeg', alt: 'Sports Meet ', category: 'sports' },
 
   // 🏥 Medical / Facility
-  { id: 11, src: '/gallery/medical.jpg', alt: 'Medical Facility', category: 'facilities' },
-  { id: 12, src: '/gallery/medical1.jpg', alt: 'Medical Room ', category: 'facilities' },
-  { id: 13, src: '/gallery/medical2.jpg', alt: 'Medical Room ', category: 'facilities' },
-  { id: 14, src: '/gallery/medical3.jpg', alt: 'Medical Room ', category: 'facilities' },
-  { id: 15, src: '/gallery/medical4.jpg', alt: 'Medical Room ', category: 'facilities' },
-  { id: 16, src: '/gallery/medical5.jpg', alt: 'Medical Room ', category: 'facilities' },
-  { id: 17, src: '/gallery/medical6.jpg', alt: 'Medical Room ', category: 'facilities' },
+  { id: 11, src: '/gallery/medical.jpg', alt: 'Medical Room ', category: 'facilities' },
+  { id: 12, src: '/gallery/medical2.jpg', alt: 'Medical Room ', category: 'facilities' },
+  { id: 13, src: '/gallery/medical3.jpg', alt: 'Medical Room ', category: 'facilities' },
+  { id: 14, src: '/gallery/medical4.jpg', alt: 'Medical Room ', category: 'facilities' },
+  { id: 15, src: '/gallery/medical5.jpg', alt: 'Medical Room ', category: 'facilities' },
+  { id: 16, src: '/gallery/medical6.jpg', alt: 'Medical Room ', category: 'facilities' },
 
   // 🏭 Industrial Visit
-  { id: 18, src: '/gallery/industrial-visit1.jpg', alt: 'Industrial Visit ', category: 'facilities' },
-  { id: 19, src: '/gallery/industrial-visit2.jpg', alt: 'Industrial Visit ', category: 'facilities' },
+  { id: 17, src: '/gallery/industrial-visit1.jpg', alt: 'Industrial Visit ', category: 'facilities' },
+  { id: 18, src: '/gallery/industrial-visit2.jpg', alt: 'Industrial Visit ', category: 'facilities' },
 
   // 🛡️ Cyber Security
-  { id: 20, src: '/gallery/cyber-security-workshop.jpg', alt: 'Cyber Security Workshop', category: 'events' },
+  { id: 19, src: '/gallery/cyber-security-workshop.jpg', alt: 'Cyber Security Workshop', category: 'events' },
 
   // 🍴 Canteen
-  { id: 21, src: '/gallery/canteen.jpg', alt: 'Canteen Area', category: 'facilities' },
+  { id: 20, src: '/gallery/canteen.jpg', alt: 'Canteen Area', category: 'facilities' },
 
   // 🇮🇳 Subhash Chandra Bose Event
-  { id: 22, src: '/gallery/subhash_chandra_bose_1.jpeg', alt: 'Subhash Chandra Bose Event ', category: 'events' },
-  { id: 23, src: '/gallery/subhash_chandra_bose_2.jpeg', alt: 'Subhash Chandra Bose Event ', category: 'events' },
-  { id: 24, src: '/gallery/subhash_chandra_bose_3.jpeg', alt: 'Subhash Chandra Bose Event ', category: 'events' },
+  { id: 21, src: '/gallery/subhash_chandra_bose_1.jpeg', alt: 'Subhash Chandra Bose Event ', category: 'events' },
+  { id: 22, src: '/gallery/subhash_chandra_bose_2.jpeg', alt: 'Subhash Chandra Bose Event ', category: 'events' },
+  { id: 23, src: '/gallery/subhash_chandra_bose_3.jpeg', alt: 'Subhash Chandra Bose Event ', category: 'events' },
 
   // 🎉 Festival
-  { id: 25, src: '/gallery/makar-sankranti-and-lohri-celebration.jpeg', alt: 'Makar Sankranti and Lohri Celebration', category: 'events' },
+  { id: 24, src: '/gallery/makar-sankranti-and-lohri-celebration.jpeg', alt: 'Makar Sankranti and Lohri Celebration', category: 'events' },
 
   // 🏫 Campus Building
-  { id: 26, src: '/gallery/building1.jpg', alt: 'Campus Building ', category: 'campus' },
-  { id: 27, src: '/gallery/building2.jpg', alt: 'Campus Building ', category: 'campus' },
-  { id: 28, src: '/gallery/building3.jpg', alt: 'Campus Building ', category: 'campus' },
-  { id: 29, src: '/gallery/building6.jpg', alt: 'Campus Building ', category: 'campus' },
+  { id: 25, src: '/gallery/building1.jpg', alt: 'Campus Building ', category: 'campus' },
+  { id: 26, src: '/gallery/building2.jpg', alt: 'Campus Building ', category: 'campus' },
+  { id: 27, src: '/gallery/building3.jpg', alt: 'Campus Building ', category: 'campus' },
+  { id: 28, src: '/gallery/building6.jpg', alt: 'Campus Building ', category: 'campus' },
 
   // 📚 Library
-  { id: 30, src: '/gallery/library1.jpg', alt: 'Library ', category: 'facilities' },
-  { id: 31, src: '/gallery/library2.jpg', alt: 'Library', category: 'facilities' },
-  { id: 32, src: '/gallery/library3.jpg', alt: 'Library ', category: 'facilities' },
-  { id: 33, src: '/gallery/library4.jpg', alt: 'Library ', category: 'facilities' },
-  { id: 34, src: '/gallery/library5.jpg', alt: 'Library ', category: 'facilities' },
-  { id: 35, src: '/gallery/library6.jpg', alt: 'Library ', category: 'facilities' },
-  { id: 36, src: '/gallery/library7.jpg', alt: 'Library ', category: 'facilities' },
+  { id: 29, src: '/gallery/library1.jpg', alt: 'Library ', category: 'facilities' },
+  { id: 30, src: '/gallery/library2.jpg', alt: 'Library', category: 'facilities' },
+  { id: 31, src: '/gallery/library3.jpg', alt: 'Library ', category: 'facilities' },
+  { id: 32, src: '/gallery/library4.jpg', alt: 'Library ', category: 'facilities' },
+  { id: 33, src: '/gallery/library5.jpg', alt: 'Library ', category: 'facilities' },
+  { id: 34, src: '/gallery/library6.jpg', alt: 'Library ', category: 'facilities' },
+  { id: 35, src: '/gallery/library7.jpg', alt: 'Library ', category: 'facilities' },
 
   // 🖥️ Computer Labs
-  { id: 37, src: '/gallery/computer-lab1.jpg', alt: 'Computer Lab ', category: 'facilities' },
-  { id: 38, src: '/gallery/computer-lab3.jpg', alt: 'Computer Lab ', category: 'facilities' },
-  { id: 39, src: '/gallery/computer-lab4.jpg', alt: 'Computer Lab ', category: 'facilities' },
-  { id: 40, src: '/gallery/computer-lab5.jpg', alt: 'Computer Lab ', category: 'facilities' },
+  { id: 36, src: '/gallery/computer-lab1.jpg', alt: 'Computer Lab ', category: 'facilities' },
+  { id: 37, src: '/gallery/computer-lab3.jpg', alt: 'Computer Lab ', category: 'facilities' },
+  { id: 38, src: '/gallery/computer-lab4.jpg', alt: 'Computer Lab ', category: 'facilities' },
+  { id: 39, src: '/gallery/computer-lab5.jpg', alt: 'Computer Lab ', category: 'facilities' },
 
   // 🚌 Transport
-  { id: 41, src: '/gallery/transport1.jpg', alt: 'College Transport Bus', category: 'services' }
+  { id: 40, src: '/gallery/transport1.jpg', alt: 'College Transport Bus', category: 'services' }
 ];
 
 const categories = [
