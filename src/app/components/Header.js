@@ -120,10 +120,10 @@ const navLinks = [
     title: "Student Zone",
     href: "/",
     subLinks: [
-      { title: "Student Login", href: "/" },
+      // { title: "Student Login", href: "/" },
       { title: "Student Notice", href: "/studentzone/student-notices" },
-      { title: "Student of the Month", href: "/" },
-      { title: "Our Gold Medalist", href: "/" },
+      // { title: "Student of the Month", href: "/" },
+      // { title: "Our Gold Medalist", href: "/" },
     ],
   },
   {
@@ -1230,7 +1230,7 @@ export const Header = () => {
                     <ul className="ps-14 pt-4 flex">
                       <div className="left flex flex-col gap-4 lg:w-1/3  py-2">
                         {/* Student Login */}
-                        <motion.li
+                        {/* <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
@@ -1246,10 +1246,10 @@ export const Header = () => {
                               credentials.
                             </p>
                           </div>
-                        </motion.li>
+                        </motion.li> */}
 
                         {/* Our Gold Medalist*/}
-                        <motion.li
+                        {/* <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
@@ -1265,10 +1265,10 @@ export const Header = () => {
                               symbol of excellence and dedication."
                             </p>
                           </div>
-                        </motion.li>
+                        </motion.li> */}
 
                         {/*   Student of the Month */}
-                        <motion.li
+                        {/* <motion.li
                           variants={itemVariants}
                           className="group flex items-center gap-3 hover:bg-blue-50 p-3 rounded-md"
                         >
@@ -1284,7 +1284,7 @@ export const Header = () => {
                               dedication, excellence, and hard work."
                             </p>
                           </div>
-                        </motion.li>
+                        </motion.li> */}
                       </div>
                       <div className="middle flex flex-col gap-4 py-2 lg:w-1/3">
                         {/*  Student Notice*/}

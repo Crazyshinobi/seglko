@@ -58,12 +58,15 @@ export default function CriteriaContent() {
   return (
     <>
    
-      <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">
+      {/* <div className=" w-full h-[26vh] md:h-[40vh] lg:h-80 ">
         <img
           src="/PlacementBanner.PNG"
           alt="History of Seg Banner"
           className="w-full h-full object-fit"
         />
+      </div> */}
+      <div className="relative w-full h-[40vh] bg-blue-900 flex items-center justify-center">
+        <h1 className="text-white text-4xl font-bold">Eligibility Criteria</h1>
       </div>
 
       <div>
