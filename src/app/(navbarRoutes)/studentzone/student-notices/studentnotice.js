@@ -24,6 +24,7 @@ export default function StudentNotice() {
         setError("Failed to load notices.");
       } finally {
         setLoading(false);
+
       }
     };
     fetchNotices();
