@@ -34,11 +34,17 @@ export default function JobApplicationForm() {
   useEffect(() => {
     const storedJob = localStorage.getItem("selectedJob");
     if (storedJob) {
-      const job = JSON.parse(storedJob);
-      setFormData((prev) => ({
-        ...prev,
-        profile: job.profile || ""
-      }));
+      try {
+        const job = JSON.parse(storedJob);
+        if (job && job.name) {
+          setFormData((prev) => ({
+            ...prev,
+            profile: job.name,
+          }));
+        }
+      } catch (e) {
+        console.error("Failed to parse job", e);
+      }
     }
   }, []);
 
@@ -167,16 +173,9 @@ export default function JobApplicationForm() {
     <>
       <Toaster />
       
-        <div className="relative bgImage">
-          <h1 className="absolute bottom-4 shadow-md md:bottom-6 left-4 md:left-8 text-3xl md:text-5xl font-bold text-red-600 bg-white bg-opacity-80 px-4 py-2 rounded">
-            JOB APPLICATION
-          </h1>
-          <img
-            src='/HappeningsImage1.jpg'
-            alt="Job Application Banner"
-            className="h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[40vh] w-full object-cover"
-          />
-        </div>
+      <div className="relative w-full h-[36vh] bg-blue-900 flex items-center justify-center">
+        <h1 className="text-white text-4xl font-bold">APPLICATION FORM</h1>
+      </div>
 
         <NavigationPages />
 

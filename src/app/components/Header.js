@@ -118,7 +118,7 @@ const navLinks = [
   },
   {
     title: "Student Zone",
-    href: "/",
+    href: null,
     subLinks: [
       // { title: "Student Login", href: "/" },
       { title: "Student Notice", href: "/studentzone/student-notices" },
