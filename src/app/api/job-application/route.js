@@ -34,6 +34,8 @@ export async function POST(req) {
         else resolve({ fields, files });
       });
     });
+    console.log('Files:', files);
+
 
     // normalize files
     const imageFile = Array.isArray(files.image) ? files.image[0] : files.image;

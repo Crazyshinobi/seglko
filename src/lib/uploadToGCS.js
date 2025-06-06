@@ -14,7 +14,7 @@ const bucket = storage.bucket(bucketName);
 export async function uploadToGCS(file, folder = 'uploads') {
   if (!file) throw new Error('No file provided');
 
-  const buffer = await fs.readFile(file.filepath);
+  const buffer = await fs.readFile(file.path);
 
   const type = await fileTypeFromBuffer(buffer);
   const ext = type?.ext || file.mimetype?.split('/')[1] || 'bin';
