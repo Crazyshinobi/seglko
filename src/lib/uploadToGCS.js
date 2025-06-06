@@ -1,0 +1,38 @@
+import { Storage } from '@google-cloud/storage';
+import path from 'path';
+import { randomUUID } from 'crypto';
+import { Readable } from 'stream';
+import FileType from 'file-type';
+import fs from 'fs/promises'; // ✅ for reading local file
+
+const keyFilename = path.join(process.cwd(), process.env.GOOGLE_APPLICATION_CREDENTIALS);
+const bucketName = process.env.GCP_BUCKET_NAME;
+
+const storage = new Storage({ keyFilename });
+const bucket = storage.bucket(bucketName);
+
+export async function uploadToGCS(file, folder = 'uploads') {
+  if (!file) throw new Error('No file provided');
+
+  const buffer = await fs.readFile(file.filepath); // ✅ FIXED HERE
+
+  const { ext } = (await FileType.fromBuffer(buffer)) || { ext: file.mimetype?.split('/')[1] || 'bin' };
+  const filename = `${folder}/${randomUUID()}.${ext}`;
+  const blob = bucket.file(filename);
+
+  const stream = blob.createWriteStream({
+    resumable: false,
+    contentType: file.mimetype,
+    predefinedAcl: 'publicRead',
+  });
+
+  return new Promise((resolve, reject) => {
+    stream.on('error', reject);
+    stream.on('finish', () => {
+      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${filename}`;
+      resolve(publicUrl);
+    });
+
+    Readable.from(buffer).pipe(stream);
+  });
+}
