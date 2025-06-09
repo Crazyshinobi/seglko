@@ -1,4 +1,5 @@
 
+import GoogleAdsScript from '@/app/components/GoogleAdsScript';
 import NavigationPages from '@/app/utils/NavigationPages';
 import React from 'react'
 
@@ -10,6 +11,7 @@ export const metadata = {
 export default function page() {
   return (
     <>
+    <GoogleAdsScript/>
       <div className="relative w-full h-[40vh] bg-blue-900">
         <img
           src="/AdmissionProcessBanner.PNG"
