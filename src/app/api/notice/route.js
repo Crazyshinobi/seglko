@@ -39,22 +39,14 @@ export async function POST(req) {
     const title = formData.get("title");
     const image = formData.get("image");
 
-    // Log for debugging
-    console.log("===== Incoming Request =====");
-    console.log("Title:", title);
-
-    if (image) {
-      console.log("Image constructor:", image?.constructor?.name);
-      console.log("image.name:", image?.name);
-      console.log("image.type:", image?.type);
-      console.log("image.size:", image?.size);
-    }
-
     if (!title || !image) {
       return NextResponse.json({ error: "Title and image are required" }, { status: 400 });
     }
 
-    const { uploadToGCP } = await import("@/app/utils/uploadToGCP");
+    // Debug info
+    console.log("file name:", image.name);
+    console.log("file type:", image.type);
+    console.log("has arrayBuffer:", typeof image.arrayBuffer === "function");
 
     const imageUrl = await uploadToGCP(image, "notice", true);
 
@@ -72,8 +64,7 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
-    console.error("===== Error creating notice =====");
-    console.error("Error:", error);
+    console.error("Error creating notice:", error);
     return NextResponse.json(
       {
         success: false,
