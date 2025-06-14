@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import Notice from "@/models/Notice";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
-import { uploadToGCP } from "@/app/utils/uploadToGCP";
 
 export async function GET(req) {
   try {
@@ -42,6 +41,8 @@ export async function POST(req) {
     if (!title || !image) {
       return NextResponse.json({ error: "Title and image are required" }, { status: 400 });
     }
+
+    const { uploadToGCP } = await import("@/app/utils/uploadToGCP");
 
     const imageUrl = await uploadToGCP(image, 'notice', true);
 
