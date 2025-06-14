@@ -25,6 +25,7 @@ export async function GET(req) {
   }
 }
 
+
 export async function POST(req) {
   try {
     const session = await getServerSession(authOptions);
@@ -38,17 +39,15 @@ export async function POST(req) {
     const title = formData.get("title");
     const image = formData.get("image");
 
+    // Log for debugging
     console.log("===== Incoming Request =====");
     console.log("Title:", title);
-    console.log("Image Object Type:", typeof image);
-    console.log("Image instanceof Blob:", image instanceof Blob);
-    console.log("Image instanceof File:", image instanceof File);
+
     if (image) {
-      console.log("image.name:", image.name);
-      console.log("image.type:", image.type);
-      console.log("image.size:", image.size);
-      console.log("image.constructor.name:", image.constructor?.name);
-      console.log("Object.keys(image):", Object.keys(image));
+      console.log("Image constructor:", image?.constructor?.name);
+      console.log("image.name:", image?.name);
+      console.log("image.type:", image?.type);
+      console.log("image.size:", image?.size);
     }
 
     if (!title || !image) {
@@ -75,7 +74,6 @@ export async function POST(req) {
   } catch (error) {
     console.error("===== Error creating notice =====");
     console.error("Error:", error);
-    console.error("Error stringified:", JSON.stringify(error, Object.getOwnPropertyNames(error)));
     return NextResponse.json(
       {
         success: false,
