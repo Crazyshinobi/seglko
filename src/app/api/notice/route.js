@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import Notice from "@/models/Notice";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
+import { uploadToGCP } from "@/app/utils/uploadToGCP";
 
 export async function GET(req) {
   try {
