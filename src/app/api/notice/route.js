@@ -34,7 +34,6 @@ export async function POST(req) {
     }
 
     await connectDb();
-
     const formData = await req.formData();
     const title = formData.get("title");
     const image = formData.get("image");
@@ -43,14 +42,13 @@ export async function POST(req) {
       return NextResponse.json({ error: "Title and image are required" }, { status: 400 });
     }
 
-    // Debug info
-    console.log("file name:", image.name);
-    console.log("file type:", image.type);
-    console.log("has arrayBuffer:", typeof image.arrayBuffer === "function");
+    // Add file size check (e.g., 5MB limit)
+    const buffer = Buffer.from(await image.arrayBuffer());
+    if (buffer.length > 5 * 1024 * 1024) {
+      return NextResponse.json({ error: "File size exceeds 5MB limit" }, { status: 400 });
+    }
 
     const { uploadToGCP } = await import("@/app/utils/uploadToGCP");
-
-
     const imageUrl = await uploadToGCP(image, "notice", true);
 
     const newNotice = await Notice.create({
@@ -67,7 +65,11 @@ export async function POST(req) {
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error creating notice:", error);
+    console.error("Detailed notice creation error:", {
+      error: error.message,
+      stack: error.stack,
+      timestamp: new Date().toISOString()
+    });
     return NextResponse.json(
       {
         success: false,
