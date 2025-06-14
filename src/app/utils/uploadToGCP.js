@@ -1,7 +1,7 @@
 import { bucket } from "@/lib/gcp";
 import { randomUUID } from "crypto";
 
-export async function uploadToGCP(file, folder = "", isPublic = false) {
+export async function uploadToGCP(file, folder = "uploads", isPublic = true) {
   if (!file || typeof file.arrayBuffer !== "function") {
     throw new Error("Invalid file or missing arrayBuffer method");
   }
@@ -9,10 +9,12 @@ export async function uploadToGCP(file, folder = "", isPublic = false) {
   const buffer = Buffer.from(await file.arrayBuffer());
   const timestamp = Date.now();
 
-  // Safe fallback filename
-  const originalName = typeof file.name === "string" ? file.name : `file-${randomUUID()}.bin`;
-  const sanitizedFilename = originalName.replace(/\s+/g, "_");
+  const originalName =
+    typeof file.name === "string" && file.name.trim().length > 0
+      ? file.name
+      : `file-${randomUUID()}.bin`;
 
+  const sanitizedFilename = originalName.replace(/\s+/g, "_");
   const filePath = `${folder}/${timestamp}-${sanitizedFilename}`;
   const blob = bucket.file(filePath);
 
@@ -25,7 +27,10 @@ export async function uploadToGCP(file, folder = "", isPublic = false) {
   });
 
   return new Promise((resolve, reject) => {
-    blobStream.on("error", reject);
+    blobStream.on("error", (err) => {
+      reject(new Error(`Failed to upload to GCP: ${err.message}`));
+    });
+
     blobStream.on("finish", async () => {
       try {
         if (isPublic) {
@@ -35,7 +40,7 @@ export async function uploadToGCP(file, folder = "", isPublic = false) {
           });
           resolve(url);
         } else {
-          resolve(blob.name); // for private admin use
+          resolve(`gs://${bucket.name}/${filePath}`);
         }
       } catch (err) {
         reject(new Error("Upload succeeded but getting URL failed: " + err.message));
