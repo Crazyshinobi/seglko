@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 import Notice from "@/models/Notice";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
-import { uploadToGCP } from "@/app/utils/uploadToGCP";
 
 export async function GET(req) {
   try {
@@ -48,6 +47,9 @@ export async function POST(req) {
     console.log("file name:", image.name);
     console.log("file type:", image.type);
     console.log("has arrayBuffer:", typeof image.arrayBuffer === "function");
+
+    import { uploadToGCP } from "@/app/utils/uploadToGCP";
+
 
     const imageUrl = await uploadToGCP(image, "notice", true);
 
