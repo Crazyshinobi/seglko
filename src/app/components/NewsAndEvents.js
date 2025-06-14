@@ -9,13 +9,20 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 const StudentNotices = [
   {
     id: 1,
+    image: "/Notice3.jpeg",
+    date: "14/06/2025",
+    notice: "Notice",
+    title: "PUT Examination Notice",
+  },
+  {
+    id: 2,
     image: "/Notice2.jpeg",
     date: "06/06/2025",
     notice: "Notice",
     title: "Second Sessional Examination Notice",
   },
   {
-    id: 2,
+    id: 3,
     image: "/Notice1.jpeg",
     date: "17/03/2025",
     notice: "Notice",
