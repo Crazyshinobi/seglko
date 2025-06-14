@@ -3,9 +3,9 @@ import { NextResponse } from "next/server";
 import Notice from "@/models/Notice";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
-import { uploadFile } from "@/middleware/formidableMiddleware";
+import { uploadToGCP } from "@/app/utils/uploadToGCP";
 
-export async function GET(req, res) {
+export async function GET(req) {
   try {
     await connectDb();
     const notice = await Notice.find();
@@ -20,10 +20,7 @@ export async function GET(req, res) {
   } catch (error) {
     console.error("Error fetching notice:", error);
     return NextResponse.json(
-      {
-        success: false,
-        message: "Internal server error",
-      },
+      { success: false, message: "Internal server error" },
       { status: 500 }
     );
   }
@@ -31,36 +28,26 @@ export async function GET(req, res) {
 
 export async function POST(req) {
   try {
-    // Check authentication
     const session = await getServerSession(authOptions);
     if (!session) {
-      return NextResponse.json(
-        { error: "Unauthorized access" },
-        { status: 401 }
-      );
+      return NextResponse.json({ error: "Unauthorized access" }, { status: 401 });
     }
 
     await connectDb();
+
     const formData = await req.formData();
-
-    // Get form fields
     const title = formData.get("title");
+    const image = formData.get("image");
 
-    // Validate fields
-    if (!title) {
-      return NextResponse.json(
-        { error: "All fields are required" },
-        { status: 400 }
-      );
+    if (!title || !image) {
+      return NextResponse.json({ error: "Title and image are required" }, { status: 400 });
     }
 
-    // Upload file and get path
-    const imagePath = await uploadFile(formData);
+    const imageUrl = await uploadToGCP(image, 'notice', true);
 
-    // Create placement
     const newNotice = await Notice.create({
       title,
-      image: imagePath,
+      image: imageUrl,
     });
 
     return NextResponse.json(
@@ -71,8 +58,9 @@ export async function POST(req) {
       },
       { status: 201 }
     );
-  } catch (error) {
-    console.error("Error creating notice:", error);
+  }  catch (error) {
+    console.error("Error creating notice:", error); // already here
+    console.error("Full error:", JSON.stringify(error, Object.getOwnPropertyNames(error)));
     return NextResponse.json(
       {
         success: false,
