@@ -48,7 +48,7 @@ export async function POST(req) {
     console.log("file type:", image.type);
     console.log("has arrayBuffer:", typeof image.arrayBuffer === "function");
 
-    import { uploadToGCP } from "@/app/utils/uploadToGCP";
+    const { uploadToGCP } = await import("@/app/utils/uploadToGCP");
 
 
     const imageUrl = await uploadToGCP(image, "notice", true);
