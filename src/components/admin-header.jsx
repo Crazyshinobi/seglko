@@ -31,7 +31,7 @@ export const AdminHeader = ({ heading, onRefresh }) => {
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">
               <Link href="/admin/dashboard">
-                <BreadcrumbLink>Home</BreadcrumbLink>
+                <BreadcrumbLink asChild>Home</BreadcrumbLink>
               </Link>
             </BreadcrumbItem>
             <BreadcrumbSeparator className="hidden md:block" />

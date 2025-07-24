@@ -26,7 +26,7 @@ const Footer = () => {
             >
               <p className="bg-yellow-400 rounded-xl p-2 text-xl group-hover:text-black">
                 <CiLocationOn />
-              </p>
+              </p> 
               <p className="group-hover:text-blue-400">Our Locations</p>
             </Link>
             <a

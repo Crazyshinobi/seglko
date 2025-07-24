@@ -158,6 +158,10 @@ const navLinks = [
     title: "Career",
     href: "/career",
   },
+  {
+    title: "Alumni",
+    href: "https://sitmalumni.seglko.org/",
+  },
 ];
 
 const variants = {

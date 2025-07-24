@@ -46,7 +46,7 @@ export default function NewsAndEvents() {
     <div className='w-full bg-[#fff9f2] '>
       <div className="max-w-7xl mx-auto flex flex-col gap-5 py-2 pt-10">
         {/* Heading Section */}
-        <div className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-4 flex items-center justify-start">
+        <div className="relative text-2xl sm:text-3xl md:text-4xl lg:text-5xl py-4 px-6 md:px-0 flex items-center justify-start">
           {/* Background Image */}
           <div className="absolute inset-0 flex ml-10 sm:ml-20 md:ml-28 justify-center items-center">
             <Image

@@ -13,6 +13,10 @@ export const Links = [
         title : "Career",
         href : "/career"
     },
+     {
+        title : "Alumni",
+        href : "http://sitmalumni.seglko.org/"
+    },
 ]
 
 export const FooterLinks = [

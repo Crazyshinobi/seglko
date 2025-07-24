@@ -5,11 +5,12 @@ import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 
 const items = [
   { id: 1, url: "/HappeningsImage1.jpg" },
-  { id: 2, url: "/SarojTimesMagazine.JPEG" },
-  { id: 3, url: "/HappeningsImage1.jpg" },
+  { id: 2, url: "/HappeningsImage2.jpeg" },
+  { id: 3, url: "/gallery/industrial-visit1.jpg" },
   { id: 4, url: "/SarojTimesMagazine.JPEG" },
-  { id: 5, url: "/HappeningsImage1.jpg" },
-  { id: 6, url: "/SarojTimesMagazine.JPEG" },
+  { id: 5, url: "/gallery/Lead-Green-Campus-Drive1.jpeg" },
+  { id: 5, url: "/gallery/Lead-Green-Campus-Drive4.jpeg" },
+  { id: 6, url: "/gallery/sports-meet-10.jpeg" },
 ];
 
 export default function Happenings() {
@@ -55,7 +56,7 @@ export default function Happenings() {
             >
               <img
                 src={item.url}
-                alt={`Instagram Reel ${index + 1}`}
+                alt={`Happenings image ${index + 1}`}
                 className="rounded-lg shadow-lg w-full h-full object-fill transform group-hover:scale-105 transition-transform duration-300"
               />
             </div>
