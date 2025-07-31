@@ -109,7 +109,10 @@ export default function ContactPage() {
           <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">
             <IoMdMailUnread />
             <a href="mailto:admission.cell@seglko.org">
-              admission.cell@seglko.org
+              admission.cell@seglko.org,
+            </a>
+             <a href="mailto:hr@seglko.org">
+              hr@seglko.org
             </a>
           </div>
           <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">

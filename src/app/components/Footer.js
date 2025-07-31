@@ -57,6 +57,13 @@ const Footer = () => {
               <CiMail />
               admission.cell@seglko.org
             </a>
+            <a
+              href="mailto:hr@seglko.org"
+              className="flex items-center gap-2"
+            >
+              <CiMail />
+              hr@seglko.org
+            </a>
           </div>
 
           {/* Social Media Icons */}
