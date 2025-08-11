@@ -13,6 +13,7 @@ export default function ContactPage() {
     email: "",
     mobile: "",
     message: "",
+    consent: false,
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -34,6 +35,9 @@ export default function ContactPage() {
     if (!data.message) {
       newErrors.message = "Message is required";
     }
+    if(!data.consent){
+      newErrors.message = "You must Agree before Submitting"
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -52,6 +56,7 @@ export default function ContactPage() {
           email: data.email,
           mobile: data.mobile,
           message: data.message,
+           consent: data.consent,
         });
 
         if (response && response.status) {
@@ -60,6 +65,7 @@ export default function ContactPage() {
             email: "",
             mobile: "",
             message: "",
+            consent : false,
           });
           setTimeout(() => {
             setLoading(false);
@@ -213,6 +219,20 @@ export default function ContactPage() {
               )}
             </div>
 
+              {/* ✅ Consent checkbox */}
+            <div className="flex items-start gap-2 mt-4">
+              <input
+                type="checkbox"
+                checked={data.consent}
+                onChange={(e) => setData({ ...data, consent: e.target.checked })}
+              />
+              <label className="text-xs text-gray-600">
+                I authorise <strong>Saroj Educational Group</strong> and its representatives to contact me
+                with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC.
+              </label>
+            </div>
+            {errors.consent && <p className="text-red-500 text-sm">{errors.consent}</p>}
+
             {/* Spacer to push button to bottom */}
             <div className="flex-grow"></div>
 
@@ -251,11 +271,7 @@ export default function ContactPage() {
                 "Submit"
               )}
             </button>
-            <p className="text-xs text-gray-600 mt-2 text-center">
-              I authorise Saroj Educational Group and its representatives to
-              contact me with updates and notifications via
-              Email/SMS/WhatsApp/Call. This will override DND/NDNC.{" "}
-            </p>
+           
           </form>
         </div>
       </div>
