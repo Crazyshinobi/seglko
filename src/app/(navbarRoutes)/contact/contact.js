@@ -13,7 +13,6 @@ export default function ContactPage() {
     email: "",
     mobile: "",
     message: "",
-    consent: false,
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -35,9 +34,6 @@ export default function ContactPage() {
     if (!data.message) {
       newErrors.message = "Message is required";
     }
-    if(!data.consent){
-      newErrors.message = "You must Agree before Submitting"
-    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -48,6 +44,7 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+
     if (validateForm()) {
       setLoading(true);
       try {
@@ -56,7 +53,6 @@ export default function ContactPage() {
           email: data.email,
           mobile: data.mobile,
           message: data.message,
-           consent: data.consent,
         });
 
         if (response && response.status) {
@@ -65,7 +61,6 @@ export default function ContactPage() {
             email: "",
             mobile: "",
             message: "",
-            consent : false,
           });
           setTimeout(() => {
             setLoading(false);
@@ -78,7 +73,7 @@ export default function ContactPage() {
       } catch (error) {
         console.log("Error submitting form:", error);
         toast.error("An error occurred while submitting the form.");
-        setLoading(false);
+        setLoading(false);  
       }
     }
   };
@@ -116,11 +111,14 @@ export default function ContactPage() {
             <a href="mailto:admission.cell@seglko.org">
               admission.cell@seglko.org,
             </a>
+         
           </div>
-          <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">
+           <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">
             <IoMdMailUnread />
-
-            <a href="mailto:hr@seglko.org">For Jobs(Send Cv) : hr@seglko.org</a>
+          
+             <a href="mailto:hr@seglko.org">
+              For Jobs(Send Cv) : hr@seglko.org
+            </a>
           </div>
           <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">
             <FaPhoneAlt />
@@ -128,19 +126,15 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-8">
-            <h3 className="font-semibold text-gray-800 text-4xl">
-              Delhi Head Office{" "}
-            </h3>
+            <h3 className="font-semibold text-gray-800 text-4xl">Delhi Head Office </h3>
             <p className="text-gray-600 mt-2">
               L-5, First Floor, Lajpat Nagar - II, Delhi, Delhi, India, 110024
             </p>
           </div>
 
           <div className="mt-8">
-            <h3 className="font-semibold text-gray-800 text-4xl">
-              Our Colleges Locations
-            </h3>
-            <Link href="/locations" className="text-blue-600 mt-2 text-xl">
+            <h3 className="font-semibold text-gray-800 text-4xl">Our Colleges Locations</h3>
+            <Link href='/locations' className="text-blue-600 mt-2 text-xl">
               View Locations
             </Link>
           </div>
@@ -219,20 +213,6 @@ export default function ContactPage() {
               )}
             </div>
 
-              {/* ✅ Consent checkbox */}
-            <div className="flex items-start gap-2 mt-4">
-              <input
-                type="checkbox"
-                checked={data.consent}
-                onChange={(e) => setData({ ...data, consent: e.target.checked })}
-              />
-              <label className="text-xs text-gray-600">
-                I authorise <strong>Saroj Educational Group</strong> and its representatives to contact me
-                with updates and notifications via Email/SMS/WhatsApp/Call. This will override DND/NDNC.
-              </label>
-            </div>
-            {errors.consent && <p className="text-red-500 text-sm">{errors.consent}</p>}
-
             {/* Spacer to push button to bottom */}
             <div className="flex-grow"></div>
 
@@ -271,7 +251,11 @@ export default function ContactPage() {
                 "Submit"
               )}
             </button>
-           
+            <p className="text-xs text-gray-600 mt-2 text-center">
+              By contacting us, you agree to our{" "}
+              <span className="text-blue-600">Terms of Service</span> and{" "}
+              <span className="text-blue-600">Privacy Policy</span>.
+            </p>
           </form>
         </div>
       </div>
