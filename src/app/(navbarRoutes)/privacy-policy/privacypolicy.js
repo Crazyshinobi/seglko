@@ -317,7 +317,7 @@ export default function PrivacyPolicy() {
                         />
                       </svg>
                       <span className="text-gray-700">
-                        admission.cell@seglko.org
+                        admin@seglko.org
                       </span>
                     </div>
                     <div className="flex items-start">
