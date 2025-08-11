@@ -44,7 +44,6 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
     if (validateForm()) {
       setLoading(true);
       try {
@@ -73,7 +72,7 @@ export default function ContactPage() {
       } catch (error) {
         console.log("Error submitting form:", error);
         toast.error("An error occurred while submitting the form.");
-        setLoading(false);  
+        setLoading(false);
       }
     }
   };
@@ -111,9 +110,11 @@ export default function ContactPage() {
             <a href="mailto:admission.cell@seglko.org">
               admission.cell@seglko.org,
             </a>
-             <a href="mailto:hr@seglko.org">
-              hr@seglko.org
-            </a>
+          </div>
+          <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">
+            <IoMdMailUnread />
+
+            <a href="mailto:hr@seglko.org">For Jobs(Send Cv) : hr@seglko.org</a>
           </div>
           <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">
             <FaPhoneAlt />
@@ -121,15 +122,19 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-8">
-            <h3 className="font-semibold text-gray-800 text-4xl">Delhi Head Office </h3>
+            <h3 className="font-semibold text-gray-800 text-4xl">
+              Delhi Head Office{" "}
+            </h3>
             <p className="text-gray-600 mt-2">
               L-5, First Floor, Lajpat Nagar - II, Delhi, Delhi, India, 110024
             </p>
           </div>
 
           <div className="mt-8">
-            <h3 className="font-semibold text-gray-800 text-4xl">Our Colleges Locations</h3>
-            <Link href='/locations' className="text-blue-600 mt-2 text-xl">
+            <h3 className="font-semibold text-gray-800 text-4xl">
+              Our Colleges Locations
+            </h3>
+            <Link href="/locations" className="text-blue-600 mt-2 text-xl">
               View Locations
             </Link>
           </div>
@@ -247,9 +252,9 @@ export default function ContactPage() {
               )}
             </button>
             <p className="text-xs text-gray-600 mt-2 text-center">
-              By contacting us, you agree to our{" "}
-              <span className="text-blue-600">Terms of Service</span> and{" "}
-              <span className="text-blue-600">Privacy Policy</span>.
+              I authorise Saroj Educational Group and its representatives to
+              contact me with updates and notifications via
+              Email/SMS/WhatsApp/Call. This will override DND/NDNC.{" "}
             </p>
           </form>
         </div>
