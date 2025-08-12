@@ -13,6 +13,7 @@ export default function ContactPage() {
     email: "",
     mobile: "",
     message: "",
+    consent: false, // NEW
   });
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
@@ -20,19 +21,22 @@ export default function ContactPage() {
   const validateForm = () => {
     let newErrors = {};
 
-    if (!data.name) {
-      newErrors.name = "Name is required";
-    }
+    if (!data.name) newErrors.name = "Name is required";
+
     if (!data.email.trim()) newErrors.email = "Email is required";
-    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data.email)) {
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(data.email))
       newErrors.email = "Invalid email address";
-    }
+
     if (!data.mobile.trim()) newErrors.mobile = "Mobile number is required";
-    else if (!/^[0-9]{10}$/.test(data.mobile)) {
+    else if (!/^[0-9]{10}$/.test(data.mobile))
       newErrors.mobile = "Mobile number must be 10 digits";
-    }
-    if (!data.message) {
-      newErrors.message = "Message is required";
+
+    if (!data.message) newErrors.message = "Message is required";
+
+    // NEW consent validation
+    if (!data.consent) {
+      newErrors.consent =
+        "You must agree to be contacted and consent to override DND/NDNC.";
     }
 
     setErrors(newErrors);
@@ -44,7 +48,6 @@ export default function ContactPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
     if (validateForm()) {
       setLoading(true);
       try {
@@ -53,6 +56,7 @@ export default function ContactPage() {
           email: data.email,
           mobile: data.mobile,
           message: data.message,
+          consent: data.consent, // send consent info too
         });
 
         if (response && response.status) {
@@ -61,6 +65,7 @@ export default function ContactPage() {
             email: "",
             mobile: "",
             message: "",
+            consent: false,
           });
           setTimeout(() => {
             setLoading(false);
@@ -73,7 +78,7 @@ export default function ContactPage() {
       } catch (error) {
         console.log("Error submitting form:", error);
         toast.error("An error occurred while submitting the form.");
-        setLoading(false);  
+        setLoading(false);
       }
     }
   };
@@ -81,7 +86,7 @@ export default function ContactPage() {
   return (
     <>
       <Toaster />
-      <div className="w-full  h-[26vh] md:h-[40vh] lg:h-80 ">
+      <div className="w-full h-[26vh] md:h-[40vh] lg:h-80">
         <img
           src="/ContactUsBanner.jpg"
           alt="Contact Us"
@@ -93,8 +98,8 @@ export default function ContactPage() {
         <NavigationPages />
       </div>
 
-      <div className="flex flex-col md:flex-row items-center  justify-center min-h-screen bg-blue-50 p-6">
-        {/* Left Side - Contact Information */}
+      <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-blue-50 p-6">
+        {/* Left Side */}
         <div className="md:w-1/2 p-6">
           <h2 className="text-4xl font-bold text-gray-800">Contact Us</h2>
           <p className="mt-2 text-gray-600">
@@ -111,12 +116,10 @@ export default function ContactPage() {
             <a href="mailto:admission.cell@seglko.org">
               admission.cell@seglko.org,
             </a>
-         
           </div>
-           <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">
+          <div className="mt-4 text-gray-800 font-semibold flex items-center gap-4">
             <IoMdMailUnread />
-          
-             <a href="mailto:hr@seglko.org">
+            <a href="mailto:hr@seglko.org">
               For Jobs(Send Cv) : hr@seglko.org
             </a>
           </div>
@@ -126,15 +129,19 @@ export default function ContactPage() {
           </div>
 
           <div className="mt-8">
-            <h3 className="font-semibold text-gray-800 text-4xl">Delhi Head Office </h3>
+            <h3 className="font-semibold text-gray-800 text-4xl">
+              Delhi Head Office
+            </h3>
             <p className="text-gray-600 mt-2">
               L-5, First Floor, Lajpat Nagar - II, Delhi, Delhi, India, 110024
             </p>
           </div>
 
           <div className="mt-8">
-            <h3 className="font-semibold text-gray-800 text-4xl">Our Colleges Locations</h3>
-            <Link href='/locations' className="text-blue-600 mt-2 text-xl">
+            <h3 className="font-semibold text-gray-800 text-4xl">
+              Our Colleges Locations
+            </h3>
+            <Link href="/locations" className="text-blue-600 mt-2 text-xl">
               View Locations
             </Link>
           </div>
@@ -153,10 +160,8 @@ export default function ContactPage() {
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="md:w-1/2 flex flex-col bg-white p-6 py-12 rounded-lg shadow-lg max-w-md w-full ">
-          <h3 className="text-3xl font-semibold text-gray-800 ">
-            Get in Touch
-          </h3>
+        <div className="md:w-1/2 flex flex-col bg-white p-6 py-12 rounded-lg shadow-lg max-w-md w-full">
+          <h3 className="text-3xl font-semibold text-gray-800">Get in Touch</h3>
           <p className="text-gray-600 mb-6">You can reach us anytime</p>
           <form
             className="flex flex-col flex-grow gap-2 mt-2"
@@ -213,7 +218,34 @@ export default function ContactPage() {
               )}
             </div>
 
-            {/* Spacer to push button to bottom */}
+            {/* NEW Consent Checkbox */}
+            <div className="mt-4 flex items-start gap-2">
+              <input
+                type="checkbox"
+                checked={data.consent}
+                onChange={(e) =>
+                  setData({ ...data, consent: e.target.checked })
+                }
+                className="mt-1"
+              />
+              <label className="text-sm text-gray-700">
+                I authorise <strong>Saroj Educational Group</strong> & its
+                representatives to contact me via Email, SMS, WhatsApp, or Call
+                regarding programs and services, even if my number is on the
+                DND/NDNC registry. I have read and agree to the{" "}
+                <Link
+                  href="/privacy-policy"
+                  className="text-blue-600 underline"
+                >
+                  Privacy Policy
+                </Link>
+                .
+              </label>
+            </div>
+            {errors.consent && (
+              <p className="text-red-500 text-sm">{errors.consent}</p>
+            )}
+
             <div className="flex-grow"></div>
 
             <button
@@ -251,11 +283,6 @@ export default function ContactPage() {
                 "Submit"
               )}
             </button>
-            <p className="text-xs text-gray-600 mt-2 text-center">
-              By contacting us, you agree to our{" "}
-              <span className="text-blue-600">Terms of Service</span> and{" "}
-              <span className="text-blue-600">Privacy Policy</span>.
-            </p>
           </form>
         </div>
       </div>
